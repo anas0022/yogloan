@@ -1174,7 +1174,7 @@ footer {
  @media (max-width:950px){
     .content .header p {
   font-family: 'Inter', sans-serif;
-  font-size: .8rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #666;
   line-height: 1.8;
@@ -1200,7 +1200,291 @@ footer {
     }
 
  }
+
+@keyframes menuSlideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes menuSlideOut {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes menuItemSlideIn {
+    0% {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes contactSlideUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.slider-container {
+      margin-bottom: 10px;
+    }
+    .label {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    input[type=range] {
+  background: linear-gradient(to right, red 0%, white 0%);
+  transition: background 0.3s ease;
+  border-radius: 20px;
+  height:5px;
+}
+
+   input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+}
+.slider-container{
+    width:100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
+  background: #3071a9;
+  border-radius: 1.3px;
+  /* border: 0.2px solid #010101; */
+}
+input[type=range]::-webkit-slider-thumb {
+  /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
+  /* border: 1px solid #000000; */
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #242121;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
+ height:100%;
+  border-radius: 1.3px;
+  /* border: 0.2px solid #010101; */
+}
+input[type=range]::-moz-range-thumb {
+  /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
+  /* border: 1px solid #000000; */
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+/*   border-width: 16px 0; */
+  color: transparent;
+}
+/* input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+} */
+input[type=range]::-ms-thumb {
+ /*  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
+ /*  border: 1px solid #000000; */
+  height: 36px;
+  border: none;
+  width: 16px;
+  border-radius: 50%;
+  background: #eceaea;
+  cursor: pointer;
+}
+
+    .output {
+      margin-top: 5px;
+    }
+    .result-box {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: start;
+     height: 150px;
+     width: 100%;
+    }
+    .result-box p{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .payscale{
+        width:100%;
+        height: 600px;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        background-color: #f8f9fa;
+    }
+   .payscale .right{
+        width:50%;
+       padding:5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+    .payscale .left{
+        width:50%;
+        padding: 20px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+    }
+    .payscale .left p:nth-child(1){
+        font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap:
+10px;
+  color: rgb(154, 6, 6);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+    }
+    .payscale .left p{
+    font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #666;
+  line-height: 1.8;
+  padding:
+0 10px;}
+
+    .payscale .left p span{
+    width: 40px;
+  border-bottom:
+2px solid rgb(154, 6, 6);}
+.payscale .left h1{
+font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-top: 10px;
+
+}
+    .check-scale{
+        width:100%;
+    }
+    .check-scale .header{
+        width:80%;
+        height:50px;
+        background-color: rgb(152, 4, 4);
+        color: white;
+       display: flex;
+       justify-content: start;
+       align-items: center;
+       padding: 30px;
+       font-size: 1.4rem;
+    }
+    .range-slider{
+        width:90%;
+        height: 100%;
+        padding:20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        background-color: white;
+    }
+    .loans{
+        width: 10%;
+        height: 100%;
+        background-color: rgb(152, 4, 4);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .loans .item {
+        width:100%;
+       
+        padding:10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      
+        cursor: pointer;
+    }
+    .loans .item.border{
+        border-right: 3px solid white;
+    }
+    .loans .item img{
+        width:100%;
+        height: 100%;
+        filter: invert(1);
+    }
+    .scale-check-section{
+       
+        height:100%;
+        box-shadow: 0px 0px 1px 0px gray;
+        display: flex;
+        justify-content: space-between;
+    }
+    .scale-check-section h2{
+        font-size: 30px;
+        text-transform: uppercase;
+    }
+
+    
 @media (max-width:780px){
+    .payscale{
+    flex-direction: column;
+    height:auto;
+    padding: 10px;
+}
+
     .menu-container{
         height: 60px;
     }
@@ -1438,17 +1722,18 @@ footer {
    
 }
 .services-text p{
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .services-text .right p {
   font-family: 'Inter', sans-serif;
-  font-size:0.6rem;
+  font-size:1rem;
   font-weight: 400;
   color: #666;
   line-height: 1.8;
   padding:
 0 5px;
+text-transform: capitalize;
 }
 .services-text .left{
     width: 100%;
@@ -1499,10 +1784,12 @@ footer {
     width: 100%;
 }
 .content .header p:nth-child(1){
-    font-size: 0.8rem;
+    font-size: 1rem;
+    text-transform: capitalize;
 }
 .content .header p{
-    font-size: 0.6rem;
+    font-size: 1rem;
+    text-transform: capitalize;
 }
 .contact-list li
 {
@@ -1518,52 +1805,43 @@ footer {
 .footer-bottom{
     width: 100%;
 }
+.payscale .left{
+    width: 100%;
 }
-
-@keyframes menuSlideIn {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.payscale .right{
+    width: 100%;
+    height: 560px;
 }
-
-@keyframes menuSlideOut {
-    0% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
+.payscale .left p:nth-child(1) {
+    font-size: 1rem;
 }
+.payscale .left p{
+font-family: 'Inter', sans-serif;
+font-size: 1rem;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.8;
+    padding:
+0 5px;
 
-@keyframes menuItemSlideIn {
-    0% {
-        transform: translateX(-20px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
 }
-
-@keyframes contactSlideUp {
-    0% {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.payscale .left h1{
+    padding:
+0px;
+    display: flex;
+    margin:
+0;
+    font-size: 1.5rem;
 }
-
+.loans .item {
+    width:100%;
+  /*   height: 10%; */
+    padding:5px;
+}
+.check-scale .header {
+    font-size: 1rem;
+}
+}
     </style>
 </head>
 <body>
@@ -1719,6 +1997,8 @@ footer {
             </div>
         </div>
     </section>
+
+
     <section class="services-section">
         <div class="services-container">
             <div class="services-text">
@@ -1805,6 +2085,73 @@ footer {
                 </div>
             </div>
         </div>
+    </section>
+    
+    <section class="payscale">
+        <div class="left">
+            <p class="intro-tagline">We Provide theBest Loan Solutions <span></span></p>
+            <h1 class="intro-heading">Plan Your Perfect Loan</h1>
+            <p class="intro-description">
+                Discover the perfect loan for your needs with our smart calculator. Select a loan type, customize the amount and duration, and instantly see your estimated monthly payments — simple, quick, and hassle-free.
+            </p>
+            
+        </div>
+        <div class="right">
+            <div class="check-scale">
+                <div class="header">
+                    How Much You Need
+                </div>
+                <div class="scale-check-section">
+                    <div class="loans">
+                        <div class="item" data-title="Gold Loan" data-amount="10000" data-duration="12">
+                            <img src="money.png" class="white-img" alt="" />
+                        </div>
+                        <div class="item" data-title="Vehicle Loan" data-amount="20000" data-duration="24">
+                            <img src="car-loan.png" class="white-img" alt="" />
+                        </div>
+                        <div class="item" data-title="Personal Loan" data-amount="15000" data-duration="18">
+                            <img src="personal.png" class="white-img" alt="" />
+                        </div>
+                        <div class="item" data-title="Micro Loan" data-amount="5000" data-duration="6">
+                            <img src="micro-learning.png" class="white-img" alt="" />
+                        </div>
+                        <div class="item" data-title="CD Loans" data-amount="30000" data-duration="36">
+                            <img src="term.png" class="white-img" alt="" />
+                        </div>
+                        
+                    </div>
+                    <div class="range-slider">
+                      
+
+                        <!-- <div class="item" data-title="Gold Loan" data-amount="10000" data-duration="12">Gold</div>
+                        <div class="item" data-title="Personal Loan" data-amount="15000" data-duration="24">Personal</div>
+                        <div class="item" data-title="Car Loan" data-amount="25000" data-duration="36">Car</div>
+                         -->
+                         <h2 id="loanTitle">Gold Loan</h2>
+
+                        <div class="slider-container">
+                            <div class="label">Loan Amount  $<span id="amountVal">10000</span></div>
+                            <input type="range" id="amount" min="1000" max="50000" step="500" value="10000">
+                          </div>
+                        
+                          <div class="slider-container">
+                            <div class="label">Duration (Months) <span id="durationVal">12</span> months</div>
+                            <input type="range" id="duration" min="1" max="60" step="1" value="12">
+                          </div>
+                        
+                          <div class="result-box">
+                            <p>Pay Monthly  <span id="payMonthly">983 </span></p>
+                            <p>Terms Of Use <span id="totalMonths" >12</span> </p>
+                            <p>Total Payable <span id="totalPayable">11800</span></p>
+                            
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+         
     </section>
     <section class="contact-form">
         <div class="loaction-search" style="position: relative;">
@@ -2056,7 +2403,69 @@ function Dom() {
     function loaction(){
         alert('dd')
     }
+} 
+const amountSlider = document.getElementById("amount");
+const durationSlider = document.getElementById("duration");
+const amountVal = document.getElementById("amountVal");
+const durationVal = document.getElementById("durationVal");
+const totalMonths = document.getElementById("totalMonths");
+const totalPayable = document.getElementById("totalPayable");
+const payMonthly = document.getElementById("payMonthly");
+const title = document.getElementById("loanTitle");
+
+function updateValues() {
+    const amount = parseInt(amountSlider.value);
+    const months = parseInt(durationSlider.value);
+    const interestPerMonth = 0.015;
+
+    amountVal.textContent = amount;
+    durationVal.textContent = months;
+    totalMonths.textContent = months + " Months";
+
+    const total = Math.round(amount + (amount * interestPerMonth * months));
+    const monthly = Math.round(total / months);
+
+    totalPayable.textContent = "$" + total;
+    payMonthly.textContent = "$" + monthly;
 }
+
+amountSlider.addEventListener("input", updateValues);
+durationSlider.addEventListener("input", updateValues);
+updateValues();
+
+const sliders = document.querySelectorAll('input[type="range"]');
+sliders.forEach(slider => {
+    function updateBackground() {
+        const val = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+        slider.style.background = `linear-gradient(to right, rgb(152, 4, 4) 0%, rgb(152, 4, 4) ${val}%, #eceaea ${val}%, white 100%)`;
+    }
+    updateBackground();
+    slider.addEventListener('input', updateBackground);
+});
+
+document.querySelectorAll('.item').forEach(function(element) {
+    element.addEventListener('click', function() {
+        document.querySelectorAll('.item').forEach(el => el.classList.remove('border'));
+        element.classList.add('border');
+
+        const selectedTitle = element.getAttribute('data-title');
+        const selectedAmount = element.getAttribute('data-amount');
+        const selectedDuration = element.getAttribute('data-duration');
+
+        if (selectedTitle) title.textContent = selectedTitle;
+        if (selectedAmount) amountSlider.value = selectedAmount;
+        if (selectedDuration) durationSlider.value = selectedDuration;
+
+        updateValues();
+        sliders.forEach(slider => {
+            const val = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+            slider.style.background = `linear-gradient(to right, rgb(152, 4, 4) 0%, rgb(152, 4, 4) ${val}%, #eceaea ${val}%, white 100%)`;
+        });
+    });
+});
+
+
+
     </script>
 </body>
 </html>
