@@ -9,23 +9,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
-    *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            list-style: none;
-            text-decoration: none;
-            font-family: "DM Sans", sans-serif;
-        }
-      a{
-        text-decoration: none;
-        padding: 0px;
-        margin: 0px;
+     *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          list-style: none;
+          text-decoration: none;
+          font-family: 'Inter', sans-serif;
       }
       .logo{
           width: 20%;
@@ -379,79 +372,193 @@
   z-index: 1000;
   cursor: pointer;
 }
-.report-cards{
+.head{
     width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.reports{
-    width: 100%;
-    height: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
+    z-index: 1000000;
+}
+.top{
+    height: 100%;
+    width: 80%;
+    background-color: white;
+    box-shadow: 0px 0px 2px 0px gray;
+    border-radius: 10px;
+    margin-top: -100px ;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    cursor: pointer;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: all 0.2s ease;
-    overflow: hidden;
-    border: 1px solid #eaeaea;
+    padding: 20px;
 }
-
-.reports:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.reports .img{
+.header{
     width: 100%;
-    height: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-    background: #fafafa;
-    border-radius: 6px;
-    padding: 15px;
-}
-
-.reports .img img{
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    opacity: 0.8;
-}
-
-.reports .detail{
-    width: 100%;
+    height: 30%;
     padding: 10px;
-    height: 40%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    z-index: 1;
-    background: #fafafa;
-    border-radius: 6px;
-    margin-top: 5px;
+}
+.search{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+}
+.search select{
+    width: 25%;
+    padding: 10px;
+    height: 40px;
+    background-color: rgb(236, 234, 234);
+    border: none;
+    border-radius: 5px;
+}
+.search button{
+    width: 20%;
+    height: 40px;
+    color: white;
+    background-color: rgb(154, 6, 6);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-.detail p{
-    text-align: center;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #333;
+.search-results {
+    max-width: 1200px;
+    /* margin: 60px auto 0; */
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.results-header h4 {
+    font-size: 24px;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.sort-options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sort-options span {
+    color: #666;
+    font-size: 16px;
+}
+
+.sort-options select {
+    padding: 10px 20px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+    cursor: pointer;
+}
+
+.job-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 0 15px;
+}
+
+.job-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+}
+
+.job-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.job-header h5 {
+    font-size: clamp(18px, 2vw, 22px);
+    color: #1a1a1a;
+    font-weight: 600;
     margin: 0;
 }
 
+.job-type {
+    background: rgba(154, 6, 6, 0.1);
+    color: #9a0606;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: clamp(12px, 1.5vw, 14px);
+    font-weight: 500;
+    width: fit-content;
+}
+
+.job-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: clamp(12px, 1.5vw, 14px);
+}
+
+.job-description p {
+    color: #666;
+    font-size: clamp(14px, 1.5vw, 15px);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.job-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.posted-date {
+    color: #999;
+    font-size: clamp(12px, 1.5vw, 14px);
+}
+
+.apply-btn {
+    background: #9a0606;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: clamp(14px, 1.5vw, 16px);
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.apply-btn:hover {
+    background: #800505;
+    transform: translateY(-2px);
+}
 footer {
          
           color: white;
@@ -607,305 +714,128 @@ right: 10px;
   width: 100%;
   padding: 10px;
 }
-.search {
+
+
+#preloader {
+    position: fixed;
+  
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 60px 20px;
-    background: #f8f9fa;
+    height: 700px;
+    background-color: white;
+    z-index: 10000;
 }
-
-.search-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    padding: 40px;
-}
-
-.search-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.search-header .text h3 {
-    font-size: 32px;
-    color: #1a1a1a;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-.search-header .text p {
-    color: #666;
-    font-size: 18px;
-}
-
-.job-count {
-    background: #9a0606;
-    color: white;
-    padding: 20px 30px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(154, 6, 6, 0.2);
-}
-
-.job-count .count {
-    font-size: 28px;
-    font-weight: 700;
+#loader {
     display: block;
-}
-
-.job-count .label {
-    font-size: 16px;
-    opacity: 0.9;
-}
-
-.search-filters {
-    margin-top: 40px;
-}
-
-.search-box {
     position: relative;
-    margin-bottom: 30px;
-}
-
-.search-box i {
-    position: absolute;
-    left: 20px;
+    left: 50%;
     top: 50%;
-    transform: translateY(-50%);
-    color: #666;
-    font-size: 18px;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #9370DB;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
 }
-
-.search-box input {
-    width: 100%;
-    padding: 18px 50px;
-    border: 2px solid #eee;
-    border-radius: 12px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-
-.search-box input:focus {
-    border-color: #9a0606;
-    box-shadow: 0 0 0 4px rgba(154, 6, 6, 0.1);
-    outline: none;
-}
-
-.filter-group {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-}
-
-.filter-item {
-    position: relative;
-}
-
-.filter-item i {
+#loader:before {
+    content: "";
     position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #666;
-    font-size: 18px;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #BA55D3;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #FF00FF;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
 }
 
-.filter-item select {
-    width: 100%;
-    padding: 18px 50px;
-    border: 2px solid #eee;
-    border-radius: 12px;
-    font-size: 16px;
-    appearance: none;
-    background: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
 
-.filter-item select:focus {
-    border-color: #9a0606;
-    box-shadow: 0 0 0 4px rgba(154, 6, 6, 0.1);
-    outline: none;
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
-
-.search-results {
-    max-width: 1200px;
-    margin: 60px auto 0;
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
-
 .results-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.results-header h4 {
-    font-size: 24px;
-    color: #1a1a1a;
-    font-weight: 600;
-}
-
-.sort-options {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.sort-options span {
-    color: #666;
-    font-size: 16px;
-}
-
-.sort-options select {
-    padding: 10px 20px;
-    border: 2px solid #eee;
-    border-radius: 8px;
-    font-size: 16px;
-    background: white;
-    cursor: pointer;
-}
-
-.job-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    padding: 0 15px;
-}
-
-.job-card {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 400px;
-}
-
-.job-header {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.job-header h5 {
-    font-size: clamp(18px, 2vw, 22px);
-    color: #1a1a1a;
-    font-weight: 600;
-    margin: 0;
-}
-
-.job-type {
-    background: rgba(154, 6, 6, 0.1);
-    color: #9a0606;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: clamp(12px, 1.5vw, 14px);
-    font-weight: 500;
-    width: fit-content;
-}
-
-.job-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.detail-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #666;
-    font-size: clamp(12px, 1.5vw, 14px);
-}
-
-.job-description p {
-    color: #666;
-    font-size: clamp(14px, 1.5vw, 15px);
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.job-footer {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-}
-
-.posted-date {
-    color: #999;
-    font-size: clamp(12px, 1.5vw, 14px);
-}
-
-.apply-btn {
-    background: #9a0606;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: clamp(14px, 1.5vw, 16px);
-    font-weight: 500;
-    text-align: center;
-    transition: all 0.3s ease;
-    width: 100%;
-}
-
-.apply-btn:hover {
-    background: #800505;
-    transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
-    .search {
-        padding: 40px 15px;
-    }
-
-    .search-container {
-        padding: 30px 20px;
-    }
-
-    .search-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 25px;
-    }
-
-    .search-header .text h3 {
-        font-size: 28px;
-    }
-
-    .filter-group {
-        grid-template-columns: 1fr;
-    }
-
-    .results-header {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-
-    .sort-options {
-        justify-content: center;
-    }
-
-    .job-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .job-card {
-        padding: 25px;
-    }
+    padding: 20px;
 }
 
 @media (max-width:780px){
+    .results-header {
+        padding: 20px;
+    }
+    .sort-options select {
+        padding: 5px 5px;
+        font-size: 12px;
+    }
+    .sort-options span {
+        font-size: 10px;
+    }
+    .results-header h4 {
+        font-size: 15px;
+    }
+    .search button {
+        width: 100%;
+    }
+    .search{
+        gap:10px    ;
+    }
+    .search select {
+        width: 100%;
+    }
+    .top{
+        margin-top: -50px;
+    }
+    .head {
+        height: auto;
+    }
+
+    .search {
+        flex-direction: column;
+    }
+    .header h3{
+        font-size: 15px;
+    }
+    .count{
+        font-size: 12px;
+    }
     .menu-container{
       height: 60px;
   }
@@ -1098,31 +1028,6 @@ menu ul{
   .contact-us{
       display: none;
   }
-  .report-cards{
-   
-   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
- }
-}
-
-@media (max-width: 780px) {
-    .report-cards {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-        padding: 15px;
-    }
-    
-    .reports {
-        height: 180px;
-    }
-    
-    .reports .img img {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .detail p {
-        font-size: 0.85rem;
-    }
 }
 
 @keyframes menuSlideIn {
@@ -1167,419 +1072,6 @@ menu ul{
       transform: translateY(0);
       opacity: 1;
   }
-}
-
-/* Modal Styles */
-.modal-content {
-    border-radius: 15px;
-    border: none;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.modal-header {
-    background: #f8f9fa;
-    border-bottom: 1px solid #eee;
-    border-radius: 15px 15px 0 0;
-    padding: 20px;
-}
-
-.modal-title {
-    color: #1a1a1a;
-    font-weight: 600;
-    font-size: 20px;
-}
-
-.modal-body {
-    padding: 30px;
-}
-
-.form-label {
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 8px;
-}
-
-.form-control {
-    border: 2px solid #eee;
-    border-radius: 8px;
-    padding: 10px 15px;
-    transition: all 0.3s ease;
-}
-
-.form-control:focus {
-    border-color: #9a0606;
-    box-shadow: 0 0 0 4px rgba(154, 6, 6, 0.1);
-}
-
-.modal-footer {
-    border-top: 1px solid #eee;
-    padding: 20px;
-}
-
-.btn-primary {
-    background: #9a0606;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 500;
-}
-
-.btn-primary:hover {
-    background: #800505;
-}
-
-.btn-secondary {
-    background: #f8f9fa;
-    border: 1px solid #ddd;
-    color: #333;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 500;
-}
-
-.btn-secondary:hover {
-    background: #eee;
-    border-color: #ccc;
-}
-
-.form-check-input:checked {
-    background-color: #9a0606;
-    border-color: #9a0606;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .modal-dialog {
-        margin: 10px;
-    }
-    
-    .modal-body {
-        padding: 20px;
-    }
-    
-    .form-control {
-        padding: 8px 12px;
-    }
-}
-
-/* Responsive Job Cards */
-.job-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    padding: 0 15px;
-}
-
-.job-card {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 400px;
-}
-
-.job-header {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.job-header h5 {
-    font-size: clamp(18px, 2vw, 22px);
-    color: #1a1a1a;
-    font-weight: 600;
-    margin: 0;
-}
-
-.job-type {
-    background: rgba(154, 6, 6, 0.1);
-    color: #9a0606;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: clamp(12px, 1.5vw, 14px);
-    font-weight: 500;
-    width: fit-content;
-}
-
-.job-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.detail-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #666;
-    font-size: clamp(12px, 1.5vw, 14px);
-}
-
-.job-description p {
-    color: #666;
-    font-size: clamp(14px, 1.5vw, 15px);
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.job-footer {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-}
-
-.posted-date {
-    color: #999;
-    font-size: clamp(12px, 1.5vw, 14px);
-}
-
-.apply-btn {
-    background: #9a0606;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: clamp(14px, 1.5vw, 16px);
-    font-weight: 500;
-    text-align: center;
-    transition: all 0.3s ease;
-    width: 100%;
-}
-
-/* Responsive Modal */
-.modal-dialog {
-    margin: 1rem;
-    max-width: 95%;
-}
-
-.modal-content {
-    border-radius: 15px;
-    border: none;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.modal-header {
-    padding: clamp(15px, 2vw, 20px);
-}
-
-.modal-title {
-    font-size: clamp(18px, 2vw, 24px);
-}
-
-.modal-body {
-    padding: clamp(20px, 2vw, 30px);
-}
-
-.form-label {
-    font-size: clamp(14px, 1.5vw, 16px);
-}
-
-.form-control {
-    font-size: clamp(14px, 1.5vw, 16px);
-    padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2vw, 15px);
-}
-
-.modal-footer {
-    padding: clamp(15px, 2vw, 20px);
-}
-
-.btn {
-    font-size: clamp(14px, 1.5vw, 16px);
-    padding: clamp(8px, 1.5vw, 12px) clamp(15px, 2vw, 20px);
-}
-
-#preloader {
-    position: fixed;
-  
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 700px;
-    background-color: white;
-    z-index: 10000;
-}
-#loader {
-    display: block;
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 150px;
-    height: 150px;
-    margin: -75px 0 0 -75px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #9370DB;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
-#loader:before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #BA55D3;
-    -webkit-animation: spin 3s linear infinite;
-    animation: spin 3s linear infinite;
-}
-#loader:after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #FF00FF;
-    -webkit-animation: spin 1.5s linear infinite;
-    animation: spin 1.5s linear infinite;
-}
-
-
-@-webkit-keyframes spin {
-    0%   {
-        -webkit-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-@keyframes spin {
-    0%   {
-        -webkit-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-/* Responsive Grid Adjustments */
-@media (max-width: 1200px) {
-    .job-cards {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    }
-}
-
-@media (max-width: 992px) {
-    .job-cards {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-    
-    .modal-dialog {
-        max-width: 90%;
-    }
-}
-
-@media (max-width: 768px) {
-    .job-cards {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-    
-    .job-card {
-        padding: 20px;
-    }
-    
-    .modal-dialog {
-        margin: 0.5rem;
-    }
-    
-    .form-row {
-        flex-direction: column;
-    }
-    
-    .form-row .col-md-6 {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-}
-
-@media (max-width: 576px) {
-    .job-cards {
-        padding: 0 10px;
-    }
-    
-    .job-card {
-        padding: 15px;
-    }
-    
-    .modal-body {
-        padding: 15px;
-    }
-    
-    .modal-footer {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .modal-footer .btn {
-        width: 100%;
-    }
-}
-
-/* Search Section Responsive */
-@media (max-width: 768px) {
-    .search-container {
-        padding: 20px;
-    }
-    
-    .search-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    .job-count {
-        width: 100%;
-        max-width: 200px;
-        margin: 0 auto;
-    }
-    
-    .filter-group {
-        grid-template-columns: 1fr;
-    }
-    
-    .search-box input,
-    .filter-item select {
-        padding: 12px 40px;
-    }
-}
-
-@media (max-width: 576px) {
-    .search {
-        padding: 30px 10px;
-    }
-    
-    .search-container {
-        padding: 15px;
-    }
-    
-    .search-header .text h3 {
-        font-size: 24px;
-    }
-    
-    .search-header .text p {
-        font-size: 16px;
-    }
 }
 </style>
 <body>
@@ -1640,176 +1132,156 @@ menu ul{
                     <span>123, Main Street, Anytown, USA</span>
                 </div>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/share/18qcUVv3fJ/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/yogloansfinance?igsh=djhqZGI0dG92bGI0" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/company/yogloans"><i class="fab fa-linkedin-in"></i></a>
-                 
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
     </section>
     <section class="welcome-section">
-        <div class="welcome-container"
-            style="background-image: url(group-business-people-posing.jpg)">
-
-            <div class="redirect">
-                <a href="index.html">Home</a> / <a href="#">Career</a>
-
-            </div>
-            <h2>Gold Loan</h2>
+        <div class="welcome-container" style="background-image: url(colleagues-working-project-discussing-details.jpg);">
+            
+                <div class="redirect">
+                   <a href="index.html">Home</a> /  <a href="about.html">Career</a>
+                </div>
+            
         </div>
-
     </section>
-    <div class="search">
-        <div class="search-container">
-            <div class="search-header">
-                <div class="text">
-                    <h3>Find Your Perfect Role</h3>
-                    <p>Join our team of professionals and grow with us</p>
-                </div>
-                <div class="job-count">
-                    <span class="count">60</span>
-                    <span class="label">Open Positions</span>
-                </div>
-            </div>
-            <div class="search-filters">
-                <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search by job title, keyword or location">
-                </div>
-                <div class="filter-group">
-                    <div class="filter-item">
-                        <i class="fa-solid fa-building"></i>
-                        <select name="department" id="department">
-                            <option value="">All Departments</option>
-                            <option value="finance">Finance</option>
-                            <option value="operations">Operations</option>
-                            <option value="technology">Technology</option>
-                            <option value="marketing">Marketing</option>
-                            <option value="hr">Human Resources</option>
-                        </select>
-                    </div>
-                    <div class="filter-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <select name="location" id="location">
-                            <option value="">All Locations</option>
-                            <option value="kerala">Kerala</option>
-                            <option value="tamilnadu">Tamil Nadu</option>
-                            <option value="karnataka">Karnataka</option>
-                        <!--     <option value="andhra">Andhra Pradesh</option> -->
-                        </select>
-                    </div>
-                    <div class="filter-item">
-                        <i class="fa-solid fa-briefcase"></i>
-                        <select name="experience" id="experience">
-                            <option value="">Experience Level</option>
-                            <option value="fresher">Fresher</option>
-                            <option value="1-3">1-3 Years</option>
-                            <option value="3-5">3-5 Years</option>
-                            <option value="5+">5+ Years</option>
-                        </select>
-                    </div>
-                </div>
+    <div class="head">
+        <div class="top">
+        <div class="header">
+            <h3>Find Your Dream Job </h3>
+            <div class="count">
+                60 Openings
             </div>
         </div>
-        <div class="search-results">
-            <div class="results-header">
-                <h4>Available Positions</h4>
-                <div class="sort-options">
-                    <span>Sort by:</span>
-                    <select name="sort" id="sort">
-                        <option value="newest">Newest First</option>
-                        <option value="oldest">Oldest First</option>
-                        <option value="title">Job Title</option>
-                        <option value="location">Location</option>
-                    </select>
+        <div class="search">
+            <select name="" id="">
+                <option value="">All Departments</option>
+                <option value="finance">Finance</option>
+                <option value="operations">Operations</option>
+                <option value="technology">Technology</option>
+                <option value="marketing">Marketing</option>
+                <option value="hr">Human Resources</option>
+            </select>
+            <select name="" id="">
+                <option value="">All Locations</option>
+                <option value="kerala">Kerala</option>
+                <option value="tamilnadu">Tamil Nadu</option>
+                <option value="karnataka">Karnataka</option>
+            </select>
+            <select name="" id="">
+                <option value="">Experience Level</option>
+                <option value="fresher">Fresher</option>
+                <option value="1-3">1-3 Years</option>
+                <option value="3-5">3-5 Years</option>
+                <option value="5+">5+ Years</option>
+            </select>
+            <button>Search <i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </div>
+    </div>
+
+    <div class="search-results">
+        <div class="results-header">
+            <h4>Available Positions</h4>
+            <div class="sort-options">
+                <span>Sort by:</span>
+                <select name="sort" id="sort">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="title">Job Title</option>
+                    <option value="location">Location</option>
+                </select>
+            </div>
+        </div>
+        <div class="job-cards">
+            <div class="job-card">
+                <div class="job-header">
+                    <h5>Senior Software Engineer</h5>
+                    <span class="job-type">Full Time</span>
+                </div>
+                <div class="job-details">
+                    <div class="detail-item">
+                        <i class="fa-solid fa-building"></i>
+                        <span>Technology Department</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Kerala</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span>3-5 Years</span>
+                    </div>
+                </div>
+                <div class="job-description">
+                    <p>We are looking for a Senior Software Engineer to join our technology team...</p>
+                </div>
+                <div class="job-footer">
+                    <span class="posted-date">Posted 2 days ago</span>
+                    <a href="#" class="apply-btn">Apply Now</a>
                 </div>
             </div>
-            <div class="job-cards">
-                <div class="job-card">
-                    <div class="job-header">
-                        <h5>Senior Software Engineer</h5>
-                        <span class="job-type">Full Time</span>
+            <div class="job-card">
+                <div class="job-header">
+                    <h5>Financial Analyst</h5>
+                    <span class="job-type">Full Time</span>
+                </div>
+                <div class="job-details">
+                    <div class="detail-item">
+                        <i class="fa-solid fa-building"></i>
+                        <span>Finance Department</span>
                     </div>
-                    <div class="job-details">
-                        <div class="detail-item">
-                            <i class="fa-solid fa-building"></i>
-                            <span>Technology Department</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>Kerala</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <span>3-5 Years</span>
-                        </div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Tamil Nadu</span>
                     </div>
-                    <div class="job-description">
-                        <p>We are looking for a Senior Software Engineer to join our technology team...</p>
-                    </div>
-                    <div class="job-footer">
-                        <span class="posted-date">Posted 2 days ago</span>
-                        <a href="#" class="apply-btn">Apply Now</a>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span>1-3 Years</span>
                     </div>
                 </div>
-                <div class="job-card">
-                    <div class="job-header">
-                        <h5>Financial Analyst</h5>
-                        <span class="job-type">Full Time</span>
+                <div class="job-description">
+                    <p>Join our finance team as a Financial Analyst to help drive business growth...</p>
+                </div>
+                <div class="job-footer">
+                    <span class="posted-date">Posted 5 days ago</span>
+                    <a href="#" class="apply-btn">Apply Now</a>
+                </div>
+            </div>
+            <div class="job-card">
+                <div class="job-header">
+                    <h5>HR Manager</h5>
+                    <span class="job-type">Full Time</span>
+                </div>
+                <div class="job-details">
+                    <div class="detail-item">
+                        <i class="fa-solid fa-building"></i>
+                        <span>Human Resources</span>
                     </div>
-                    <div class="job-details">
-                        <div class="detail-item">
-                            <i class="fa-solid fa-building"></i>
-                            <span>Finance Department</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>Tamil Nadu</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <span>1-3 Years</span>
-                        </div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Karnataka</span>
                     </div>
-                    <div class="job-description">
-                        <p>Join our finance team as a Financial Analyst to help drive business growth...</p>
-                    </div>
-                    <div class="job-footer">
-                        <span class="posted-date">Posted 5 days ago</span>
-                        <a href="#" class="apply-btn">Apply Now</a>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span>5+ Years</span>
                     </div>
                 </div>
-                <div class="job-card">
-                    <div class="job-header">
-                        <h5>HR Manager</h5>
-                        <span class="job-type">Full Time</span>
-                    </div>
-                    <div class="job-details">
-                        <div class="detail-item">
-                            <i class="fa-solid fa-building"></i>
-                            <span>Human Resources</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>Karnataka</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <span>5+ Years</span>
-                        </div>
-                    </div>
-                    <div class="job-description">
-                        <p>We're seeking an experienced HR Manager to lead our human resources department...</p>
-                    </div>
-                    <div class="job-footer">
-                        <span class="posted-date">Posted 1 week ago</span>
-                        <a href="#" class="apply-btn">Apply Now</a>
-                    </div>
+                <div class="job-description">
+                    <p>We're seeking an experienced HR Manager to lead our human resources department...</p>
+                </div>
+                <div class="job-footer">
+                    <span class="posted-date">Posted 1 week ago</span>
+                    <a href="#" class="apply-btn">Apply Now</a>
                 </div>
             </div>
         </div>
     </div>
+</div>
     <footer>
         <div class="footer-container">
             <div class="footer-content">
@@ -1889,114 +1361,14 @@ menu ul{
             <p>&copy; 2024 Glob Bird. All rights reserved.</p>
         </div>
         <div class="footer-icons">
-            <a href="https://www.facebook.com/share/18qcUVv3fJ/?mibextid=wwXIfr" target="_blank">
-                <i class="fa fa-facebook-square"></i></a>
-            <a href="https://www.instagram.com/yogloansfinance?igsh=djhqZGI0dG92bGI0" target="_blank">
-                <i class="fa fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/company/yogloans">
-                <i class="fa fa-linkedin-square"></i></a>
-            </div>
-    </div>
-
-    <!-- Add this before the closing body tag -->
-    <div class="modal fade" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="applyModalLabel">Apply for <span id="jobTitle"></span></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="applicationForm">
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="firstName" class="form-label">First Name *</label>
-                                <input type="text" class="form-control" id="firstName" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="lastName" class="form-label">Last Name *</label>
-                                <input type="text" class="form-control" id="lastName" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="email" class="form-label">Email *</label>
-                                <input type="email" class="form-control" id="email" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="phone" class="form-label">Phone Number *</label>
-                                <input type="tel" class="form-control" id="phone" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="location" class="form-label">Current Location *</label>
-                                <input type="text" class="form-control" id="location" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="experience" class="form-label">Years of Experience *</label>
-                                <input type="number" class="form-control" id="experience" required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="resume" class="form-label">Upload Resume *</label>
-                            <input type="file" class="form-control" id="resume" accept=".pdf,.doc,.docx" required>
-                            <small class="text-muted">Accepted formats: PDF, DOC, DOCX (Max size: 5MB)</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="coverLetter" class="form-label">Cover Letter</label>
-                            <textarea class="form-control" id="coverLetter" rows="4"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="terms" required>
-                                <label class="form-check-label" for="terms">
-                                    I agree to the terms and conditions and privacy policy
-                                </label>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="submitApplication">Submit Application</button>
-                </div>
-            </div>
+            <a href="#">
+            <i class="fa fa-facebook-square"></i></a>
+            <a href="#">
+            <i class="fa fa-instagram"></i></a>
+            <a href="#">
+            <i class="fa fa-linkedin-square"></i></a>
         </div>
     </div>
-
-    <!-- Add this before the closing body tag -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const applyButtons = document.querySelectorAll('.apply-btn');
-            const modal = new bootstrap.Modal(document.getElementById('applyModal'));
-            const jobTitleElement = document.getElementById('jobTitle');
-            const applicationForm = document.getElementById('applicationForm');
-            const submitButton = document.getElementById('submitApplication');
-
-            applyButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const jobCard = this.closest('.job-card');
-                    const jobTitle = jobCard.querySelector('h5').textContent;
-                    jobTitleElement.textContent = jobTitle;
-                    modal.show();
-                });
-            });
-
-            submitButton.addEventListener('click', function() {
-                if (applicationForm.checkValidity()) {
-                    // Here you would typically send the form data to your server
-                    alert('Application submitted successfully!');
-                    modal.hide();
-                    applicationForm.reset();
-                } else {
-                    applicationForm.reportValidity();
-                }
-            });
-        });
-    </script>
 </body>
 <script>
     window.addEventListener('load', function() {
