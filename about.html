@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Add Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Add AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <style>
          *{
@@ -25,6 +27,9 @@
             list-style: none;
             text-decoration: none;
             font-family: "DM Sans", sans-serif;
+        }
+        body{
+            overflow-x: hidden;
         }
        a{
         text-decoration: none;
@@ -1842,7 +1847,7 @@ all 0.5s ease;
     top: 0;
     left: 0;
     width: 100%;
-    height: 700px;
+   height: 700px;
     background-color: white;
     z-index: 10000;
 }
@@ -2088,7 +2093,7 @@ all 0.5s ease;
         </div>
     </section>
     <section class="welcome-section">
-        <div class="welcome-container" style="background-image: url(colleagues-working-project-discussing-details.jpg);">
+        <div class="welcome-container" style="background-image: url(colleagues-working-project-discussing-details.jpg);" >
             
                 <div class="redirect">
                    <a href="index.html">Home</a> /  <a href="about.html">About Us</a>
@@ -2097,12 +2102,11 @@ all 0.5s ease;
         </div>
     </section>
     <section class="about-section" >
-        <div class="about-image">
+        <div class="about-image" data-aos="fade-right">
             <div class="img1">
                 <img src="about-3-1.png" alt="">
             </div>
             <div class="img2">
-
                 <img src="about-3-2.png" alt="">
                 <div class="img2-text">
                     <p>Y</p>
@@ -2115,9 +2119,8 @@ all 0.5s ease;
                     <p>S</p>
                 </div>
             </div>
-           
         </div>
-        <div class="about-content" style="position: relative;">
+        <div class="about-content" style="position: relative;" data-aos="fade-left">
             <div class="sec1" style="position: relative;">
             <p>Get Know About Us <span ></span></p>
             <h2>Few Words About Our  Yogloans</h2>
@@ -2132,7 +2135,7 @@ all 0.5s ease;
         </div>
       
      </section>
-     <div class="customer-content" style="position: relative; flex-direction: column;  align-items: start;">
+     <div class="customer-content" style="position: relative; flex-direction: column;  align-items: start;" data-aos="fade-up">
          <div class="sec1" style="position: relative; justify-content: start;">
              <p>Customer Testimonials <span></span></p>
              <h2>What People Say About Us</h2>
@@ -2201,33 +2204,33 @@ all 0.5s ease;
      </div>
 
     
-     <div class="achivements" style="background-image: url(happy-successful-businessman.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
-        <div class="items">
+     <div class="achivements" style="background-image: url(happy-successful-businessman.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;" data-aos="zoom-in">
+        <div class="items" data-aos="fade-up" data-aos-delay="100">
             <p class="count" data-target="615">0</p>
             <p class="text">
                 Approved Loans
             </p>
         </div>
-        <div class="items">
+        <div class="items" data-aos="fade-up" data-aos-delay="200">
             <p class="count" data-target="65000">0</p>
             <p class="text">
                 Customers
             </p>
         </div>
-        <div class="items">
+        <div class="items" data-aos="fade-up" data-aos-delay="300">
             <p class="count" data-target="1000">0</p>
             <p class="text">
                 Employees
             </p>
         </div>
-        <div class="items" style="border: none;">
+        <div class="items" style="border: none;" data-aos="fade-up" data-aos-delay="400">
             <p class="count" data-target="169">0</p>
             <p class="text">
                 Branches
             </p>
         </div>
     </div>
-    <div class="customer-content" style="position: relative; flex-direction: column; background-color: white;  align-items: start; margin-top: 50px;">
+    <div class="customer-content" style="position: relative; flex-direction: column; background-color: white;  align-items: start; margin-top: 50px;" data-aos="fade-up">
         <div class="sec1" style="position: relative; justify-content: start;">
             <p>Board Of Directors <span></span></p>
             <h2>Meet Our Directors</h2>
@@ -2420,7 +2423,7 @@ all 0.5s ease;
         </div>
     </div>
 
-    <div class="customer-content" style="position: relative; flex-direction: column; background-color: white;  align-items: start; margin-top: 50px;">
+    <div class="customer-content" style="position: relative; flex-direction: column; background-color: white;  align-items: start; margin-top: 50px;" data-aos="fade-up">
         <div class="sec1" style="position: relative; justify-content: start;">
             <p>Senior Management Team <span></span></p>
             <h2>Meet Our Leadership</h2>
@@ -2850,4 +2853,15 @@ all 0.5s ease;
 </script>
 <!-- Add Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Add AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+</script>
+</body>
 </html>

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
@@ -22,6 +24,9 @@
             list-style: none;
             text-decoration: none;
             font-family: "DM Sans", sans-serif;
+        }
+        body{
+            overflow-x: hidden;
         }
         .container{
             width: 100%;
@@ -1475,7 +1480,7 @@ font-family: 'Poppins', sans-serif;
     }
     .scale-check-section h2{
         font-size: 30px;
-        text-transform: uppercase;
+        text-transform: uppcase;
     }
     body {
   background-color: #222;
@@ -1970,7 +1975,7 @@ font-size: 1rem;
         </div>
     </section>
     <section>
-        <div class="menu-container">
+        <div class="menu-container"  >
             <menu>
                 
                 <div class="logo">
@@ -2068,12 +2073,12 @@ font-size: 1rem;
             </div>
         </div>
     </section> -->
-    <section class="welcome-section">
+    <section class="welcome-section"  data-aos="flip-down">
         <div class="welocme" style="background-image: url(Flux_Dev_A_family_of_four_two_parents_and_two_young_daughters__3.jpg);">
             <div class="welcome-text">
                 <p style="color: rgb(154, 6, 6); font-weight:bolder;">One Step Closer</p>
-                <h1>to Making Dreams  a Reality</h1>
-                <p>We are a team of experienced professionals who are dedicated to providing the best possible service to our clients.</p>
+                <h1 ">to Making Dreams  a Reality</h1>
+                <p >We are a team of experienced professionals who are dedicated to providing the best possible service to our clients.</p>
                 <button>Enquire Now </button>
             </div>
         </div>
@@ -2083,11 +2088,15 @@ font-size: 1rem;
     <section class="services-section">
         <div class="services-container">
             <div class="services-text">
-                <div class="left">
+                <div class="left" data-aos="fade-right"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine">
                     <p>Services <span></span></p>
                     <h1>All Loan Services</h1>
                 </div>
-                <div class="right">
+                <div class="right" data-aos="fade-left"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine">
                    <p>There are many variations of passages of lorem ipsum available the majority have suffered alteration in some form by injected humour. Duis aute irure dolor lipsum is simply free text available</p>
                 </div>
             </div>
@@ -2106,7 +2115,9 @@ font-size: 1rem;
                         </div>
                     </div>
                 </div> -->
-                <div class="card" style="margin-top: 40px;">
+                <div class="card" style="margin-top: 40px;" data-aos="fade-right"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine">
                     <div class="card-image" style="width: 100%; height: 250px; ">
                         <img src="goldloan.png">
                     </div>
@@ -2120,7 +2131,9 @@ font-size: 1rem;
                         </div>
                     </div>
                 </div>
-                <div class="card" style="margin-top: 40px;">
+                <div class="card" style="margin-top: 40px;" data-aos="fade-up"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine">
                     <div class="card-image" style="width: 100%; height: 250px; background-color: red;">
                         <img src="vehicle2.jpg" >
                     </div>
@@ -2134,7 +2147,9 @@ font-size: 1rem;
                         </div>
                     </div>
                 </div>
-                <div class="card" style="margin-top: 40px;">
+                <div class="card" style="margin-top: 40px;" data-aos="fade-left"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine">
                     <div class="card-image" style="width: 100%; height: 250px; ">
                         <img src="cdn.png">
                     </div>
@@ -2153,11 +2168,11 @@ font-size: 1rem;
     </section>
     <section class="about-section">
         <div class="section-container">
-            <div class="image">
+            <div class="image" data-aos="zoom-out-right">
                 <img src="about.png" alt="" srcset="" >
             </div>
             <div class="content">
-                <div class="header">
+                <div class="header" data-aos="zoom-out-left">
                     <p>About Us <span></span></p>
                     <h1>About Yogloans</h1>
                     <p>
@@ -2169,7 +2184,9 @@ font-size: 1rem;
     </section>
     
     <section class="payscale">
-        <div class="left">
+        <div class="left" data-aos="fade-left
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine">
             <p class="intro-tagline">We Provide theBest Loan Solutions <span></span></p>
             <h1 class="intro-heading">Plan Your Perfect Loan</h1>
             <p class="intro-description">
@@ -2177,7 +2194,9 @@ font-size: 1rem;
             </p>
             
         </div>
-        <div class="right">
+        <div class="right" data-aos="fade-left
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine">
             <div class="check-scale">
                 <div class="header">
                     How Much You Need
@@ -2234,8 +2253,9 @@ font-size: 1rem;
        
          
     </section>
-    <section class="contact-form">
-        <div class="loaction-search" style="position: relative;">
+    <section class="contact-form" >
+        <div class="loaction-search" style="position: relative;" data-aos="fade-up"
+        data-aos-duration="1000">
             <h2 style="margin-bottom: 5px; text-align: start; width: 100%; padding: 10px;  top: 2%;">check Our Branches</h2>
             <div class="select" style="display: flex; width: 100%;  background-color: rgb(5, 5, 116);">
             <select name="" id="" style="width: 50%;" onchange="loaction()">
@@ -2279,7 +2299,8 @@ font-size: 1rem;
 
         </div>
     </div>
-        <div class="form">
+        <div class="form" data-aos="fade-up"
+        data-aos-duration="1000">
             <h2>
                 GET IN TOUCH WITH US
             </h2>
@@ -2448,6 +2469,7 @@ font-size: 1rem;
         updateSlider();
     </script> -->
     <script>
+          AOS.init();
         // Preloader functionality
         window.addEventListener('load', function() {
             // First hide the preloader
