@@ -603,11 +603,12 @@
         width: 100%;
         height: auto;
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
     }
 
     .contact .social {
-        width: 50%;
+        width: 100%;
 
         padding: 20px;
 
@@ -637,7 +638,7 @@
     box-shadow: 0px 0px 1px 0px gray;
     height: auto;
     display: flex;
-    flex-direction: column;
+/*     flex-direction: column; */
     justify-content: space-between;
     padding: 20px;
     align-items: center;
@@ -709,16 +710,23 @@
     filter: brightness(0) invert(1);
 }
 .contact .form {
-        width: 50%;
+        width: 100%;
         padding: 10px;
+        display: flex;
+   flex-direction: column;
+ 
+
+        justify-content: center;
+        align-items: center;
     }
 
    .contact .form .content{
+    box-shadow: 0px 0px 1px 0px gray; 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     padding: 15px;
-    width: 100%;
+    width: 80%;
    }
    .content input, .content select {
     width: 100%;
@@ -738,7 +746,7 @@
    }
    .form button{
     grid-column: 1 / -1;
-    width: 100%;
+    width: 80%;
     padding: 12px;
     background-color: rgb(154, 6, 6);
     color: white;
@@ -783,7 +791,7 @@
    }
 
    .digital{
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     gap: 10px   ;
@@ -815,7 +823,7 @@
     align-items: center;
    }
    .address{
-    width: 100%;
+    width: 80%;
     height: 100px;
     margin-top: 20px;
     display: flex;
@@ -847,7 +855,7 @@
     line-height: 1.8;
    }
    .map{
-    width: 100%;
+    width: 80%;
     margin-top: 20px;
    }
    

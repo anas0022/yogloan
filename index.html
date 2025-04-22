@@ -25,9 +25,6 @@
             text-decoration: none;
             font-family: "DM Sans", sans-serif;
         }
-        body{
-            overflow-x: hidden;
-        }
         .container{
             width: 100%;
         }
@@ -2073,7 +2070,7 @@ font-size: 1rem;
             </div>
         </div>
     </section> -->
-    <section class="welcome-section"  data-aos="flip-down">
+    <section class="welcome-section" >
         <div class="welocme" style="background-image: url(Flux_Dev_A_family_of_four_two_parents_and_two_young_daughters__3.jpg);">
             <div class="welcome-text">
                 <p style="color: rgb(154, 6, 6); font-weight:bolder;">One Step Closer</p>
@@ -2088,15 +2085,11 @@ font-size: 1rem;
     <section class="services-section">
         <div class="services-container">
             <div class="services-text">
-                <div class="left" data-aos="fade-right"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine">
+                <div class="left">
                     <p>Services <span></span></p>
                     <h1>All Loan Services</h1>
                 </div>
-                <div class="right" data-aos="fade-left"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine">
+                <div class="right">
                    <p>There are many variations of passages of lorem ipsum available the majority have suffered alteration in some form by injected humour. Duis aute irure dolor lipsum is simply free text available</p>
                 </div>
             </div>
@@ -2115,9 +2108,7 @@ font-size: 1rem;
                         </div>
                     </div>
                 </div> -->
-                <div class="card" style="margin-top: 40px;" data-aos="fade-right"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine">
+                <div class="card" style="margin-top: 40px;">
                     <div class="card-image" style="width: 100%; height: 250px; ">
                         <img src="goldloan.png">
                     </div>
@@ -2131,9 +2122,7 @@ font-size: 1rem;
                         </div>
                     </div>
                 </div>
-                <div class="card" style="margin-top: 40px;" data-aos="fade-up"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine">
+                <div class="card" style="margin-top: 40px;">
                     <div class="card-image" style="width: 100%; height: 250px; background-color: red;">
                         <img src="vehicle2.jpg" >
                     </div>
@@ -2147,9 +2136,7 @@ font-size: 1rem;
                         </div>
                     </div>
                 </div>
-                <div class="card" style="margin-top: 40px;" data-aos="fade-left"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine">
+                <div class="card" style="margin-top: 40px;">
                     <div class="card-image" style="width: 100%; height: 250px; ">
                         <img src="cdn.png">
                     </div>
@@ -2168,11 +2155,11 @@ font-size: 1rem;
     </section>
     <section class="about-section">
         <div class="section-container">
-            <div class="image" data-aos="zoom-out-right">
+            <div class="image">
                 <img src="about.png" alt="" srcset="" >
             </div>
             <div class="content">
-                <div class="header" data-aos="zoom-out-left">
+                <div class="header">
                     <p>About Us <span></span></p>
                     <h1>About Yogloans</h1>
                     <p>
@@ -2184,9 +2171,7 @@ font-size: 1rem;
     </section>
     
     <section class="payscale">
-        <div class="left" data-aos="fade-left
-        data-aos-offset="300"
-        data-aos-easing="ease-in-sine">
+        <div class="left">
             <p class="intro-tagline">We Provide theBest Loan Solutions <span></span></p>
             <h1 class="intro-heading">Plan Your Perfect Loan</h1>
             <p class="intro-description">
@@ -2194,9 +2179,7 @@ font-size: 1rem;
             </p>
             
         </div>
-        <div class="right" data-aos="fade-left
-        data-aos-offset="300"
-        data-aos-easing="ease-in-sine">
+        <div class="right">
             <div class="check-scale">
                 <div class="header">
                     How Much You Need
@@ -2253,9 +2236,8 @@ font-size: 1rem;
        
          
     </section>
-    <section class="contact-form" >
-        <div class="loaction-search" style="position: relative;" data-aos="fade-up"
-        data-aos-duration="1000">
+    <section class="contact-form">
+        <div class="loaction-search" style="position: relative;">
             <h2 style="margin-bottom: 5px; text-align: start; width: 100%; padding: 10px;  top: 2%;">check Our Branches</h2>
             <div class="select" style="display: flex; width: 100%;  background-color: rgb(5, 5, 116);">
             <select name="" id="" style="width: 50%;" onchange="loaction()">
@@ -2299,8 +2281,7 @@ font-size: 1rem;
 
         </div>
     </div>
-        <div class="form" data-aos="fade-up"
-        data-aos-duration="1000">
+        <div class="form">
             <h2>
                 GET IN TOUCH WITH US
             </h2>
@@ -2595,6 +2576,16 @@ font-size: 1rem;
 
 
 
+    </script>
+    <!-- Add AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
     </script>
 </body>
 </html>
