@@ -1,0 +1,1022 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern PDF Viewer</title>
+
+  <!-- PDF.js Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  </script>
+  
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-tertiary: #334155;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-primary: #3b82f6;
+      --accent-hover: #60a5fa;
+      --shadow-color: rgba(0, 0, 0, 0.3);
+      --toolbar-height: 72px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow: hidden;
+    }
+
+    #mainContainer {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    }
+
+    #viewerContainer {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      overflow: auto;
+      background: var(--bg-secondary);
+      padding: 32px;
+      margin-top: var(--toolbar-height);
+      box-shadow: 0 4px 20px var(--shadow-color);
+      transition: var(--transition);
+    }
+
+    #pdfContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+      padding: 24px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .pdf-page {
+      margin-bottom: 48px;
+      box-shadow: 0 8px 24px var(--shadow-color);
+      background: white;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .pdf-page:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px var(--shadow-color);
+    }
+
+    canvas {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+    }
+
+    /* Sidebar Styles */
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--bg-secondary);
+      z-index: 1000;
+      padding: 24px;
+      overflow-y: auto;
+      box-shadow: 4px 0 12px var(--shadow-color);
+    }
+
+    #sidebar-toggle {
+      display: none;
+    }
+
+    #viewerContainer {
+      margin-left: 280px;
+    }
+
+    /* Toolbar Styles */
+    #toolbar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .toolbar-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--bg-tertiary);
+    }
+
+    .toolbar-group:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    button:hover {
+      background-color: var(--accent-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px var(--shadow-color);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .toolbar-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    /* Page Indicator */
+    .page-indicator {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      padding: 16px 32px;
+      border-radius: var(--radius-lg);
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 1000;
+      display: none;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 12px var(--shadow-color);
+    }
+
+    /* Loading Animation */
+    .loading {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border: 4px solid var(--bg-tertiary);
+      border-top: 4px solid var(--accent-primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      box-shadow: 0 4px 12px var(--shadow-color);
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+      border-radius: var(--radius-sm);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-primary);
+      border-radius: var(--radius-sm);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-hover);
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 1024px) {
+      #sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 50vh;
+        bottom: 0;
+        top: auto;
+        box-shadow: 0 -4px 12px var(--shadow-color);
+      }
+
+      #viewerContainer {
+        margin-left: 0;
+        margin-bottom: 50vh;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #sidebar {
+        max-height: 60vh;
+      }
+
+      #viewerContainer {
+        margin-bottom: 60vh;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      #toolbar,
+      .page-indicator,
+      .loading {
+        display: none !important;
+      }
+
+      #mainContainer {
+        display: block;
+        height: auto;
+        overflow: visible;
+      }
+
+      #viewerContainer {
+        margin: 0;
+        padding: 0;
+        overflow: visible;
+        height: auto;
+      }
+
+      #pdfContainer {
+        display: block;
+        padding: 0;
+        gap: 0;
+      }
+
+      .pdf-page {
+        margin: 0;
+        page-break-after: always;
+        box-shadow: none;
+        border: none;
+      }
+
+      .pdf-page:last-child {
+        page-break-after: avoid;
+      }
+
+      canvas {
+        max-width: 100% !important;
+        height: auto !important;
+        page-break-inside: avoid;
+      }
+
+      @page {
+        size: auto;
+        margin: 0;
+      }
+
+      body {
+        background: white;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div id="toolbar">
+      <div class="toolbar-group">
+        <button id="prev">
+          <span class="toolbar-icon">⬅️</span>
+          Previous
+        </button>
+        <span id="pageNumber">1 / 1</span>
+        <button id="next">
+          <span class="toolbar-icon">➡️</span>
+          Next
+        </button>
+      </div>
+      
+      <div class="toolbar-group">
+        <button id="zoom_in">
+          <span class="toolbar-icon">🔍</span>
+          Zoom In
+        </button>
+        <button id="zoom_out">
+          <span class="toolbar-icon">🔍</span>
+          Zoom Out
+        </button>
+        <button id="page_fit">
+          <span class="toolbar-icon">📏</span>
+          Fit Page
+        </button>
+      </div>
+
+      <div class="toolbar-group">
+        <button id="rotate_left">
+          <span class="toolbar-icon">↩️</span>
+          Rotate Left
+        </button>
+        <button id="rotate_right">
+          <span class="toolbar-icon">↪️</span>
+          Rotate Right
+        </button>
+      </div>
+
+      <div class="toolbar-group">
+        <button id="search">
+          <span class="toolbar-icon">🔎</span>
+          Search
+        </button>
+        <button id="presentation">
+          <span class="toolbar-icon">📺</span>
+          Presentation
+        </button>
+        <button id="print">
+          <span class="toolbar-icon">🖨️</span>
+          Print
+        </button>
+        <button id="download">
+          <span class="toolbar-icon">📥</span>
+          Download
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mainContainer">
+    <!-- Loading Indicator -->
+    <div class="loading"></div>
+
+    <!-- Main Viewer Container -->
+    <div id="viewerContainer">
+      <div id="pdfContainer"></div>
+    </div>
+
+    <!-- Page Indicator -->
+    <div class="page-indicator">Page <span id="currentPageIndicator">1</span> of <span id="totalPagesIndicator">1</span></div>
+  </div>
+
+  <script>
+    // Initialize PDF.js
+    const url = 'CSR policy.pdf';
+    let pdfDoc = null;
+    let currentPage = 1;
+    let zoom = 1;
+    let rotation = 0;
+    let searchMatches = [];
+    let currentMatchIndex = -1;
+    let currentTool = null;
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+    let currentColor = '#FFFF00';
+    let brushSize = 5;
+    let annotations = [];
+    let currentAnnotation = null;
+    let allPages = [];
+    let isScrolling = false;
+    let lastScrollTime = 0;
+    let scrollTimeout;
+
+    // Initialize annotation layer
+    const annotationLayer = document.createElement('div');
+    annotationLayer.id = 'annotationLayer';
+    document.getElementById('viewerContainer').appendChild(annotationLayer);
+
+    // Add loading state management
+    function showLoading() {
+      document.querySelector('.loading').style.display = 'block';
+    }
+
+    function hideLoading() {
+      document.querySelector('.loading').style.display = 'none';
+    }
+
+    // Load the PDF document
+    pdfjsLib.getDocument(url).promise.then(function(pdf) {
+      pdfDoc = pdf;
+      document.getElementById('totalPagesIndicator').textContent = pdfDoc.numPages;
+      document.getElementById('pageNumber').textContent = `${currentPage} / ${pdfDoc.numPages}`;
+      loadAllPages();
+    }).catch(function(error) {
+      console.error('Error loading PDF:', error);
+      alert('Error loading PDF. Please check the console for details.');
+    });
+
+    // Load all pages
+    async function loadAllPages() {
+      const container = document.getElementById('pdfContainer');
+      container.innerHTML = '';
+
+      for (let i = 1; i <= pdfDoc.numPages; i++) {
+        const pageDiv = document.createElement('div');
+        pageDiv.className = 'pdf-page';
+        pageDiv.id = `page-${i}`;
+        container.appendChild(pageDiv);
+
+        const canvas = document.createElement('canvas');
+        pageDiv.appendChild(canvas);
+
+        try {
+          const page = await pdfDoc.getPage(i);
+          const viewport = page.getViewport({ scale: zoom, rotation: rotation });
+          
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+
+          const renderContext = {
+            canvasContext: canvas.getContext('2d'),
+            viewport: viewport
+          };
+
+          await page.render(renderContext).promise;
+          allPages.push(pageDiv);
+        } catch (error) {
+          console.error(`Error rendering page ${i}:`, error);
+        }
+      }
+
+      // Add scroll event listener
+      document.getElementById('viewerContainer').addEventListener('scroll', handleScroll);
+      
+      // Show scroll hint
+      const scrollHint = document.querySelector('.scroll-hint');
+      scrollHint.style.display = 'block';
+      setTimeout(() => {
+        scrollHint.style.display = 'none';
+      }, 5000);
+    }
+
+    // Handle scroll events
+    function handleScroll() {
+      if (isScrolling) return;
+
+      const container = document.getElementById('viewerContainer');
+      const pageIndicator = document.querySelector('.page-indicator');
+      const currentTime = new Date().getTime();
+
+      // Show page indicator
+      pageIndicator.style.display = 'block';
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        pageIndicator.style.display = 'none';
+      }, 2000);
+
+      // Debounce scroll events
+      if (currentTime - lastScrollTime < 100) return;
+      lastScrollTime = currentTime;
+
+      // Find the current page based on scroll position
+      const containerRect = container.getBoundingClientRect();
+      const containerTop = container.scrollTop;
+      const containerHeight = container.clientHeight;
+
+      let newPage = 1;
+      for (let i = 0; i < allPages.length; i++) {
+        const page = allPages[i];
+        const pageRect = page.getBoundingClientRect();
+        const pageTop = page.offsetTop;
+        const pageHeight = page.clientHeight;
+
+        if (pageTop + pageHeight/2 > containerTop + containerHeight/2) {
+          newPage = i + 1;
+          break;
+        }
+      }
+
+      if (newPage !== currentPage) {
+        currentPage = newPage;
+        document.getElementById('pageNumber').textContent = `${currentPage} / ${pdfDoc.numPages}`;
+        document.getElementById('currentPageIndicator').textContent = currentPage;
+        updateThumbnailSelection();
+      }
+    }
+
+    // Update page display
+    function updatePageDisplay() {
+      document.getElementById('pageNumber').textContent = `${currentPage} / ${pdfDoc.numPages}`;
+      document.getElementById('currentPageIndicator').textContent = currentPage;
+    }
+
+    // Navigation buttons
+    document.getElementById('prev').addEventListener('click', function() {
+      if (currentPage > 1) {
+        currentPage--;
+        updatePageDisplay();
+        scrollToPage(currentPage);
+      }
+    });
+
+    document.getElementById('next').addEventListener('click', function() {
+      if (currentPage < pdfDoc.numPages) {
+        currentPage++;
+        updatePageDisplay();
+        scrollToPage(currentPage);
+      }
+    });
+
+    function scrollToPage(pageNum) {
+      const container = document.getElementById('viewerContainer');
+      const page = document.getElementById(`page-${pageNum}`);
+      
+      if (page) {
+        container.scrollTo({
+          top: page.offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // Zoom controls
+    document.getElementById('zoom_in').addEventListener('click', function() {
+      zoom += 0.1;
+      loadAllPages();
+    });
+
+    document.getElementById('zoom_out').addEventListener('click', function() {
+      if (zoom > 0.1) {
+        zoom -= 0.1;
+        loadAllPages();
+      }
+    });
+
+    // Page fit
+    document.getElementById('page_fit').addEventListener('click', function() {
+      const container = document.getElementById('viewerContainer');
+      const containerWidth = container.clientWidth;
+      const containerHeight = container.clientHeight;
+      
+      pdfDoc.getPage(currentPage).then(function(page) {
+        const viewport = page.getViewport({ scale: 1 });
+        const scale = Math.min(
+          containerWidth / viewport.width,
+          containerHeight / viewport.height
+        );
+        zoom = scale;
+        loadAllPages();
+      });
+    });
+
+    // Rotation controls
+    document.getElementById('rotate_left').addEventListener('click', function() {
+      rotation = (rotation - 90) % 360;
+      loadAllPages();
+    });
+
+    document.getElementById('rotate_right').addEventListener('click', function() {
+      rotation = (rotation + 90) % 360;
+      loadAllPages();
+    });
+
+    // Print functionality
+    document.getElementById('print').addEventListener('click', function() {
+      // Ensure all pages are loaded before printing
+      const printAllPages = async () => {
+        const container = document.getElementById('pdfContainer');
+        container.innerHTML = '';
+
+        for (let i = 1; i <= pdfDoc.numPages; i++) {
+          const pageDiv = document.createElement('div');
+          pageDiv.className = 'pdf-page';
+          pageDiv.id = `page-${i}`;
+          container.appendChild(pageDiv);
+
+          const canvas = document.createElement('canvas');
+          pageDiv.appendChild(canvas);
+
+          try {
+            const page = await pdfDoc.getPage(i);
+            const viewport = page.getViewport({ scale: 1.5 }); // Increased scale for better print quality
+            
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            const renderContext = {
+              canvasContext: canvas.getContext('2d'),
+              viewport: viewport
+            };
+
+            await page.render(renderContext).promise;
+          } catch (error) {
+            console.error(`Error rendering page ${i}:`, error);
+          }
+        }
+
+        // Wait for all pages to render before printing
+        setTimeout(() => {
+          window.print();
+        }, 500);
+      };
+
+      printAllPages();
+    });
+
+    document.getElementById('download').addEventListener('click', function() {
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'KYCpolicy.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft' && currentPage > 1) {
+        currentPage--;
+        updatePageDisplay();
+        scrollToPage(currentPage);
+      } else if (e.key === 'ArrowRight' && currentPage < pdfDoc.numPages) {
+        currentPage++;
+        updatePageDisplay();
+        scrollToPage(currentPage);
+      }
+    });
+
+    // Render thumbnails
+    function renderThumbnails() {
+      for (let i = 1; i <= pdfDoc.numPages; i++) {
+        const thumbnail = document.createElement('canvas');
+        thumbnail.className = 'thumbnail';
+        thumbnail.dataset.page = i;
+        document.getElementById('thumbnails').appendChild(thumbnail);
+
+        pdfDoc.getPage(i).then(function(page) {
+          const viewport = page.getViewport(0.2);
+          thumbnail.height = viewport.height;
+          thumbnail.width = viewport.width;
+          page.render({
+            canvasContext: thumbnail.getContext('2d'),
+            viewport: viewport
+          });
+        });
+
+        thumbnail.addEventListener('click', function() {
+          currentPage = parseInt(this.dataset.page);
+          document.getElementById('pageNumber').textContent = `${currentPage} / ${pdfDoc.numPages}`;
+          renderPage(currentPage);
+          updateThumbnailSelection();
+        });
+      }
+    }
+
+    // Update thumbnail selection
+    function updateThumbnailSelection() {
+      document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.classList.remove('active');
+        if (parseInt(thumb.dataset.page) === currentPage) {
+          thumb.classList.add('active');
+        }
+      });
+    }
+
+    // Search functionality
+    function searchText(text) {
+      searchMatches = [];
+      currentMatchIndex = -1;
+
+      for (let i = 1; i <= pdfDoc.numPages; i++) {
+        pdfDoc.getPage(i).then(function(page) {
+          return page.getTextContent();
+        }).then(function(textContent) {
+          const textItems = textContent.items;
+          const matches = textItems.filter(item => 
+            item.str.toLowerCase().includes(text.toLowerCase())
+          );
+          
+          if (matches.length > 0) {
+            searchMatches.push({
+              page: i,
+              matches: matches
+            });
+          }
+        });
+      }
+    }
+
+    // Search controls
+    document.getElementById('search').addEventListener('click', function() {
+      document.getElementById('searchContainer').style.display = 'block';
+      document.getElementById('searchInput').focus();
+    });
+
+    document.getElementById('closeSearch').addEventListener('click', function() {
+      document.getElementById('searchContainer').style.display = 'none';
+      document.getElementById('searchInput').value = '';
+      searchMatches = [];
+      currentMatchIndex = -1;
+    });
+
+    document.getElementById('searchInput').addEventListener('input', function() {
+      if (this.value.length > 0) {
+        searchText(this.value);
+      }
+    });
+
+    document.getElementById('searchNext').addEventListener('click', function() {
+      if (searchMatches.length > 0) {
+        currentMatchIndex = (currentMatchIndex + 1) % searchMatches.length;
+        const match = searchMatches[currentMatchIndex];
+        currentPage = match.page;
+        document.getElementById('pageNumber').textContent = `${currentPage} / ${pdfDoc.numPages}`;
+        renderPage(currentPage);
+        updateThumbnailSelection();
+      }
+    });
+
+    document.getElementById('searchPrev').addEventListener('click', function() {
+      if (searchMatches.length > 0) {
+        currentMatchIndex = (currentMatchIndex - 1 + searchMatches.length) % searchMatches.length;
+        const match = searchMatches[currentMatchIndex];
+        currentPage = match.page;
+        document.getElementById('pageNumber').textContent = `${currentPage} / ${pdfDoc.numPages}`;
+        renderPage(currentPage);
+        updateThumbnailSelection();
+      }
+    });
+
+    // Presentation mode
+    document.getElementById('presentation').addEventListener('click', function() {
+      document.getElementById('presentationMode').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      renderPresentationPage(currentPage);
+    });
+
+    function renderPresentationPage(pageNum) {
+      pdfDoc.getPage(pageNum).then(function(page) {
+        const viewport = page.getViewport({ scale: 1 });
+        const scale = Math.min(
+          window.innerWidth / viewport.width,
+          window.innerHeight / viewport.height
+        );
+        const scaledViewport = page.getViewport({ scale: scale });
+        
+        document.getElementById('presentationCanvas').height = scaledViewport.height;
+        document.getElementById('presentationCanvas').width = scaledViewport.width;
+
+        page.render({
+          canvasContext: document.getElementById('presentationCanvas').getContext('2d'),
+          viewport: scaledViewport
+        });
+      });
+    }
+
+    document.getElementById('presentationMode').addEventListener('click', function(e) {
+      if (e.target === document.getElementById('presentationMode')) {
+        document.getElementById('presentationMode').style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Keyboard controls for presentation mode
+    document.addEventListener('keydown', function(e) {
+      if (document.getElementById('presentationMode').style.display === 'block') {
+        if (e.key === 'ArrowLeft' && currentPage > 1) {
+          currentPage--;
+          renderPresentationPage(currentPage);
+        } else if (e.key === 'ArrowRight' && currentPage < pdfDoc.numPages) {
+          currentPage++;
+          renderPresentationPage(currentPage);
+        } else if (e.key === 'Escape') {
+          document.getElementById('presentationMode').style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+      loadAllPages();
+      if (document.getElementById('presentationMode').style.display === 'block') {
+        renderPresentationPage(currentPage);
+      }
+    });
+
+    // Tool buttons
+    document.getElementById('highlightTool').addEventListener('click', function() {
+      setTool('highlight');
+    });
+
+    document.getElementById('sketchTool').addEventListener('click', function() {
+      setTool('sketch');
+    });
+
+    document.getElementById('imageTool').addEventListener('click', function() {
+      document.getElementById('imageUpload').click();
+    });
+
+    document.getElementById('eraseTool').addEventListener('click', function() {
+      setTool('erase');
+    });
+
+    // Color picker
+    document.querySelectorAll('.color-option').forEach(option => {
+      option.addEventListener('click', function() {
+        currentColor = this.dataset.color;
+        document.getElementById('colorPicker').style.display = 'none';
+      });
+    });
+
+    document.getElementById('brushSize').addEventListener('input', function() {
+      brushSize = this.value;
+    });
+
+    // Image upload
+    document.getElementById('imageUpload').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          addImageAnnotation(event.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function setTool(tool) {
+      currentTool = tool;
+      document.querySelectorAll('.tool-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(tool + 'Tool').classList.add('active');
+      
+      if (tool === 'sketch' || tool === 'highlight') {
+        document.getElementById('colorPicker').style.display = 'block';
+      } else {
+        document.getElementById('colorPicker').style.display = 'none';
+      }
+    }
+
+    function addImageAnnotation(imageData) {
+      const img = document.createElement('img');
+      img.src = imageData;
+      img.className = 'image-annotation';
+      img.style.position = 'absolute';
+      img.style.left = '50%';
+      img.style.top = '50%';
+      img.style.transform = 'translate(-50%, -50%)';
+      
+      makeDraggable(img);
+      annotationLayer.appendChild(img);
+      annotations.push(img);
+    }
+
+    function makeDraggable(element) {
+      let isDragging = false;
+      let currentX;
+      let currentY;
+      let initialX;
+      let initialY;
+      let xOffset = 0;
+      let yOffset = 0;
+
+      element.addEventListener('mousedown', dragStart);
+      document.addEventListener('mousemove', drag);
+      document.addEventListener('mouseup', dragEnd);
+
+      function dragStart(e) {
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+
+        if (e.target === element) {
+          isDragging = true;
+        }
+      }
+
+      function drag(e) {
+        if (isDragging) {
+          e.preventDefault();
+          currentX = e.clientX - initialX;
+          currentY = e.clientY - initialY;
+
+          xOffset = currentX;
+          yOffset = currentY;
+
+          setTranslate(currentX, currentY, element);
+        }
+      }
+
+      function dragEnd() {
+        isDragging = false;
+      }
+
+      function setTranslate(xPos, yPos, el) {
+        el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+      }
+    }
+
+    // Canvas drawing events
+    document.getElementById('pdf-render').addEventListener('mousedown', startDrawing);
+    document.getElementById('pdf-render').addEventListener('mousemove', draw);
+    document.getElementById('pdf-render').addEventListener('mouseup', stopDrawing);
+    document.getElementById('pdf-render').addEventListener('mouseout', stopDrawing);
+
+    function startDrawing(e) {
+      if (!currentTool) return;
+      
+      isDrawing = true;
+      const rect = document.getElementById('pdf-render').getBoundingClientRect();
+      lastX = e.clientX - rect.left;
+      lastY = e.clientY - rect.top;
+
+      if (currentTool === 'sketch' || currentTool === 'highlight') {
+        currentAnnotation = document.createElement('div');
+        currentAnnotation.className = currentTool;
+        currentAnnotation.style.position = 'absolute';
+        currentAnnotation.style.left = '0';
+        currentAnnotation.style.top = '0';
+        currentAnnotation.style.width = '100%';
+        currentAnnotation.style.height = '100%';
+        currentAnnotation.style.backgroundColor = currentTool === 'highlight' ? currentColor : 'transparent';
+        currentAnnotation.style.border = currentTool === 'sketch' ? `${brushSize}px solid ${currentColor}` : 'none';
+        annotationLayer.appendChild(currentAnnotation);
+        annotations.push(currentAnnotation);
+      }
+    }
+
+    function draw(e) {
+      if (!isDrawing || !currentTool) return;
+
+      const rect = document.getElementById('pdf-render').getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      if (currentTool === 'sketch') {
+        const line = document.createElement('div');
+        line.style.position = 'absolute';
+        line.style.left = `${lastX}px`;
+        line.style.top = `${lastY}px`;
+        line.style.width = `${Math.sqrt(Math.pow(x - lastX, 2) + Math.pow(y - lastY, 2))}px`;
+        line.style.height = `${brushSize}px`;
+        line.style.backgroundColor = currentColor;
+        line.style.transform = `rotate(${Math.atan2(y - lastY, x - lastX)}rad)`;
+        line.style.transformOrigin = '0 0';
+        currentAnnotation.appendChild(line);
+      }
+
+      lastX = x;
+      lastY = y;
+    }
+
+    function stopDrawing() {
+      isDrawing = false;
+    }
+
+    // Erase functionality
+    function eraseAt(x, y) {
+      if (currentTool !== 'erase') return;
+
+      const elements = document.elementsFromPoint(x, y);
+      elements.forEach(element => {
+        if (element.classList.contains('highlight') || 
+            element.classList.contains('sketch') || 
+            element.classList.contains('image-annotation')) {
+          element.remove();
+          const index = annotations.indexOf(element);
+          if (index > -1) {
+            annotations.splice(index, 1);
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
