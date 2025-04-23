@@ -1310,7 +1310,7 @@ menu ul{
                                    <h2 id="loanTitle">Personal Loan</h2>
           
                                   <div class="slider-container">
-                                      <div class="label">Loan Amount  $<span id="amountVal">15000</span></div>
+                                      <div class="label">Loan Amount  ₹<span id="amountVal">15000</span></div>
                                       <input type="range" id="amount" min="1000" max="50000" step="500" value="10000">
                                     </div>
                                   
@@ -1517,8 +1517,8 @@ function updateValues() {
     const total = Math.round(amount + (amount * interestPerMonth * months));
     const monthly = Math.round(total / months);
 
-    totalPayable.textContent = "$" + total;
-    payMonthly.textContent = "$" + monthly;
+    totalPayable.textContent = "₹" + total;
+    payMonthly.textContent = "₹" + monthly;
 }
 
 amountSlider.addEventListener("input", updateValues);
