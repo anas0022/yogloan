@@ -883,8 +883,72 @@ footer {
         transform: rotate(360deg);
     }
 }
+.information-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+   /*  background-color: #f5f4f4; */
+}
+.information-item-content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.information-item-content .left{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+.information-item-content .left p{
+    font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap:
+10px;
+  color: rgb(154, 6, 6);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.information-item-content .left p span{
+    width: 40px;
+  border-bottom:
+2px solid rgb(154, 6, 6);
+}
+.information-item-content .left h3{
+    font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-top: 10px;
+}
+.information-item-content .right{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.information-item-content .right p{
+    font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #666;
+  line-height: 1.8;
+  padding:
+0 10px;
+}
 @media (max-width:950px){
-    
 .image img{
     height: 300px;
 }
@@ -905,6 +969,28 @@ footer {
   }
 }
 @media (max-width:780px){
+
+    .information-item-content{
+        flex-direction: column;
+        gap: 20px;
+     
+    }
+    .information-item-content .left{
+        width: 100%;
+    }
+    .information-item-content .left p{
+        font-size: 0.8rem;
+    }
+    .information-item-content .left h3{
+        font-size: 1.5rem;
+    }
+    .information-item-content .right{
+        width: 100%;
+    }
+    .information-item-content .right p{
+        padding: 0;
+        font-size: 0.8rem;
+    }
     .service-card {
     grid-template-columns: 1fr;
   }
@@ -1300,7 +1386,7 @@ footer {
                 </div>
 
                 <div class="contact-us">
-                    <button class="btn btn-primary">Enquire Now  <i class="fa-solid fa-arrow-right"></i></button>
+                    <button class="btn btn-primary" onclick="window.location.href='contact.html'">Enquire Now  <i class="fa-solid fa-arrow-right"></i></button>
                 </div>
             </menu>
         
@@ -1349,6 +1435,20 @@ footer {
             <h2>Services</h2>
         </div>
     </section>
+
+    <div class="information-container">
+   
+        <div class="information-item-content">
+            <div class="left">
+                <p>Our Loan Services <span></span></p>
+                <h3>We offer a range of loan services to meet your financial needs.</h3>
+            </div>
+            <div class="right">
+               <p>At Yogakshemam Loans Limited, we offer a wide range of financial solutions tailored to meet your unique needs. Whether you're looking to unlock the value of your gold, finance a new vehicle, support your growing business, or secure funds through a CD loan, we've got you covered. With flexible terms, quick approvals, and transparent processes, our loan services are designed to empower you at every stage of life. Trust YogLoans for reliable support and personalized financial care.</p>
+            </div>
+        </div>
+    
+</div>
 <div class="service-card">
     <div class="card">
     <div class="image" >
@@ -1444,11 +1544,13 @@ footer {
     </div>
  
 </div>
+
+
 <section class="contact-form">
     <div class="form">
-   <!--      <h2 style="color: white;">
+        <h2 style="color: white;">
             GET IN TOUCH WITH US
-        </h2> -->
+        </h2>
         <div class="content">
             <div class="form-group">
                 <label for="name">Full Name</label>
