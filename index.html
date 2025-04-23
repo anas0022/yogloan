@@ -494,6 +494,63 @@
             font-weight: 600;
             letter-spacing: 1px;
         }
+        .side{
+           /*  width: 5%; */
+           padding: 10px;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            background-color: rgb(154, 6, 6);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            bottom: 0;
+            z-index: 100000000;
+        }
+        .side a {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+        }
+        .side img{
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            filter: invert(1);
+            transition: transform 0.3s ease;
+        }
+        .side a:hover img {
+            transform: scale(1.1);
+        }
+        .side a::after {
+            content: attr(data-title);
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            color: rgb(154, 6, 6);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            margin-right: 10px;
+        }
+        .side a:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        
 
         .services-section {
             width: 100%;
@@ -1128,13 +1185,16 @@
 
         .contact-form {
             width: 100%;
-            display: flex;
-            justify-content: center;
-            padding: 20px;
-            background-image: url(young-successful-businessman-speaking-phone-smiling-office.jpg);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
+  display: flex;
+  justify-content: center;
+  padding:
+80px;
+  background-image: url(young-successful-businessman-speaking-phone-smiling-office.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:
+center;
+  background-image: url(frame1.png);
 
         }
 
@@ -1157,7 +1217,8 @@
             background-color: white;
             padding:
                 20px;
-            background-color: rgb(152, 4, 4);
+           /*  background-color: rgb(152, 4, 4); */
+           background-color: rgb(5, 5, 107);
         }
 
         .contact-form .loaction-search .select select {
@@ -1180,13 +1241,14 @@ none;
 1px solid white;
   background-color: rgb(5, 5, 107);
   color: white;
-  background-color: rgb(152, 4, 4);
+  /* background-color: rgb(152, 4, 4); */
 
         }
 
         .contact-form .form {
+            background-color: rgb(152, 4, 4);
             width: 70%;
-  background-color: rgb(5, 5, 107);
+/*   background-color: rgb(5, 5, 107); */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1210,7 +1272,8 @@ none;
         .form .content input {
             padding: 10px;
             width: 100%;
-            background-color: rgb(5, 5, 107);
+            background-color: rgb(152, 4, 4);
+         /*    background-color: rgb(5, 5, 107); */
             border: none;
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
@@ -1243,7 +1306,7 @@ none;
         .form .content select {
             padding: 10px;
             width: 100%;
-            background-color: rgb(5, 5, 107);
+            background-color: rgb(152, 4, 4);
             border: none;
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
@@ -1270,7 +1333,7 @@ none;
         .form .content textarea {
             padding: 10px;
             width: 100%;
-            background-color: rgb(5, 5, 107);
+            background-color: rgb(152, 4, 4);
             border: none;
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
@@ -1313,6 +1376,7 @@ none;
             position: relative;
             overflow: hidden;
             border-radius: 4px;
+            border: 1px solid ;
         }
 
         .form button:hover {
@@ -1878,7 +1942,11 @@ input[type=range]::-ms-fill-upper {
                 transform: rotate(360deg);
             }
         }
-
+@media (max-width:1024px) {
+    .contact-form {
+        padding: 50px;
+    }
+}
         @media (max-width:780px) {
             .payscale {
                 flex-direction: column;
@@ -1893,6 +1961,7 @@ input[type=range]::-ms-fill-upper {
             .contact-form {
                 flex-direction: column;
                 gap: 10px;
+                padding: 20px;
             }
 
             .contact-form .form {
@@ -2118,6 +2187,10 @@ input[type=range]::-ms-fill-upper {
 
             .welcome-section {
                 height: 300px;
+           
+            }
+            .side{
+                display: none;
             }
 
             .welcome-text button {
@@ -2365,6 +2438,7 @@ input[type=range]::-ms-fill-upper {
             font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            border: 1px solid rgb(157, 153, 153);
         }
     </style>
 </head>
@@ -2481,53 +2555,33 @@ input[type=range]::-ms-fill-upper {
             </div>
         </div>
     </section>
-    <!--     <section>
-        <div class="image-container">
-            <div class="slider">
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1554224154-26032ffc0d07?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1554224154-22d7ba9027df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-            </div>
-            <div class="welcome">
-                <div class="welcome-text">
-                    <div class="text-slide active">
-                        <h1>Personal Loans Made Easy</h1>
-                        <p>Get the financial support you need with our flexible personal loan options. Quick approval and competitive rates.</p>
-                    </div>
-                    
-                    <div class="text-slide">
-                        <h1>Business Growth Solutions</h1>
-                        <p>Fuel your business expansion with our tailored business loans and financial solutions. Expert guidance at every step.</p>
-                    </div>
-                    <div class="text-slide">
-                        <h1>Home Loan Specialists</h1>
-                        <p>Make your dream home a reality with our competitive home loan packages and expert guidance.</p>
-                    </div>
-                    <div class="welcome-buttons">
-                        <button class="btn btn-primary">Get Started</button>
-                        <button class="btn btn-secondary">Learn More</button>
-                    </div>
-                </div>
-                
-            </div>
-            
-            <div class="slider-nav">
-                <div class="slider-dot active"></div>
-                <div class="slider-dot"></div>
-                <div class="slider-dot"></div>
-            </div>
-        </div>
-    </section> -->
+ 
     <section class="welcome-section">
         <div class="welocme"
             style="background-image: url(portrait-millennial-couple-living-country-side-after-moving-from-city.jpg);">
-            <div class="welcome-text">
+            <div class="welcome-text" >
                 <p style="color: rgb(154, 6, 6); font-weight:bolder;">One Step Closer</p>
                 <h1 ">to Making Dreams  a Reality</h1>
                 <p >We are a team of experienced professionals who are dedicated to providing the best possible service to our clients.</p>
                 <button>Enquire Now </button>
             </div>
+          <div class="side">
+            <a href="loans.html" data-title="Gold Loan">
+                <img src="money.png" alt="">
+            </a>
+            <a href="vehicle.html" data-title="Vehicle Loan">
+                 <img src="car-loan.png" alt="">
+            </a>
+            <a href="personal.html" data-title="Business Loan">
+              <img src="personal.png" alt="">
+               
+            </a>
+            <a href="cd.html" data-title="CD Loan">
+                <img src="term.png" alt="">
+            </a>
+          </div>
         </div>
+        
     </section>
 
 
