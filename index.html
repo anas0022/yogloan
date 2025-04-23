@@ -2727,7 +2727,7 @@ input[type=range]::-ms-fill-upper {
 
                         <div class="slider-container">
                             <div class="label">Loan Amount ₹<span id="amountVal">10000</span></div>
-                            <input type="range" id="amount" min="1000" max="50000" step="500" value="10000">
+                            <input type="range" id="amount" min="50000" max="200000" step="500" value="50000">
                         </div>
 
                         <div class="slider-container">
@@ -3067,17 +3067,23 @@ input[type=range]::-ms-fill-upper {
             function updateValues() {
                 const amount = parseInt(amountSlider.value);
                 const months = parseInt(durationSlider.value);
-                const interestPerMonth = 0.015;
+                const annualInterestRate = 26; // Annual interest rate in percentage
+                const monthlyInterestRate = annualInterestRate / 12 / 100; // Convert to monthly decimal rate
 
                 amountVal.textContent = amount;
                 durationVal.textContent = months;
                 totalMonths.textContent = months + " Months";
 
-                const total = Math.round(amount + (amount * interestPerMonth * months));
-                const monthly = Math.round(total / months);
+                // Calculate monthly payment using the formula: P * (r * (1 + r)^n) / ((1 + r)^n - 1)
+                const monthlyPayment = Math.round(
+                    amount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, months)) / 
+                    (Math.pow(1 + monthlyInterestRate, months) - 1)
+                );
+                
+                const total = Math.round(monthlyPayment * months);
 
                 totalPayable.textContent = "₹" + total;
-                payMonthly.textContent = "₹" + monthly;
+                payMonthly.textContent = "₹" + monthlyPayment;
             }
 
             amountSlider.addEventListener("input", updateValues);
