@@ -16,10 +16,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-
+ 
     <style>
         * {
             margin: 0;
@@ -1197,7 +1194,7 @@ none;
   padding:
 20px;
   gap:
-40px;
+20px;
         }
 
         .contact-form .form .content {
@@ -1211,64 +1208,97 @@ none;
         }
 
         .form .content input {
-            padding:
-                10px;
-            border:
-                1px solid rgb(218, 214, 214);
-            width: 100%;
-            background-color: blue;
-            border:
-                none;
-            border-bottom-width: medium;
-            border-bottom-style: none;
-            border-bottom-color: currentcolor;
-            border-bottom:
-                1px solid white;
-            background-color: rgb(5, 5, 107);
-            color: white;
-
-        }
-        .form .content input:focus {
-    outline: none;
-    border: none;
-    border-bottom: 1px solid white;
-    box-shadow: none;
-}
-
-
-        .form .content select {
             padding: 10px;
-            border: 1px solid rgb(218, 214, 214);
             width: 100%;
             background-color: rgb(5, 5, 107);
             border: none;
-            border-bottom: 1px solid white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
+            transition: all 0.3s ease;
+            position: relative;
+        }
 
+        .form .content input:hover {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .form .content input:focus {
+            outline: none;
+            border: none;
+            border-bottom: 1px solid white;
+            box-shadow: 0 1px 0 0 white;
+        }
+
+        .form .content input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .form .content input:focus::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-10px);
+            font-size: 0.8em;
+        }
+
+        .form .content select {
+            padding: 10px;
+            width: 100%;
+            background-color: rgb(5, 5, 107);
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 20px;
+        }
+
+        .form .content select:hover {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
         }
 
         .form .content select:focus {
             outline: none;
             border: none;
             border-bottom: 1px solid white;
-            box-shadow: none;
+            box-shadow: 0 1px 0 0 white;
         }
 
         .form .content textarea {
             padding: 10px;
-            border: 1px solid rgb(218, 214, 214);
-            width: 310%;
+            width: 100%;
             background-color: rgb(5, 5, 107);
             border: none;
-            border-bottom: 1px solid white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
-
+            transition: all 0.3s ease;
+            resize: vertical;
+            min-height: 70px;
         }
+
+        .form .content textarea:hover {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
         .form .content textarea:focus {
             outline: none;
             border: none;
             border-bottom: 1px solid white;
-            box-shadow: none;
+            box-shadow: 0 1px 0 0 white;
+        }
+
+        .form .content textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .form .content textarea:focus::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-10px);
+            font-size: 0.8em;
         }
 
         .form button {
@@ -1279,6 +1309,36 @@ none;
             background-color: rgb(152, 4, 4);
             color: white;
             cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .form button:hover {
+            background-color: rgb(180, 4, 4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(152, 4, 4, 0.3);
+        }
+
+        .form button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(152, 4, 4, 0.2);
+        }
+
+        .form button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .form button:hover::after {
+            left: 100%;
         }
 
         #Kerala {
@@ -2231,6 +2291,81 @@ input[type=range]::-ms-fill-upper {
                 font-size: 1rem;
             }
         }
+
+        .form {
+            width: 70%;
+            background-color: rgb(5, 5, 107);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            gap: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .form h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .form h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: rgb(152, 4, 4);
+        }
+
+        .form .content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            width: 100%;
+        }
+
+        .form .content .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form .content .form-group label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .form .content .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form .content .form-group textarea {
+            min-height: 120px;
+        }
+
+        .form button {
+            width: 50%;
+            padding: 15px;
+            margin-top: 20px;
+            border: none;
+            background-color: rgb(152, 4, 4);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 
@@ -2603,33 +2738,61 @@ input[type=range]::-ms-fill-upper {
                 GET IN TOUCH WITH US
             </h2>
             <div class="content">
-                <input type="text" placeholder="Name"><input type="text" placeholder="Prefession"><input type="text"
-                    placeholder="City">
-
-                <select name="" id="">
-                    <option value="">select Country</option>
-                    <option value="">India</option>
-                </select>
-                <select name="" id="">
-                    <option value="">select State</option>
-                    <option value="">Kerala</option>
-                    <option value="">Bangalore</option>
-                </select>
-                <input type="text" placeholder="Pin/Zip Code">
-                <input type="text" placeholder="Phone ">
-                <input type="text" placeholder="Email">
-                <select name="" id="">
-                    <option value="">Service Which You Want to Enquiry</option>
-                    <option value="">Gold Loan</option>
-                    <option value="">Vehicle Loan</option>
-                    <option value="">Micro Loan</option>
-                    <option value="">Sme Loan</option>
-                    <option value="">Two Wheeler Loan</option>
-                    <option value="">Gold Over Draft</option>
-                </select>
-
-                <textarea name="" id="" placeholder="address"></textarea>
-
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="profession">Profession</label>
+                    <input type="text" id="profession" placeholder="Enter your profession">
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" placeholder="Enter your city">
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country">
+                        <option value="">Select Country</option>
+                        <option value="india">India</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <select id="state">
+                        <option value="">Select State</option>
+                        <option value="kerala">Kerala</option>
+                        <option value="bangalore">Bangalore</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pincode">Pin/Zip Code</label>
+                    <input type="text" id="pincode" placeholder="Enter pin/zip code">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="text" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Type</label>
+                    <select id="service">
+                        <option value="">Select Service</option>
+                        <option value="gold">Gold Loan</option>
+                        <option value="vehicle">Vehicle Loan</option>
+                        <option value="micro">Micro Loan</option>
+                        <option value="sme">SME Loan</option>
+                        <option value="two-wheeler">Two Wheeler Loan</option>
+                        <option value="gold-overdraft">Gold Over Draft</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="address">Address</label>
+                    <textarea id="address" placeholder="Enter your complete address"></textarea>
+                </div>
             </div>
             <button>Submit</button>
         </div>
