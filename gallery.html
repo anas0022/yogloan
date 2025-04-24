@@ -12,9 +12,22 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
-    @font-face {
+
+   @font-face {
             font-family: 'Lato';
             src: url('lato/Lato-Medium.ttf') format('truetype');
+         /*    font-weight: bold; */
+            font-style: normal;
+        }
+@font-face {
+            font-family: 'Retro-floral';
+            src: url('retro-floral/Retro Floral.otf') format('truetype');
+         /*    font-weight: bold; */
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'altroned-trial';
+            src: url('altroned-trial/ALTRONED Trial.otf') format('truetype');
          /*    font-weight: bold; */
             font-style: normal;
         }
@@ -372,204 +385,337 @@
 }
 .redirect{
   font-size: 1rem;
-  background-color: rgb(236, 234, 234);
+  background-color: rgba(236, 234, 234, 0.669);
   padding: 10px;
   color: rgb(11, 7, 141);
   position: relative;
   z-index: 1000;
   cursor: pointer;
 }
-.redirect a{
-
-color: black;
-}
-.head{
+.text-carousel {
     width: 100%;
-    height: 100px;
+    height: 150px;
+    overflow: hidden;
+    background: #ffffff;
+    white-space: nowrap;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+
+.carousel-track {
+    display: inline-flex;
+    animation: scrollText 60s linear infinite;
+    white-space: nowrap;
+    padding: 0 20px;
+}
+
+.carousel-item {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 4rem;
+    font-weight: 900;
+    padding-right: 50px;
+    margin: 0;
+    font-family: 'Retro-floral';
+    color: #1e293b;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.carousel-item:hover {
+    transform: scale(1.02);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+    color: #0f172a;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.text-carousel:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+    .text-carousel {
+        height: 100px;
+    }
+    
+    .carousel-item {
+        font-size: 2.5rem;
+        padding-right: 30px;
+    }
+}
+
+.image-intros {
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.image-intro-content {
+    width: 90%;
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    padding: 0 1rem;
+    gap: 2rem;
+    animation: slideIn 1s ease-in-out;
+}
+
+.image-intro-content .left {
+    width: 50%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    z-index: 1000000;
+    animation: slideInLeft 1s ease-in-out;
 }
-.top{
-    height: 100%;
-    width: 80%;
-    background-color: white;
-    box-shadow: 0px 0px 2px 0px gray;
-    border-radius: 10px;
-    margin-top: -100px ;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-.header{
-    width: 100%;
-    height: 30%;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.search{
-    width: 100%;
+
+.image-intro-content .left .img1 {
+    width: 70%;
     height: 70%;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-
-}
-.search select{
-    width: 25%;
-    padding: 10px;
-    height: 40px;
-    background-color: rgb(255, 255, 255);
-    border: none;
-    border-bottom: 1px solid gray;
-    /* border-radius: 5px; */
-}
-.search button{
-    width: 20%;
-    height: 40px;
-    color: white;
-    background-color: rgb(154, 6, 6);
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+    object-fit: cover;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    position: relative;
+    display: block;
+    animation: zoomIn 1s ease-in-out, float 6s ease-in-out infinite;
 }
 
-.search-results {
-    max-width: 1200px;
-    /* margin: 60px auto 0; */
+.image-intro-content .left .img1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
-.results-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
+.image-intro-content .left .img1:hover img {
+    transform: scale(1.05);
 }
 
-.results-header h4 {
-    font-size: 24px;
-    color: #1a1a1a;
-    font-weight: 600;
-}
-
-.sort-options {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.sort-options span {
-    color: #666;
-    font-size: 16px;
-}
-
-.sort-options select {
-    padding: 10px 20px;
-    border: 2px solid #eee;
-    border-radius: 8px;
-    font-size: 16px;
-    background: white;
-    cursor: pointer;
-}
-
-.job-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    padding: 0 15px;
-}
-
-.job-card {
-    background: white;
+.image-intro-content .left .img2 {
+    width: 40%;
+    height: 40%;
+    object-fit: cover;
+    position: absolute;
+    top: 10%;
+    right: 5%;
     border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 400px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    z-index: 2;
+    display: block;
+    animation: slideInRight 1s ease-in-out, float 4s ease-in-out infinite;
 }
 
-.job-header {
+.image-intro-content .left .img2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.image-intro-content .left .img2:hover img {
+    transform: scale(1.05);
+}
+
+.image-intro-content .right {
+    width: 45%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    padding: 1rem;
+    animation: slideInUp 1s ease-in-out;
 }
 
-.job-header h5 {
-    font-size: clamp(18px, 2vw, 22px);
-    color: #1a1a1a;
-    font-weight: 600;
-    margin: 0;
-}
-
-.job-type {
-    background: rgba(154, 6, 6, 0.1);
-    color: #9a0606;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: clamp(12px, 1.5vw, 14px);
-    font-weight: 500;
-    width: fit-content;
-}
-
-.job-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.detail-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #666;
-    font-size: clamp(12px, 1.5vw, 14px);
-}
-
-.job-description p {
-    color: #666;
-    font-size: clamp(14px, 1.5vw, 15px);
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.job-footer {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-}
-
-.posted-date {
-    color: #999;
-    font-size: clamp(12px, 1.5vw, 14px);
-}
-
-.apply-btn {
-    background: #9a0606;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: clamp(14px, 1.5vw, 16px);
-    font-weight: 500;
-    text-align: center;
-    transition: all 0.3s ease;
+.image-intro-content .right p {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.3;
+    margin: 0 0 2rem 0;
+    font-family: 'Retro-floral', sans-serif;
+    position: relative;
     width: 100%;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-.apply-btn:hover {
-    background: #800505;
-    transform: translateY(-2px);
+.image-intro-content .right .img1 {
+    width: 60%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    margin-top: 1rem;
+    animation: zoomIn 1s ease-in-out, float 5s ease-in-out infinite;
+}
+
+.image-intro-content .right .img1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.image-intro-content .right .img1:hover img {
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@media (max-width: 768px) {
+    .image-intros {
+        min-height: auto;
+        padding: 3rem 0;
+    }
+    
+    .image-intro-content {
+        flex-direction: column;
+        gap: 2rem;
+        height: auto;
+    }
+    
+    .image-intro-content .left,
+    .image-intro-content .right {
+        width: 100%;
+        height: auto;
+    }
+    
+    .image-intro-content .right p {
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .image-intro-content .left {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-bottom: 2rem;
+    }
+    
+    .image-intro-content .left .img1 {
+        width: 100%;
+        height: 300px;
+        display: block;
+        animation: zoomIn 1s ease-in-out, float 6s ease-in-out infinite;
+    }
+    
+    .image-intro-content .left .img2 {
+        width: 50%;
+        height: 200px;
+        right: 5%;
+        top: 15%;
+        display: block;
+        animation: slideInRight 1s ease-in-out, float 4s ease-in-out infinite;
+    }
+    
+    .image-intro-content .right .img1 {
+        width: 100%;
+        height: 200px;
+        animation: zoomIn 1s ease-in-out, float 5s ease-in-out infinite;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .image-intros {
+        padding: 2rem 0;
+    }
+    
+    .image-intro-content {
+        padding: 0;
+    }
+    
+    .image-intro-content .right p {
+        font-size: 1.3rem;
+    }
+    
+    .image-intro-content .left .img1 {
+        height: 250px;
+    }
+    
+    .image-intro-content .left .img2 {
+        height: 150px;
+        top: 10%;
+    }
+    
+    .image-intro-content .right .img1 {
+        width: 100%;
+        height: 200px;
+    }
 }
 footer {
          
@@ -726,128 +872,149 @@ right: 10px;
   width: 100%;
   padding: 10px;
 }
-
-
-#preloader {
-    position: fixed;
-  
-    top: 0;
-    left: 0;
+.image-intros{
     width: 100%;
-    height: 700px;
-    background-color: white;
-    z-index: 10000;
-}
-#loader {
-    display: block;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 150px;
-    height: 150px;
-    margin: -75px 0 0 -75px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #9370DB;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
 }
-#loader:before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #BA55D3;
-    -webkit-animation: spin 3s linear infinite;
-    animation: spin 3s linear infinite;
-}
-#loader:after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #FF00FF;
-    -webkit-animation: spin 1.5s linear infinite;
-    animation: spin 1.5s linear infinite;
+.gallery {
+    width: 100%;
+    height: auto;
+    padding: 40px 20px;
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
 }
 
+.gallery h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #333;
+    font-family: 'Retro-floral';
+}
 
-@-webkit-keyframes spin {
-    0%   {
-        -webkit-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-@keyframes spin {
-    0%   {
-        -webkit-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-.results-header {
+.gallery-content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
     padding: 20px;
 }
 
+.image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.5s ease;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.image.hide {
+    opacity: 0;
+    transform: scale(0.8);
+    position: absolute;
+    pointer-events: none;
+}
+
+.image:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.image:hover img {
+    transform: scale(1.1);
+}
+
+.image p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.image:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border: none;
+    background: white;
+    color: #333;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #ff4d4d;
+    color: white;
+    transform: translateY(-2px);
+}
+
 @media (max-width:780px){
-    .results-header {
-        padding: 20px;
-    }
-    .sort-options select {
-        padding: 5px 5px;
-        font-size: 12px;
-    }
-    .sort-options span {
-        font-size: 10px;
-    }
-    .results-header h4 {
-        font-size: 15px;
-    }
-    .search button {
+  /*   .image-intros{
+        height: 600px;
+    } */
+    .image-intro-content .left{
         width: 100%;
+        height: 50%;
+        display: none;
     }
-    .search{
-        gap:10px    ;
+    .img1{
+        display: none;
     }
-    .search select {
+    .image-intro-content .right{
         width: 100%;
+        height: 100%;
     }
-    .top{
-        margin-top: -50px;
-    }
-    .head {
-        height: auto;
+    .image-intro-content .left .img1 img {
+        width: 100%;
+        height: 50%;
     }
 
-    .search {
-        flex-direction: column;
+   /*  .img1{
+        display: none;
     }
-    .header h3{
-        font-size: 15px;
-    }
-    .count{
-        font-size: 12px;
-    }
+    .img2{
+        display: none;
+    } */
     .menu-container{
       height: 60px;
   }
@@ -1087,9 +1254,6 @@ menu ul{
 }
 </style>
 <body>
-    <div id="preloader">
-        <div id="loader"></div>
-      </div>
     <section>
         <div class="menu-container">
             <menu>
@@ -1114,7 +1278,7 @@ menu ul{
                 </div>
 
                 <div class="contact-us">
-                    <button class="btn btn-primary" onclick="window.location.href='contact.html'">Enquire Now  <i class="fa-solid fa-arrow-right"></i></button>
+                    <button class="btn btn-primary">Enquire Now  <i class="fa-solid fa-arrow-right"></i></button>
                 </div>
             </menu>
         
@@ -1152,149 +1316,69 @@ menu ul{
             </div>
         </div>
     </section>
-    <section class="welcome-section">
-        <div class="welcome-container" style="background-image: url(colleagues-working-project-discussing-details.jpg);">
+    <div class="text-carousel">
+        <div class="carousel-track">
+          <div class="carousel-item">Welcome to Yogloan's gallery! Empowering dreams across India. Trusted financial partner for every need. Fast, secure, and transparent services. </div>
+          <div class="carousel-item">Welcome to Yogloan's gallery! Empowering dreams across India. Trusted financial partner for every need. Fast, secure, and transparent services. </div>
+        </div>
+      </div>
+      
+      <div class="image-intros" style="background-image: url(mask_back.png);">
+        <div class="image-intro-content">
+            <div class="left">
+                <div class="img1">
+                    <img src="car-model-calculator-coins-white-table.jpg" alt="Financial Planning">
+                </div>
+                <div class="img2">
+                    <img src="golden-rmb-coins-cloth-bag.jpg" alt="Investment Growth">
+                </div>
+            </div>
+            <div class="right">
+                <p>Explore moments captured in trust, growth, and success  welcome to the Yogloan gallery.</p>
+                <div class="img1">
+                    <img src="Flux_Dev_A_family_of_four_two_parents_and_two_young_daughters__3.jpg" alt="Family Financial Security">
+                </div>
+            </div>
             
-                <div class="redirect">
-                   <a href="index.html">Home</a> /  <a href="about.html">Career</a>
-                </div>
-            
         </div>
-    </section>
-    <div class="head">
-        <div class="top">
-        <div class="header">
-            <h3>Find Your Dream Job </h3>
-            <div class="count">
-                60 Openings
-            </div>
-        </div>
-        <div class="search">
-            <select name="" id="">
-                <option value="">All Departments</option>
-                <option value="finance">Finance</option>
-                <option value="operations">Operations</option>
-                <option value="technology">Technology</option>
-                <option value="marketing">Marketing</option>
-                <option value="hr">Human Resources</option>
-            </select>
-            <select name="" id="">
-                <option value="">All Locations</option>
-                <option value="kerala">Kerala</option>
-                <option value="tamilnadu">Tamil Nadu</option>
-                <option value="karnataka">Karnataka</option>
-            </select>
-            <select name="" id="">
-                <option value="">Experience Level</option>
-                <option value="fresher">Fresher</option>
-                <option value="1-3">1-3 Years</option>
-                <option value="3-5">3-5 Years</option>
-                <option value="5+">5+ Years</option>
-            </select>
-            <button>Search <i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-    </div>
-    </div>
+      </div>
 
-    <div class="search-results">
-        <div class="results-header">
-            <h4>Available Positions</h4>
-            <div class="sort-options">
-                <span>Sort by:</span>
-                <select name="sort" id="sort">
-                    <option value="newest">Newest First</option>
-                    <option value="oldest">Oldest First</option>
-                    <option value="title">Job Title</option>
-                    <option value="location">Location</option>
-                </select>
-            </div>
+      <div class="gallery">
+        <h2>Our Gallery</h2>
+        <div class="gallery-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="events">Events</button>
+            <button class="filter-btn" data-filter="team">Team</button>
+            <button class="filter-btn" data-filter="office">Office</button>
+            <button class="filter-btn" data-filter="financial">Financial</button>
         </div>
-        <div class="job-cards">
-            <div class="job-card">
-                <div class="job-header">
-                    <h5>Senior Software Engineer</h5>
-                    <span class="job-type">Full Time</span>
-                </div>
-                <div class="job-details">
-                    <div class="detail-item">
-                        <i class="fa-solid fa-building"></i>
-                        <span>Technology Department</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>Kerala</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fa-solid fa-briefcase"></i>
-                        <span>3-5 Years</span>
-                    </div>
-                </div>
-                <div class="job-description">
-                    <p>We are looking for a Senior Software Engineer to join our technology team...</p>
-                </div>
-                <div class="job-footer">
-                    <span class="posted-date">Posted 2 days ago</span>
-                    <a href="#" class="apply-btn">Apply Now</a>
-                </div>
+        <div class="gallery-content">
+            <div class="image" data-category="events">
+                <img src="gallery1.jpg" alt="Company Event" loading="lazy">
+                <p>Annual Company Meeting 2023</p>
             </div>
-            <div class="job-card">
-                <div class="job-header">
-                    <h5>Financial Analyst</h5>
-                    <span class="job-type">Full Time</span>
-                </div>
-                <div class="job-details">
-                    <div class="detail-item">
-                        <i class="fa-solid fa-building"></i>
-                        <span>Finance Department</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>Tamil Nadu</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fa-solid fa-briefcase"></i>
-                        <span>1-3 Years</span>
-                    </div>
-                </div>
-                <div class="job-description">
-                    <p>Join our finance team as a Financial Analyst to help drive business growth...</p>
-                </div>
-                <div class="job-footer">
-                    <span class="posted-date">Posted 5 days ago</span>
-                    <a href="#" class="apply-btn">Apply Now</a>
-                </div>
+            <div class="image" data-category="team">
+                <img src="gallery2.jpg" alt="Team Building" loading="lazy">
+                <p>Team Building Workshop</p>
             </div>
-            <div class="job-card">
-                <div class="job-header">
-                    <h5>Office Staff</h5>
-                    <span class="job-type">Full Time</span>
-                </div>
-                <div class="job-details">
-                    <div class="detail-item">
-                        <i class="fa-solid fa-building"></i>
-                        <span>Human Resources</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>Karnataka</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fa-solid fa-briefcase"></i>
-                        <span>5+ Years</span>
-                    </div>
-                </div>
-                <div class="job-description">
-                    <p>We're seeking an experienced HR Manager to lead our human resources department...</p>
-                </div>
-                <div class="job-footer">
-                    <span class="posted-date">Posted 1 week ago</span>
-                    <a href="#" class="apply-btn">Apply Now</a>
-                </div>
+            <div class="image" data-category="office">
+                <img src="gallery3.jpg" alt="Office Culture" loading="lazy">
+                <p>Our Modern Workspace</p>
+            </div>
+            <div class="image" data-category="financial">
+                <img src="car-model-calculator-coins-white-table.jpg" alt="Financial Planning" loading="lazy">
+                <p>Financial Planning Session</p>
+            </div>
+            <div class="image" data-category="financial">
+                <img src="golden-rmb-coins-cloth-bag.jpg" alt="Investment Growth" loading="lazy">
+                <p>Investment Portfolio Review</p>
+            </div>
+            <div class="image" data-category="financial">
+                <img src="Flux_Dev_A_family_of_four_two_parents_and_two_young_daughters__3.jpg" alt="Family Financial Security" loading="lazy">
+                <p>Family Financial Planning</p>
             </div>
         </div>
     </div>
-</div>
-
     <footer>
         <div class="footer-container">
             <div class="footer-content">
@@ -1317,7 +1401,7 @@ menu ul{
                         <li><a href="#"><i class="fa-solid fa-arrow-right"></i> About Us</a></li>
                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Services</a></li>
                         <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Investors</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Online Services</a></li>
+                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> >Online Services</a></li>
                         <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Policies</a></li>
                         <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Career</a></li>
                         <li><a href="#"><i class="fa-solid fa-arrow-right"></i> CSR</a></li>
@@ -1383,31 +1467,18 @@ menu ul{
         </div>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    window.addEventListener('load', function() {
-            // First hide the preloader
-            const preloader = document.getElementById('preloader');
-            preloader.style.opacity = '0';
-            preloader.style.transition = 'opacity 0.5s ease';
-            
-            // Then remove it from the DOM after the transition
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 500);
-        });
+ 
 
-        // Fallback in case some content fails to load
-        setTimeout(() => {
-            const preloader = document.getElementById('preloader');
-            if (preloader.style.display !== 'none') {
-                preloader.style.opacity = '0';
-                preloader.style.transition = 'opacity 0.5s ease';
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                }, 500);
-            }
-        }, 5000); // Hide after 5 seconds max, even if not all content loaded
-
+ $('.text-carousel').hover(
+    function () {
+      $('.carousel-track').css('animation-play-state', 'paused');
+    },
+    function () {
+      $('.carousel-track').css('animation-play-state', 'running');
+    }
+  );
     document.addEventListener('DOMContentLoaded', Dom);
       function Dom() {
   document.querySelector('.toggle-icon').addEventListener('click', function () {
@@ -1415,5 +1486,30 @@ menu ul{
     document.querySelector('.re-menu').classList.toggle('active');
   });}
 
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const images = document.querySelectorAll('.image');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            const filterValue = button.getAttribute('data-filter');
+
+            images.forEach(image => {
+                const category = image.getAttribute('data-category');
+                
+                if (filterValue === 'all' || filterValue === category) {
+                    image.classList.remove('hide');
+                } else {
+                    image.classList.add('hide');
+                }
+            });
+        });
+    });
+});
 </script>
 </html>
