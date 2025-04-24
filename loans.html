@@ -481,22 +481,23 @@ footer {
             color: white;
             font-size: 1.5rem;
         }
-      .caroucel {
+        .caroucel {
   position: relative;
   width: 100%;
-  height: 150px;
+  height: 200px;
   overflow: hidden;
+  margin: 20px 0;
 }
 
 .caroucel .images {
   display: flex;
-  width: 300%; /* 100% x number of slides */
+  width: 100%;
   height: 100%;
   transition: transform 0.5s ease-in-out;
 }
 
 .image-cont {
-  width: 100%;
+  min-width: 100%;
   height: 100%;
   flex-shrink: 0;
 }
@@ -514,10 +515,15 @@ footer {
   background: rgba(0,0,0,0.5);
   color: white;
   border: none;
-  font-size: 2rem;
-  padding: 5px 10px;
+  font-size: 1.5rem;
+  padding: 10px 15px;
   cursor: pointer;
   z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.caroucel button:hover {
+  background: rgba(0,0,0,0.8);
 }
 
 .caroucel .prev {
@@ -527,10 +533,31 @@ footer {
 .caroucel .next {
   right: 10px;
 }
+
+#gallery {
+  width: 100%;
+  padding: 10px;
+  background-color: #9a0606;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+#gallery:hover {
+  background-color: #710505;
+  transform: translateY(-2px);
+}
+
 #gallery{
     width: 100%;
     padding: 10px;
 }
+
+
+
 .detail {
     width: 100%;
     height: auto;
@@ -1407,20 +1434,20 @@ menu ul{
                     </div>
                     <div class="caroucel">
                         <div class="images">
-                          <div class="image-cont">
-                            <img src="car-model-calculator-coins-white-table.jpg" alt="">
+                          <div class="image-cont" style="width: 100%; height: 100%;">
+                            <img src="gallery1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
                           </div>
-                          <div class="image-cont">
-                            <img src="Flux_Dev_A_family_of_four_two_parents_and_two_young_daughters__3.jpg" alt="">
+                          <div class="image-cont" style="width: 100%; height: 100%;">
+                            <img src="gallery2.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
                           </div>
-                          <div class="image-cont">
-                            <img src="golden-rmb-coins-cloth-bag.jpg" alt="">
+                          <div class="image-cont" style="width: 100%; height: 100%;">
+                            <img src="gallery3.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
                           </div>
                         </div>
                         <button class="prev">❮</button>
                         <button class="next">❯</button>
                       </div>
-                    <button id="gallery">Explore Our Gallery</button>
+                      <button id="gallery" onclick="window.location.href='gallery.html'">Explore Our Gallery</button>
                 </div>
                 <div class="about" style="background-color: rgb(2, 26, 77);">
                     <div class="logo" style="background-color: rgba(69, 3, 149, 0);">
@@ -1442,10 +1469,8 @@ menu ul{
             </div>
               
         </div>
-
-        
    
-    </footer>
+    </footer>   
     <div class="other-footer">
         <div class="footer-bottom">
             <p>&copy; 2024 Glob Bird. All rights reserved.</p>
@@ -1597,5 +1622,36 @@ else if (selectedTitle === "Business Loan") {
 });
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.querySelector('.caroucel');
+  const images = document.querySelector('.caroucel .images');
+  const prevBtn = document.querySelector('.caroucel .prev');
+  const nextBtn = document.querySelector('.caroucel .next');
+  let currentIndex = 0;
+  const totalImages = document.querySelectorAll('.image-cont').length;
+
+  function updateCarousel() {
+    images.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalImages;
+    updateCarousel();
+  });
+
+  // Auto slide every 4 seconds
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalImages;
+    updateCarousel();
+  }, 4000);
+});
+
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>

@@ -1470,59 +1470,80 @@ none;
             padding: 10px;
         }
  */
-        .caroucel {
-            position: relative;
-            width: 100%;
-            height: 150px;
-            overflow: hidden;
-        }
+ .caroucel {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin: 20px 0;
+}
 
-        .caroucel .images {
-            display: flex;
-            width: 300%;
-            /* 100% x number of slides */
-            height: 100%;
-            transition: transform 0.5s ease-in-out;
-        }
+.caroucel .images {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
 
-        .image-cont {
-            width: 100%;
-            height: 100%;
-            flex-shrink: 0;
-        }
+.image-cont {
+  min-width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+}
 
-        .image-cont img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.image-cont img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-        .caroucel button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            font-size: 2rem;
-            padding: 5px 10px;
-            cursor: pointer;
-            z-index: 10;
-        }
+.caroucel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
 
-        .caroucel .prev {
-            left: 10px;
-        }
+.caroucel button:hover {
+  background: rgba(0,0,0,0.8);
+}
 
-        .caroucel .next {
-            right: 10px;
-        }
+.caroucel .prev {
+  left: 10px;
+}
 
-        #gallery {
-            width: 100%;
-            padding: 10px;
-        }
+.caroucel .next {
+  right: 10px;
+}
 
+#gallery {
+  width: 100%;
+  padding: 10px;
+  background-color: #9a0606;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+#gallery:hover {
+  background-color: #710505;
+  transform: translateY(-2px);
+}
+
+#gallery{
+    width: 100%;
+    padding: 10px;
+}
         @media (max-width:950px) {
             .content .header p {
                 font-family: 'Lato', sans-serif;
@@ -2872,8 +2893,7 @@ input[type=range]::-ms-fill-upper {
                     <div class="logo">
                         <img src="logo.jpg" alt="" srcset="">
                     </div>
-                    <p>To emerge as the most trusted financial solution provider in India, with special focus on
-                        emerging segments of society, through a nationwide, efficient and service oriented network.</p>
+                    <p>To emerge as the most trusted financial solution provider in India, with special focus on emerging segments of society, through a nationwide, efficient and service oriented network.</p>
                     <div class="contact-short">
                         <i class="fa fa-mobile"></i>
                         0487-2320102,2320103
@@ -2886,14 +2906,14 @@ input[type=range]::-ms-fill-upper {
                     <ul>
                         <li> <a href="#"><i class="fa-solid fa-arrow-right"></i> Home</a></li>
                         <li><a href="#"><i class="fa-solid fa-arrow-right"></i> About Us</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Services</a></li>
+                       <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Services</a></li>
                         <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Investors</a></li>
                         <li><a href="#"><i class="fa-solid fa-arrow-right"></i> >Online Services</a></li>
                         <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Policies</a></li>
                         <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Career</a></li>
                         <li><a href="#"><i class="fa-solid fa-arrow-right"></i> CSR</a></li>
                         <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Contact Us</a></li>
-                    </ul>
+                    </ul> 
                 </div>
                 <div class="about">
                     <div class="logo" style="background-color: rgba(69, 3, 149, 0);">
@@ -2901,20 +2921,20 @@ input[type=range]::-ms-fill-upper {
                     </div>
                     <div class="caroucel">
                         <div class="images">
-                            <div class="image-cont">
-                                <img src="car-model-calculator-coins-white-table.jpg" alt="">
-                            </div>
-                            <div class="image-cont">
-                                <img src="Flux_Dev_A_family_of_four_two_parents_and_two_young_daughters__3.jpg" alt="">
-                            </div>
-                            <div class="image-cont">
-                                <img src="golden-rmb-coins-cloth-bag.jpg" alt="">
-                            </div>
+                          <div class="image-cont" style="width: 100%; height: 100%;">
+                            <img src="gallery1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                          </div>
+                          <div class="image-cont" style="width: 100%; height: 100%;">
+                            <img src="gallery2.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                          </div>
+                          <div class="image-cont" style="width: 100%; height: 100%;">
+                            <img src="gallery3.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                          </div>
                         </div>
                         <button class="prev">❮</button>
                         <button class="next">❯</button>
-                    </div>
-                    <button id="gallery" onclick="window.location.href='gallery.html'">Explore Our Gallery</button>
+                      </div>
+                      <button id="gallery" onclick="window.location.href='gallery.html'">Explore Our Gallery</button>
                 </div>
                 <div class="about" style="background-color: rgb(2, 26, 77);">
                     <div class="logo" style="background-color: rgba(69, 3, 149, 0);">
@@ -2922,26 +2942,21 @@ input[type=range]::-ms-fill-upper {
                     </div>
                     <ul class="contact-list">
                         <li>
-                            <i class="fa fa-envelope"></i>
-                            <p>mail@yogloans.com</p>
+                            <i class="fa fa-envelope"></i><p>mail@yogloans.com</p> 
                         </li>
                         <li>
-                            <i class="fa fa-clock-o"></i>
-                            <p>Mon - Saturday 9.00 - 5.30 </p>
+                            <i class="fa fa-clock-o"></i><p>Mon - Saturday 9.00 - 5.30 </p> 
                         </li>
                         <li>
-                            <i class='fas fa-map-marker-alt'></i>
-                            <p> Door No: 28/315 D2, 3rd Floor ,Ottappath Tower, Aswini Junction,Patturaikkal,
-                                Thiruvambady-PO, Thrissur, Kerala-680022
-                        </li>
-                        </p>
+                            <i class='fas fa-map-marker-alt'></i> <p> Door No: 28/315 D2, 3rd Floor ,Ottappath Tower, Aswini Junction,Patturaikkal, Thiruvambady-PO, Thrissur, Kerala-680022
+                            </li></p>
                     </ul>
                 </div>
-
+                
             </div>
-
+              
         </div>
-
+   
     </footer>
     <div class="other-footer">
         <div class="footer-bottom">
@@ -3134,7 +3149,34 @@ input[type=range]::-ms-fill-upper {
                     });
                 });
             });
+            document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.querySelector('.caroucel');
+  const images = document.querySelector('.caroucel .images');
+  const prevBtn = document.querySelector('.caroucel .prev');
+  const nextBtn = document.querySelector('.caroucel .next');
+  let currentIndex = 0;
+  const totalImages = document.querySelectorAll('.image-cont').length;
 
+  function updateCarousel() {
+    images.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalImages;
+    updateCarousel();
+  });
+
+  // Auto slide every 4 seconds
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalImages;
+    updateCarousel();
+  }, 4000);
+});
 
 
         </script>
@@ -3148,6 +3190,8 @@ input[type=range]::-ms-fill-upper {
                 offset: 100
             });
         </script>
+        
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
