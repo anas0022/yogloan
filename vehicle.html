@@ -376,6 +376,97 @@
 
 color: black;
 }
+
+.questions{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+
+}
+.question{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.question p{
+    width: 80%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(236, 234, 234);
+    padding: 10px;
+    box-shadow: 0px 0px 1px 0px gray;
+/*     border-radius: 10px; */
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.question p:hover{
+    background-color: rgb(212, 210, 210);
+}
+.question .point{
+    width: 80%;
+    padding: 0px;
+    height: 0px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(236, 234, 234);
+    transition: all 0.5s ease;
+}
+.question .point p{
+    font-size: 1.1rem;
+    height: auto;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.8;
+}
+.question .point.active{
+    height: auto;
+    padding: 10px;
+}
+.questions{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.questions h1{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+.question-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+   /*  height: 50px;
+    background-color: red; */
+}
+.question-title  img{
+    width: 20px;
+    height: 20px;
+}
+.decree{
+    transition: all 0.5s ease;
+    rotate: 0deg;
+}
+.decree.active{
+    rotate: 90deg;
+}
 footer {
          
           color: white;
@@ -926,6 +1017,18 @@ margin-top: 10px;
       margin-top: 20px;
   }
 @media (max-width:780px){
+  .question .point p {
+        font-size: .8rem;
+    }
+    .questions h1{
+        font-size: 1.5rem;
+    }
+    .question{
+        width: 100%;
+    }
+    .question-title{
+        width: 100%;
+    }
   .menu-container{
       height: 60px;
   }
@@ -1440,7 +1543,32 @@ Maximum duration 48 month.
         <button>Apply Now</button>
         </div>
     </section>
-    
+    <section class="questions">
+      <h1>Frequently Asked Questions</h1>
+      <div class="question">
+          <p class="question-title" style="display: flex; justify-content: space-between; align-items: center; ">What is a vehicle loan? <img src="decree.png" alt="" srcset="" class="decree"></p>
+          <div class="point">
+              <p>A Vehicle Loan is a convenient and secure way to access instant funds by pledging your vehicle as collateral. With minimal documentation and quick processing, it is an ideal solution for urgent financial needs such as business expansion, medical emergencies, or education expenses. The loan amount is determined based on the condition and value of the vehicle, offering competitive interest rates and flexible repayment options to suit your needs. </p>
+          </div>
+          <p class="question-title" style="display: flex; justify-content: space-between; align-items: center; ">How to apply for a vehicle loan? <img src="decree.png" alt="" srcset="" class="decree"></p>
+          <div class="point">
+              <p>To apply for a vehicle loan, you can visit any of our branches or apply online through our website. You will need to provide your personal and vehicle-related documents, and our staff will guide you through the process.</p>
+          </div>
+          <p class="question-title" style="display: flex; justify-content: space-between; align-items: center; ">What are the documents required for a vehicle loan? <img src="decree.png" alt="" srcset="" class="decree"></p>
+          <div class="point">
+              <p>The documents required for a vehicle loan may vary depending on the branch and the specific requirements of the loan. However, generally, you will need to provide the following documents:</p>
+      
+          </div>
+          <p class="question-title" style="display: flex; justify-content: space-between; align-items: center; ">What is the processing Time for a vehicle loan? <img src="decree.png" alt="" srcset="" class="decree"></p>
+          <div class="point">
+              <p>The processing time for a vehicle loan can vary depending on the branch and the specific requirements of the loan. Generally, the loan is processed within 24 hours of submission of the required documents. However, in some cases, it may take longer due to the complexity of the loan or the availability of the vehicle.</p>
+          </div>
+          <p class="question-title" style="display: flex; justify-content: space-between; align-items: center; ">What is the interest rate for a vehicle loan? <img src="decree.png" alt="" srcset="" class="decree"></p>
+          <div class="point">
+              <p>The interest rate for a vehicle loan can vary depending on the branch and the specific requirements of the loan. Generally, the interest rate is 1.5% per month. However, in some cases, it may be higher or lower based on the branch and the specific requirements of the loan.</p>
+          </div>
+      </div>
+  </section>
     <footer>
       <div class="footer-container">
           <div class="footer-content">
@@ -1693,7 +1821,31 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCarousel();
   }, 4000);
 });
-
+document.addEventListener('DOMContentLoaded', function() {
+        const questions = document.querySelectorAll('.question-title');
+        
+        questions.forEach(question => {
+            question.addEventListener('click', function() {
+                const point = this.nextElementSibling;
+                const decree = this.querySelector('.decree');
+                const isActive = point.classList.contains('active');
+                
+                // Remove active class from all points and decrees
+                document.querySelectorAll('.point').forEach(p => {
+                    p.classList.remove('active');
+                });
+                document.querySelectorAll('.decree').forEach(d => {
+                    d.classList.remove('active');
+                });
+                
+                // Toggle the clicked point and decree
+                if (!isActive) {
+                    point.classList.add('active');
+                    decree.classList.add('active');
+                }
+            });
+        });
+    });
 </script>
 <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
