@@ -2546,7 +2546,7 @@ input[type=range]::-ms-fill-upper {
             align-items: center;
             background-color: #ffffff;
             padding: 10px;
-     
+            border-radius: 5px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             list-style: none;
          }
@@ -2564,75 +2564,6 @@ input[type=range]::-ms-fill-upper {
             align-items: center;
             border:none;
          }
-         .investors-list{
-            opacity: 0;
-            transition: all 0.3s ease;
-            position:absolute;
-        top:8%;
-        width:20%;
-        z-index: 400000000;
-            left: 30%;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            justify-content: center;
-            align-items: center;
-            background-color: #ffffff;
-            padding: 10px;
-       
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            list-style: none;
-         }
-         .investors-list li{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-         }
-         .investors-list li a{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border:none;
-         }
-         .online-services-list{
-            opacity: 0;
-            transition: all 0.3s ease;
-            position:absolute;
-        top:8%;
-        width:20%;
-        z-index: 400000000;
-            left: 40%;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            justify-content: center;
-            align-items: center;
-            background-color: #ffffff;
-            padding: 10px;
-       
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            list-style: none;
-         }
-         .online-services-list li{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border:none;
-         }
-         .online-services-list li a{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border:none;
-         }
-       
-         
     </style>
 </head>
 
@@ -2700,25 +2631,9 @@ input[type=range]::-ms-fill-upper {
                         <li style="border:none;"><a href="personal.html" style="border:none;">Business Loan</a></li>
                         <li style="border:none;"><a href="cd.html" style="border:none;">CD Loan</a></li>
                     </ul>
-                    <li><a  class="investors-link">Investors</a></li>
-                    <ul class="investors-list">
-                        <li style="border:none; border-right: none;"> <a href="annualreport.html" style="border:none; border-right: none;">Annual Reports</a></li>
-                        <li style="border:none;"><a href="announcements.html" style="border:none;">Announcements</a></li>
-                        <li style="border:none;"><a href="investorecontact.html" style="border:none;">Investor Contact</a></li>
-                        <li style="border:none;"><a href="publicDisclosure.html" style="border:none;">Public Disclosure</a></li>
-                        <li style="border:none;"><a href="FormsforTDSonDividend.html" style="border:none;">Forms for TDS on Dividend</a></li>
-                        <li style="border:none;"><a href="unpaidDivident.html" style="border:none;">Unpaid Divident</a></li>
-                        <li style="border:none;"><a href="APPOINTMENTORDER.html" style="border:none;">Appointment Order-Id </a></li>
-                        <li style="border:none;"><a href="Digital Lending Partners.html" style="border:none;">Digital Lending Partners</a></li>
-                    </ul>
-                    <li><a href="online-services.html" class="online-services-link">Online Services</a></li>
-                    <ul class="online-services-list">
-                        <li style="border:none; border-right: none;"> <a href="online-services.html" style="border:none; border-right: none;">Online Services</a></li>
-                        <li style="border:none;"><a href="online-services.html" style="border:none;">Online Services</a></li>
-                        <li style="border:none;"><a href="online-services.html" style="border:none;">Online Services</a></li>
-                        <li style="border:none;"><a href="online-services.html" style="border:none;">Online Services</a></li>
-                        <li style="border:none;"><a href="online-services.html" style="border:none;">Online Services</a></li>
-                    </ul>
+                    <li><a href="investors.html">Investors</a></li>
+                    
+                    <li><a href="online-services.html">Online Services</a></li>
                     <li><a href="policies.html">Policies</a></li>
                     <li><a href="career.html">Career</a></li>
                     <li><a href="csr.html">CSR</a></li>
@@ -3370,59 +3285,23 @@ input[type=range]::-ms-fill-upper {
                 offset: 100
             });
 
-                document.addEventListener('DOMContentLoaded', function() {
-                    const servicesLink = document.querySelector('.services-link');
-                    const servicesList = document.querySelector('.services-list');
-
-                    servicesLink.addEventListener('mouseover', function(e) {
-                        servicesList.style.opacity = '1';
-                    });
-                    servicesLink.addEventListener('mouseout', function(e) {
-                        servicesList.style.opacity = '0';
-                    });
-                    servicesList.addEventListener('mouseover', function(e) {
-                        servicesList.style.opacity = '1';
-                    });
-                    servicesList.addEventListener('mouseout', function(e) {
-                        servicesList.style.opacity = '0';
-                    });
-                });
             document.addEventListener('DOMContentLoaded', function() {
-                const investorsLink = document.querySelector('.investors-link');
-                const investorsList = document.querySelector('.investors-list');
+                const servicesLink = document.querySelector('.services-link');
+                const servicesList = document.querySelector('.services-list');
 
-                investorsLink.addEventListener('mouseover', function(e) {
-                    investorsList.style.opacity = '1';
-                   
+                servicesLink.addEventListener('mouseover', function(e) {
+                    servicesList.style.opacity = '1';
                 });
-                investorsLink.addEventListener('mouseout', function(e) {
-                    investorsList.style.opacity = '0';
+                servicesLink.addEventListener('mouseout', function(e) {
+                    servicesList.style.opacity = '0';
                 });
-                investorsList.addEventListener('mouseover', function(e) {
-                    investorsList.style.opacity = '1';
+                servicesList.addEventListener('mouseover', function(e) {
+                    servicesList.style.opacity = '1';
                 });
-                investorsList.addEventListener('mouseout', function(e) {
-                    investorsList.style.opacity = '0';
+                servicesList.addEventListener('mouseout', function(e) {
+                    servicesList.style.opacity = '0';
                 });
             });
-           /*  document.addEventListener('DOMContentLoaded', function() {
-                const onlineServicesLink = document.querySelector('.online-services-link');
-                const onlineServicesList = document.querySelector('.online-services-list');
-
-                onlineServicesLink.addEventListener('mouseover', function(e) {
-                    onlineServicesList.style.opacity = '1';
-                });
-                onlineServicesLink.addEventListener('mouseout', function(e) {
-                    onlineServicesList.style.opacity = '0';
-                });
-                onlineServicesList.addEventListener('mouseover', function(e) {
-                    onlineServicesList.style.opacity = '1';
-                });
-                onlineServicesList.addEventListener('mouseout', function(e) {
-                    onlineServicesList.style.opacity = '0';
-                });
-            }); */
-            
             
         </script>
         <!--Start of Tawk.to Script-->
