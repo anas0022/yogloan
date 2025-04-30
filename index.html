@@ -2476,6 +2476,52 @@ input[type=range]::-ms-fill-upper {
             letter-spacing: 1px;
             border: 1px solid rgb(157, 153, 153);
         }
+        .re-menu .services-list2{
+              opacity: 0;
+              height: 0;
+              width: 100%;
+              overflow: hidden;
+              display: none;
+              transition: all 0.3s ease;
+            }
+            .re-menu .services-list2.active{
+              opacity: 1;
+              height: auto;
+              width: 100%;
+              display: block;
+              overflow: visible;
+              padding: 10px;
+              background-color: rgba(255, 255, 255, 0.9);
+              border-radius: 8px;
+              margin: 10px 0;
+            }
+            .re-menu .services-list2 ul{
+                height: auto;
+                padding: 0;
+                margin: 0;
+            }
+            .re-menu .services-list2 li{
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0;
+                background-color: white;
+                border-radius: 5px;
+                transition: all 0.3s ease;
+            }
+            .re-menu .services-list2 li:hover{
+                background-color: #ff4d4d;
+                color: white;
+                transform: translateX(5px);
+            }
+            .re-menu .services-list2 li a{
+                color: #333;
+                text-decoration: none;
+                width: 100%;
+                display: block;
+            }
+            .re-menu .services-list2 li:hover a{
+                color: white;
+            }
      /*    .services-list{
             width: 100%;
             display: flex;
@@ -2564,6 +2610,8 @@ input[type=range]::-ms-fill-upper {
             align-items: center;
             border:none;
          }
+        
+      
     </style>
 </head>
 
@@ -2655,7 +2703,13 @@ input[type=range]::-ms-fill-upper {
             <ul>
                 <li><i class="fas fa-home"></i> <a href="index.html">Home</a></li>
                 <li><i class="fas fa-info-circle"></i> <a href="about.html">About Us</a></li>
-                <li><i class="fas fa-cogs"></i> <a href="services.html">Services</a></li>
+                <li class="services-link2"><i class="fas fa-cogs"></i> <a href="services.html">Services</a></li>
+                <ul class="services-list2">
+                    <li><a href="loans.html">Gold Loan</a></li>
+                    <li><a href="vehicle.html">Vehicle Loan</a></li>
+                    <li><a href="personal.html">Business Loan</a></li>
+                    <li><a href="cd.html">CD Loan</a></li>
+                </ul>
                 <li><i class="fas fa-chart-line"></i> <a href="investors.html">Investors</a></li>
                 <li><i class="fas fa-globe"></i> <a href="online-services.html">Online Services</a></li>
                 <li><i class="fas fa-file-alt"></i> <a href="policies.html">Policies</a></li>
@@ -3301,6 +3355,13 @@ input[type=range]::-ms-fill-upper {
                 servicesList.addEventListener('mouseout', function(e) {
                     servicesList.style.opacity = '0';
                 });
+                const servicesLink2 = document.querySelector('.services-link2');
+                const servicesList2 = document.querySelector('.services-list2');
+               servicesLink2.addEventListener('click', function(e) {
+                servicesList2.classList.toggle('active');
+               });
+                
+                
             });
             
         </script>
