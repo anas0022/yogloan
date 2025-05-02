@@ -7,18 +7,21 @@
     <title>Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
  
     <style>
-
+        body{
+            background-color: #ffffff;
+        }
 @font-face {
             font-family: 'Lato';
             src: url('lato/Lato-Medium.ttf') format('truetype');
@@ -55,7 +58,7 @@
             content: "";
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.295);
+          /*   background-color: rgba(0, 0, 0, 0.295); */
             position: absolute;
             top: 0;
             left: 0;
@@ -111,7 +114,7 @@
             align-items: center;
             justify-content: center;
             background-color: white;
-            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
         }
 
         menu {
@@ -120,7 +123,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
         }
 
         menu ul {
@@ -130,11 +132,9 @@
             align-items: center;
             justify-content: space-between;
             padding: 3px;
-
         }
 
         menu ul li {
-
             cursor: pointer;
             text-align: center;
             height: 100%;
@@ -149,27 +149,12 @@
 
         menu ul li a {
             color: rgb(9, 6, 116);
-        }
-
-      /*   menu ul li:after {
-            content: "";
-            position: absolute;
-            right: 0;
-            top: 25%;
-            height: 50%;
-            width: 1px;
-            background-color: rgb(162, 5, 5);
-            transform: rotate(15deg);
-            transition: all 0.3s ease-in-out;
-        }
- */
-        menu ul li:last-child:after {
-            display: none;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         menu ul li:hover {
             color: rgb(162, 5, 5);
-         /*    border-bottom: 2px solid rgb(162, 5, 5); */
             transform: translateY(-2px);
             font-weight: 600;
         }
@@ -189,6 +174,13 @@
             border: none;
             border-radius: 0px;
             font-size: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-us button:hover {
+            background-color: #8a0000;
+            transform: translateY(-2px);
         }
 
         .image-container {
@@ -431,208 +423,7 @@
             right: 20px;
         }
 
-        .welcome-section {
-            width: 100%;
-            height: 500px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .welocme {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            position: relative;
-        }
-
-        .welocme::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            /*  background-color: rgba(0, 3, 3, 0.669); */
-          /*   background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.5)); */
-            z-index: 100;
-        }
-
-        .welcome-text {
-            position: relative;
-            z-index: 2;
-            width: 65%;
-            height: 100%;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            justify-content: center;
-            padding-left: 10%;
-            z-index: 102;
-        }
-
-        .welcome-text p {
-            font-family: 'Lato', sans-serif;
-            font-size: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .welcome-text h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 4rem;
-            text-transform: capitalize;
-            line-height: 1.2;
-        }
-
-        .welcome-text h1 span {
-            color: blue;
-        }
-
-        .welcome-text button {
-            font-family: 'Poppins', sans-serif;
-            padding: 10px;
-            background-color: #B70000;
-            color: white;
-            border: none;
-            margin-top: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        .side{
-           /*  width: 5%; */
-           padding: 10px;
-            height: 80%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            /* background-color: #B70000; */
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 0;
-            bottom: 0;
-            z-index: 100000000;
-        }
-        .side a {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-        }
-        .side img{
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            filter: invert(1);
-            transition: transform 0.3s ease;
-        }
-        .side a:hover img {
-            transform: scale(1.1);
-        }
-        .side a::after {
-            content: attr(data-title);
-            position: absolute;
-            right: 100%;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: white;
-            color: rgb(154, 6, 6);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            margin-right: 10px;
-        }
-        .side a:hover::after {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-
-        .services-section {
-            width: 100%;
-            padding: 80px 0;
-            background-color: #f8f9fa;
-        }
-
-        .services-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 50px;
-        }
-
-        .services-text {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            gap: 50px;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .services-text p {
-          /*   font-family: 'Poppins', sans-serif; */
-            font-size: 1rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            gap: 10px;
-            color: rgb(154, 6, 6);
-         /*    text-transform: uppercase; */
-            letter-spacing: 2px;
-        }
-
-        .services-text p span {
-            width: 40px;
-            border-bottom: 2px solid rgb(154, 6, 6);
-        }
-
-        .services-text h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-top: 10px;
-        }
-
-        .services-text .right {
-            width: 70%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .services-text .right p {
-            font-family: 'Lato', sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  color: #666;
-  line-height: 1.8;
-  padding:
-0 10px;
-  text-transform: capitalize;
-}
-        
-
+      
         .service-cards {
             width: 100%;
             display: flex;
@@ -848,7 +639,7 @@
             height: 100vh;
             width: 100%;
             background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
-            z-index: 10000;
+            z-index: 40000000000003333333333330000;
             opacity: 0;
             transform: translateX(-100%);
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1071,12 +862,13 @@
             box-shadow: 0 8px 15px rgba(255, 77, 77, 0.3);
         }
 
-        footer {
+     /*    footer {
 
-            color: white;
+            color: rgb(0, 0, 0);
             padding: 4rem 2rem 2rem;
-            background-color: #002FEB;
+            background-color: #ffffff;
             width: 100%;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
         }
 
         .footer-container {
@@ -1095,7 +887,166 @@
 
             padding: 10px;
         }
+ */
+ ul {
+    margin: 0px;
+    padding: 0px;
+}
+.footer-section {
+  background: #ffffff;
+  position: relative;
+  margin-top: 30px;
+}
+.footer-cta {
+  border-bottom: 1px solid #e0e0e0;
+}
+.single-cta i {
+  color: #002FEB;
+  font-size: 30px;
+  float: left;
+  margin-top: 8px;
+}
+.cta-text {
+  padding-left: 15px;
+  display: inline-block;
+}
+.cta-text h4 {
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cta-text span {
+  color: #666;
+  font-size: 15px;
+}
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+}
+.footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #666;
+  line-height: 28px;
+}
+.footer-social-icon span {
+  color: #333;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+}
+.footer-social-icon a {
+  color: #333;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
 
+.twitter-bg{
+  background: #55ACEE;
+}
+.google-bg{
+  background: #DD4B39;
+}
+.footer-widget-heading h3 {
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+.footer-widget-heading h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  height: 2px;
+  width: 50px;
+  background: #002FEB;
+}
+.footer-widget ul li {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  margin-bottom: 12px;
+}
+.footer-widget ul li a:hover{
+  color: #002FEB;
+}
+.footer-widget ul li a {
+  color: #666;
+  text-transform: capitalize;
+}
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+.subscribe-form input {
+  width: 100%;
+  padding: 14px 28px;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  color: #333;
+}
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #002FEB;
+    padding: 13px 20px;
+    border: 1px solid #002FEB;
+    top: 0;
+}
+.subscribe-form button i {
+  color: #fff;
+  font-size: 22px;
+  transform: rotate(-6deg);
+}
+.copyright-area{
+  background: #f8f9fa;
+  padding: 25px 0;
+}
+.copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+.copyright-text p a{
+  color: #002FEB;
+}
+.footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.footer-menu li:hover a{
+  color: #002FEB;
+}
+.footer-menu li a {
+  font-size: 14px;
+  color: #666;
+}
         .about .logo {
             width: 100px;
             height: 30px;
@@ -1153,7 +1104,7 @@
             display: flex;
         }
 
-        .other-footer {
+      /*   .other-footer {
             width: 100%;
             height: 80px;
             background-color: #B70000;
@@ -1190,7 +1141,7 @@
         .footer-icons i {
             color: white;
             font-size: 1.5rem;
-        }
+        } */
 
         .image img {
             height: 350px;
@@ -1904,7 +1855,7 @@ input[type=range]::-ms-fill-upper {
             width: 100%;
             height: 100%;
             background-color: white;
-            z-index: 1000000000;
+            z-index: 40000000000000000000;
         }
 
         #loader {
@@ -1984,6 +1935,7 @@ input[type=range]::-ms-fill-upper {
     }
 }
         @media (max-width:780px) {
+         
             .payscale {
                 flex-direction: column;
                 height: auto;
@@ -2610,12 +2562,757 @@ input[type=range]::-ms-fill-upper {
             align-items: center;
             border:none;
          }
+         .welcome-section{
+            position: relative;
+         
+         }
+        .owl-dot{
+            position: absolute;
+            background-color: rgba(128, 128, 128, 0.6);
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            z-index: 1000000000;
+            transition: all 0.3s ease;
+            bottom: 20px;
+            border: none;
+            outline: none;
+        }
+     /*    
+        .owl-dot.active{
+            background-color: #FFD700;
+            border: none;
+            outline: none;
+        }
+ */
+        .owl-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 0;
+            z-index: 1000000000;
+            border-radius: 2px;
+        }
+
+        .owl-dot {
+            position: relative;
+            background-color: transparent;
+            width: 30px;
+            height: 2px;
+            margin: 0;
+            cursor: pointer;
+            z-index: 1000000000;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+        }
         
+        .owl-dot.active {
+            background-color: #FFD700;
+        }
+        #owl-demo1{
+            height: 400px;
+        }
+        .blog-allof{
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: start;
+            align-items: end;
+        }
+      .blog-allof-content{
+        width: 70%;
+        height: 100%;
+       
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        padding: 20px;
+      /*   gap: 10px; */
+ /*        border:1px solid; */
+      }
+      .content-container{   
+        width:100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+/*         border:1px solid; */
+       
+      }
+      .blog-allof-content h3{
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #ffffff;
+        text-align: start;
+        width: 100%;
+      }
+      .blog-allof-content p{
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: #ffffff;
+        text-align: start;
+      
+      }
+      .blog-allof-content button{
+        width:20%;
+        height: 40px;
+        background-color: #002FEB;
+        color: #ffffff;
+        border: none;
+        font-size: 1rem;
+        text-align: center; 
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 10px;
+        margin-top: 30px;
+        border-radius: 5px;
+      }
+      .blog-allof-content button:hover{
+        background-color: #000000;
+        color: #ffffff;}
+        .loan-section{
+            height:auto;
+            width: 100%;
+          /*   background-color: #002FEB; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -100px;
+            position: relative;
+            z-index: 1000000000;
+  
+        }
+        .loan-section .left{
+            width: 20%;
+            height: 100%;
+          /*   background-color: #002FEB; */
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            padding: 10px;
+        }
+        .loan-section .right{
+            width: 80%;
+            height: 100%;
+      /*       background-color: #002FEB; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .loan-section .top{
+            width: 100%;
+            height: 50%;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        }
+        .loan-section .bottom{
+            width: 100%;
+            height: 80%;
+            background-color: #ffffff;
+            border-top-left-radius: 20px;
+            padding: 10px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        }
+        .loan-section .left-content{
+            width: 100%;
+            height: 250px;
+            position: relative;
+            top:70px;
+            background-color: #ffffff;
+            border-radius: 10px;
+       /*      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .loan-section .left-content .image{
+            width: 100%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: start;
+            gap: 10px;
+        }
+        .loan-section .left-content .image img{ 
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .loan-section .left-content .image p{
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4a4949;
+            text-align: center;
+            width: 100%;
+            height: 20%;
+            position: relative;
+            top: 10px;
+        }
+   .loan-section .tops{
+            width: 100%;
+            height: 30%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+        .loan-section  .top-content{
+            width: 70%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #002feb88;
+            position: relative;
+            z-index: 1000000000;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        .loan-section .top-content::before{
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: #f1f1f18e;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+
+        }
+        .loan-section .top-content-container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+         
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        .loan-section .top-content-container span{
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .loan-section .top-content-container span i{
+            font-size: 1.5rem;
+        }
+        .loan-section .top-content-container span.active{
+            background-color: #ffffff;
+           /*  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); */
+            height: 110%;
+             width:25%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            color:rgb(0, 0, 0);
+        }
+        .loan-section .top-content-container span.active i{
+            color:gold;
+        }
+        .loan-section .gold-loan-content{
+            width: 100%;
+            height: 100%;
+            padding: 30px;
+            display: flex;
+             flex-direction: column; 
+            justify-content: center;
+        }
+        .loan-section .gold-loan-content img{
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .loan-section .gold-loan-content .content-containers{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+        }
+        .loan-section .gold-loan-content .content-containers h3{
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #000000;
+        }
+        .loan-section .gold-loan-content .content-containers p{
+            font-size: 1rem;
+            font-weight: 400;
+            color: #7b7b7b;
+        }
+        .loan-section .gold-loan-content .content-containers button{
+            width: 100px;
+            height: 40px;
+            background-color: #002FEB;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .loan-section .gold-loan-content .image-container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+       /*  .loan-section .gold-loan-content .image-container img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        } */
+        .loan-section .gold-loan-content .special-offer{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding:30px;
+            gap: 10px;
+        }
+        #cd-loan{
+            display: none;
+        }
+        #business-loan{
+            display: none;
+        }
+        #vehicle-loan{
+            display: none;
+        }
+
+        .left-carousel {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .left-carousel .left-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .left-carousel .left-content .image {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .left-carousel .left-content .image img {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .left-carousel .left-content .image p {
+            color: #002FEB;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 8px 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+            margin: 0;
+            width: 100%;
+            display: block;
+        }
+
+        .left-carousel .owl-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            gap: 5px;
+            z-index: 3;
+
+        }
+
+        .left-carousel .owl-dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .left-carousel .owl-dot.active {
+            background: #002FEB;
+            transform: scale(1.2);
+        }
+        .loan-section .top-content {
+            height: 100px;
+        }
+        .about-container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .about-container .about-content{    
+            width: 95%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1000000000;
+            gap: 8px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .about-container .about-content::before{
+            content: "";
+            width: 100%;
+            height: 50%;
+            background-color: #617ef039;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .about-container .about-content p{
+            font-size: 1rem;
+         /*    font-weight: 600; */
+         color: #7b7b7b;
+            width: 90%;
+        }
+        .about-container .about-content h3{
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #000000;
+            width: 90%;
+        }
+        .contact-container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .contact-container h3{
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #000000;
+           
+        }
+        .contact-container .form{
+            width: 100%;
+            height: 100%;
+            display: flex;
+           justify-content: center;
+           align-items: center;
+           gap: 10px;
+           background-color: white;
+           box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0.1);
+        }
+        .contact-container .form .left{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: white;
+        }
+        .contact-container .form .left form{
+            width: 100%;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            gap: 10px;
+        }
+        .contact-container .form .left form input{
+            width: 100%;
+            height: 40px;
+            border: 1px solid;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .contact-container .form .left form textarea{
+            width: 100%;
+            height: 100px;
+            border: 1px solid;
+            border-radius: 5px;
+        }
+        .contact-container .form .left form button{
+           /*  width: 100%; */
+            height: 80px;
+            border: none;
+            border-radius: 5px;
+            background-color: #002FEB;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1rem;
+          padding: 10px;
+        }
+        .contact-container .form .right{
+            width: 50%;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: start;
+            background-color: white;
+        }
+        .contact-container .form .right .address{
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        .contact-container .form .right img{
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+        }
+        .contact-container .form .right .phone{
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        .contact-container .form .right .email{
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        .contact-container .form .right .phone img{
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+        }
+        .contact-container .form .right .email img{
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+        }
+        .contact-container .form .right .address img{
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+        }
+        .contact-container .form .right .phone p{
+            font-size: .8rem;
+            /* font-weight: 600; */
+            color: #000000;
+        }
+        .contact-container .form .right .email p{
+            font-size: .8rem;
+            /* font-weight: 600; */
+            color: #000000;
+        }
+        .contact-container .form .right .address p{
+            font-size: .8rem;
+            /* font-weight: 600; */
+            color: #000000;
+        }
+        .contact-container .form .right .social{
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #000000;
+            border-bottom: 1px solid #000000;
+            padding: 50px;
+            height:20%;
+            width: 100%;
+            font-size: 1.5rem;
+        }
+        .contact-container .form .right .social i{
+           cursor: pointer;
+        }
+        
+        .contact-container .form{
+                flex-direction: row;
+            }
+            .row{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+                padding: 20px;
+            }
+         
+        
+        @media (max-width:780px) {
+            
+            .blog-allof-content h3{
+                font-size: 1.5rem;
+            }
+            .blog-allof-content p{
+                font-size: 1rem;
+            }
+            .blog-allof-content button{
+                font-size: 1rem;
+            }
+            .blog-allof-content {
+                justify-content: start;
+                height: 80%;
+                margin: 0px;
+                width: 100%;
+            }
+            .blog-allof-content .content-containers{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+            }
+            .blog-allof-content .content-containers p{
+                font-size: 1rem;
+            }
+            .blog-allof-content .content-containers button{
+                font-size: 1rem;
+                width: 50%;
+            }
+            .loan-section {
+                margin-top: -20px;
+                flex-direction:column-reverse;
+                z-index: 200;
+            }
+            .loan-section .right {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: start;
+                position: relative;
+                top: 0%;
+                left:2%;
+             /*    transform: translate(-100%,0%); */
+            }
+            .loan-section .bottom {
+                border-top-left-radius: 0px;
+            }
+        
+
+.loan-section .top-content {
+    width: 100%;/* 
+    height: 100%; */
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    
+}
+.loan-section .top-content-container span {
+    font-size: .6rem;
+}
+.loan-section .top-content-container span i{
+    font-size: 1rem;
+
+}
+              .loan-section .left {
+            width: 100%;
+                display: none;
+        }
+        .loan-section .gold-loan-content img {
+            width:80px;
+            height:80px;
+            flex-direction: column;
+        }
+        .loan-section .gold-loan-content p{
+            font-size: .8rem;
+        }
+        .loan-section .gold-loan-content .image-container {
+            flex-direction: column;
+        }
+        .loan-section .gold-loan-content .special-offer {
+ /*         border: 1px solid red; */
+         width: 100%;
+         height: 100%;
+         display: flex;
+        /*  flex-direction: column; */
+         justify-content: center;
+         align-items: center;
+         padding: 0px;
+        }
+        .loan-section .gold-loan-content {
+            padding: 0px;
+        }
+        .loan-section .gold-loan-content .content-containers p {
+            font-size: .8rem;
+        }
+        .loan-section .gold-loan-content .content-containers button {
+            font-size: .8rem;
+        }
+        .loan-section .gold-loan-content .content-containers h3 {
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        .contact-container .form{
+                flex-direction: column;
+            }
+            .contact-container .form .left{
+                width: 100%;
+            }
+            .contact-container .form .right{
+                width: 100%;
+            }
+            .about-container{
+                position: relative;
+                z-index: 200;
+            }
+            .row{
+                flex-direction: column-reverse;
+            }
+        }
       
     </style>
 </head>
 
-<body>
+<body style="background-color: #ffffff;">
     <div id="preloader">
         <div id="loader"></div>
     </div>
@@ -2645,7 +3342,7 @@ input[type=range]::-ms-fill-upper {
                             </div>
                             <div class="text">
                                 <p>Email</p>
-                                <p>info@gmail.com</p>
+                                <p>mail@yogloans.com</p>
                             </div>
                         </div>
                         <div class="location">
@@ -2654,7 +3351,7 @@ input[type=range]::-ms-fill-upper {
                             </div>
                             <div class="text">
                                 <p>Location</p>
-                                <p>123, Main Street, Anytown, USA</p>
+                                <p>Door No: 28/315 D2, 3rd Floor ,Ottappath Tower, Aswini Junction,Patturaikkal, Thiruvambady-PO, Thrissur, Kerala-680022 </p>
                             </div>
                         </div>
                     </div>
@@ -2673,7 +3370,7 @@ input[type=range]::-ms-fill-upper {
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a class="services-link" >Services</a></li>
-                    <ul class="services-list">
+                    <ul class="services-list" style="z-index: 10000000000000000;">
                         <li style="border:none; border-right: none;"> <a href="loans.html" style="border:none; border-right: none;">Gold Loan</a></li>
                         <li style="border:none;"><a href="vehicle.html" style="border:none;">Vehicle Loan</a></li>
                         <li style="border:none;"><a href="personal.html" style="border:none;">Business Loan</a></li>
@@ -2742,604 +3439,365 @@ input[type=range]::-ms-fill-upper {
         </div>
     </section>
  
-    <section class="welcome-section">
-        <div class="welocme"
-            style="background-image: url(portrait-millennial-couple-living-country-side-after-moving-from-city.jpg);">
-            <div class="welcome-text" >
-                <p style="color: #B70000; font-weight:bolder;">One Step Closer</p>
-                <h1 ">to Making Dreams  a Reality</h1>
-                <p >We are a team of experienced professionals who are dedicated to providing the best possible service to our clients.</p>
-                <button onclick="window.location.href='contact.html'">Enquire Now </button>
-            </div>
-          <div class="side">
-            <a href="loans.html" data-title="Gold Loan">
-                <img src="money.png" alt="">
-            </a>
-            <a href="vehicle.html" data-title="Vehicle Loan">
-                 <img src="car-loan.png" alt="">
-            </a>
-            <a href="personal.html" data-title="Business Loan">
-              <img src="personal.png" alt="">
-               
-            </a>
-            <a href="cd.html" data-title="CD Loan">
-                <img src="term.png" alt="">
-            </a>
-          </div>
-        </div>
-        
-    </section>
-
-
-    <section class=" services-section">
-                    <div class="services-container">
-                        <div class="services-text">
-                            <div class="left">
-                                <p>Services <span></span></p>
-                                <h1>All Loan Services</h1>
-                            </div>
-                            <div class="right">
-                                <p>Our organization will strive to provide the best financial solutions to the customers with the highest levels of professionalism in every aspect of their dealings with them. All interactions with our stakeholders would be based on our core values of ethical, transparent and trustworthy conduct in an effort to create and enhance confidence in them.</p>
-                            </div>
-                        </div>
-                        <div class="service-cards">
-                            <!--  <div class="card">
-                    <div class="card-image" style="width: 100%; height: 70%;">
-                        <img src="car-model-calculator-coins-white-table.jpg">
+   <section class="welcome-section" style="padding: 0; margin: 0; overflow: hidden;">
+    <div id="owl-demo1" class="owl-carousel owl-theme" style="margin: 0; padding: 0;">
+        <div class="allitem" style="margin: 0; padding: 0;">
+            <div class="blog-allof" style="border: none; background-image: url('goldloan.jpg'); height: 500px; width: 100%; background-size: cover; background-position: center; margin: 0; padding: 0;">
+                <div class="blog-allof-content">
+                    <div class="content-containers">
+                        <h3>Gold Loan</h3>
+                        <p>Experience doorstep gold loan services </p>
+                        <button  onclick="window.location.href='gold-loan.html'">Apply Now</button>
                     </div>
-                    <div class="card-text">
-                        <div class="header">
-                            <i class="fa-solid fa-car"></i>
-                            <h1>Vehicle Loans </h1>
+                </div>
+            </div>
+        </div>
+        <div class="allitem" style="margin: 0; padding: 0;">
+            <div class="blog-allof" style="border: none; background-image: url('vehicle.jpg'); height: 500px; width: 100%; background-size: cover; background-position: center; margin: 0; padding: 0;">
+                <div class="blog-allof-content">
+                    <div class="content-containers">
+                        <h3>Vehicle Loan</h3>
+                        <p> Finance facility upto onroad price for eligible customers.  </p>
+                        <button  onclick="window.location.href='vehicle-loan.html'">Apply Now</button>
                         </div>
-                        <div class="read">
-                            Read More <i class="fa-solid fa-arrow-right"></i>
-                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="allitem" style="margin: 0; padding: 0;">
+            <div class="blog-allof" style="border: none; background-image: url('medium-shot-woman-with-white-house.jpg'); height: 500px; width: 100%; background-size: cover; background-position: center; margin: 0; padding: 0;">
+                <div class="blog-allof-content">
+                    <div class="content-containers">
+                        <h3>Business Loan</h3>
+                        <p>Loan provided for minimum 5 member and
+                            maximum 15 members.  </p>
+                        <button  onclick="window.location.href='business-loan.html'">Apply Now</button>
+                    </div>
+            </div>
+        </div>
+        </div>
+        <div class="allitem" style="margin: 0; padding: 0;">
+            <div class="blog-allof" style="border: none; background-image: url('cdn.jpg'); height: 500px; width: 100%; background-size: cover; background-position: center; margin: 0; padding: 0;">
+                <div class="blog-allof-content">
+                    <div class="content-containers">
+                        <h3>CD Loan</h3>
+                        <p>The second co-applicant shall be a person from the same group.  </p>
+                        <button  onclick="window.location.href='cd-loan.html'">Apply Now</button>
+                    </div>
+            </div>
+        </div>
+        <!-- <div class="allitem" style="margin: 0; padding: 0;">
+            <div class="blog-allof" style="border: none; background-image: url('rakesh.jpg'); height: 500px; width: 100%; background-size: cover; background-position: center; margin: 0; padding: 0;">
+            </div>
+        </div> -->
+    </div>
+   </section>
+
+   <section class="loan-section">
+        <div class="left">
+            <div class="owl-carousel left-carousel">
+                <div class="left-content">
+                    <p>Pay your loan EMI online</p>
+                    <div class="image">
+                        <img src="paymentonline.jpg" alt="" srcset="">
+                     
+                    </div>
+                </div>
+                <div class="left-content">
+                    <p> Daily collection facility.</p>
+                    <div class="image">
+                        <img src="daily-collection.jpg" alt="" srcset="">
+                      
+                    </div>
+                </div>
+               <!--  <div class="left-content">
+                    <div class="image">
+                        <img src="paymentonline.jpg" alt="" srcset="">
+                        <p>Pay your loan EMI online</p>
                     </div>
                 </div> -->
-                            <div class="card" style="margin-top: 40px;">
-                                <div class="card-image" style="width: 100%; height: 250px; ">
-                                    <img src="goldloan.png">
-                                </div>
-                                <div class="card-text">
-                                    <div class="header">
-                                        <i class='fas fa-coins'></i>
-                                        <h1>Gold Loans </h1>
-                                    </div>
-                                    <div class="read">
-                                        Read More <i class="fa-solid fa-arrow-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card" style="margin-top: 40px;">
-                                <div class="card-image" style="width: 100%; height: 250px; background-color: red;">
-                                    <img src="vehicle2.jpg">
-                                </div>
-                                <div class="card-text">
-                                    <div class="header">
-                                        <i class="fa-solid fa-motorcycle"></i>
-                                        <h1>Vehicle Loans </h1>
-                                    </div>
-                                    <div class="read">
-                                        Read More <i class="fa-solid fa-arrow-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card" style="margin-top: 40px;">
-                                <div class="card-image" style="width: 100%; height: 250px; ">
-                                    <img src="cdn.png">
-                                </div>
-                                <div class="card-text">
-                                    <div class="header">
-                                        <i class='fas fa-hand-holding-usd'></i>
-                                        <h1>CD Loans </h1>
-                                    </div>
-                                    <div class="read">
-                                        Read More <i class="fa-solid fa-arrow-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    </section>
-    <section class="about-section">
-        <div class="section-container">
-            <div class="image">
-                <img src="about.png" alt="" srcset="">
             </div>
-            <div class="content">
-                <div class="header">
-                    <p>About Us <span></span></p>
-                    <h1>About Yogloans</h1>
-                    <p>
-                        Yogakshemam Loans Limited (formerly Yogakshemam Kuries & Loans Private Limited) had its modest
-                        beginning in the unassuming environs of Anthikad, a small village in the Thrissur district of
-                        Kerala State in the year 1991. The company was registered as a Non Banking Financial Company
-                        with the Reserve Bank of India in the year 2000 – 01. The Company having shifted its base to the
-                        heart of Thrissur Town currently operates in the 4 Southern States of Kerala, Tamil Nadu,
-                        Karnataka and Andhra Pradesh has 169 branches.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="payscale">
-        <div class="left">
-            <p class="intro-tagline">We Provide the Best Loan Solutions <span></span></p>
-            <h1 class="intro-heading">Plan Your Perfect Loan</h1>
-            <p class="intro-description">
-                Discover the perfect loan for your needs with our smart calculator. Select a loan type, customize the
-                amount and duration, and instantly see your estimated monthly payments — simple, quick, and hassle-free.
-            </p>
-            <button
-                style="background-color: #B70000; margin-top: 20px; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;" onclick="window.location.href='contact.html'">Enquire
-                Now </button>
         </div>
         <div class="right">
-            <div class="check-scale">
-                <div class="header">
-                    How Much You Need
+            <div class="tops">
+                <div class="top-content">
+                    <div class="top-content-container">
+                        <span class="active " id="gold-loans">
+                            <i class="fa-solid fa-coins"></i>
+                            <p>Gold Loan</p>
+                        </span>
+                        <span id="vehicle-loans">
+                            <i class="fa-solid fa-motorcycle"></i>
+                            <p>Vehicle Loan</p>
+                        </span>
+                        <span id="business-loans">
+                            <i class="fa-solid fa-building"></i>
+                            <p>Business Loan</p>
+                        </span>
+                        <span id="cd-loans">
+                            <i class="fa-solid fa-house-user"></i>
+                            <p>CD Loan</p>
+                        </span>
                 </div>
-                <div class="scale-check-section">
-                    <div class="loans">
-                        <!-- <div class="item" data-title="Gold Loan" data-amount="10000" data-duration="12">
-                            <img src="money.png" class="white-img" alt="" />
-                        </div> -->
-                        <div class="item active" data-title="Vehicle Loan" data-amount="20000" data-duration="24">
-                            <img src="car-loan.png" class="white-img" alt="" />
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="bottom-content">
+                <div class="bottom-content-container">
+                    <span id="gold-loan">
+                        <div class="gold-loan-content">
+                            <div class="image-container">
+                                <img src="goldhome.jpg" alt="" srcset="">
+                                <div class="special-offer">
+                                    <p><i class="fas fa-check-circle" style="color: #002FEB;"></i> Quick Processing</p>
+                                    <p>
+                                        <i class="fas fa-check-circle" style="color: #002FEB;"></i> Minimal Documentation </p>
+                                    <p>
+                                        <i class="fas fa-check-circle" style="color: #002FEB;"></i> Competitive Interest Rates </p>
+                                </div>
+                            </div>
+                            <div class="content-containers">
+                            <h3>Gold Loan</h3>
+                            <p>A Gold Loan is a convenient and secure way to access instant funds by pledging your gold ornaments as collateral. With minimal documentation and quick processing, it is an ideal solution for urgent financial needs such as business expansion, medical emergencies, or education expenses. The loan amount is determined based on the purity and weight of the gold, offering competitive interest rates and flexible repayment options to suit your needs.  </p>
+                            <button  onclick="window.location.href='gold-loan.html'">Apply Now</button>
                         </div>
-                        <div class="item" data-title="Business Loan" data-amount="15000" data-duration="18">
-                            <img src="personal.png" class="white-img" alt="" />
                         </div>
-                        <!--      <div class="item" data-title="Micro Loan" data-amount="5000" data-duration="6">
-                            <img src="micro-learning.png" class="white-img" alt="" />
-                        </div> -->
-                        <div class="item" data-title="CD Loans" data-amount="30000" data-duration="36">
-                            <img src="term.png" class="white-img" alt="" />
-                        </div>
+                    </span>
 
+                    <span id="vehicle-loan">
+                        <div class="gold-loan-content">
+                            <div class="image-container">
+                                <img src="carloanhome.jpg" alt="" srcset="">
+                                <div class="special-offer">
+                                    <p><i class="fas fa-check-circle" style="color: #002FEB;"></i> Low interest rate. </p>
+                                    <p>
+                                        <i class="fas fa-check-circle" style="color: #002FEB;"></i> Loan amount upto Rs.200000.  </p>
+                                    <p>
+                                        <i class="fas fa-check-circle" style="color: #002FEB;"></i>Maximum duration 48 month.  </p>
+                                </div>
+                            </div>
+                            <div class="content-containers">
+                            <h3>Vehicle Loan</h3>
+                            <p>A Vehicle Loan is a convenient and secure way to access instant funds by pledging your vehicle as collateral. With minimal documentation and quick processing, it is an ideal solution for urgent financial needs such as business expansion, medical emergencies, or education expenses. The loan amount is determined based on the value of the vehicle, offering competitive interest rates and flexible repayment options to suit your needs. </p>   
+                            <button  onclick="window.location.href='gold-loan.html'">Apply Now</button>
+                        </div>
+                        </div>
+                    </span>
+                    <span id="business-loan">
+                        <div class="gold-loan-content">
+                            <div class="image-container">
+                                <img src="businessloanhome.jpg" alt="" srcset="">
+                                <div class="special-offer">
+                                    <p><i class="fas fa-check-circle" style="color: #002FEB;"></i> Low interest rate. </p>
+                                    <p>
+                                        <i class="fas fa-check-circle" style="color: #002FEB;"></i> Unsecured upto Rs.200000 for eligible customers.   </p>
+                                    <p>
+                                        <i class="fas fa-check-circle" style="color: #002FEB;"></i> Daily collection facility. </p>
+                                </div>
+                            </div>
+                            <div class="content-containers">
+                            <h3>Business Loan</h3>
+                            <p>A Business Loan is a convenient and secure way to access instant funds by pledging your business as collateral. With minimal documentation and quick processing, it is an ideal solution for urgent financial needs such as business expansion, medical emergencies, or education expenses. The loan amount is determined based on the value of the business, offering competitive interest rates and flexible repayment options to suit your needs. </p>
+                            <button  onclick="window.location.href='gold-loan.html'">Apply Now</button>
+                        </div>
+                        </div>
+                    </span>
+                    <span id="cd-loan">
+                        <div class="gold-loan-content">
+                            <div class="image-container">
+                                <img src="cdhome.jpg" alt="" srcset="">
+                                <div class="special-offer">
+                                    <p><i class="fas fa-check-circle" style="color: #002FEB;"></i> Quick Processing</p>
+                                    <p>
+                                        <i class="fas fa-check-circle" style="color: #002FEB;"></i> Minimal Documentation </p>
+                                    <p>
+                                        <i class="fas fa-check-circle" style="color: #002FEB;"></i> Competitive Interest Rates </p>
+                                </div>
+                            </div>
+                            <div class="content-containers">
+                            <h3>CD Loan</h3>
+                            <p>A CD Loan is a convenient and secure way to access instant funds by pledging your CD as collateral. With minimal documentation and quick processing, it is an ideal solution for urgent financial needs such as business expansion, medical emergencies, or education expenses. The loan amount is determined based on the value of the CD, offering competitive interest rates and flexible repayment options to suit your needs. </p>
+                            <button  onclick="window.location.href='gold-loan.html'">Apply Now</button>
+                        </div>
+                        </div>
+                    </span>
+                    <!-- <span id="vehicle-loan">Vehicle Loan</span>
+                    <span id="business-loan">Business Loan</span>
+                    <span id="cd-loan">CD Loan</span> -->
+                </div>
+            </div>
+        </div>
+   </section>
+
+<section class="about-section">
+    <div class="about-container">
+        <div class="about-content">
+            <h3>About Us</h3>
+            <p>Yogakshemaam Loans is a leading financial institution that offers a wide range of loan products to meet the diverse financial needs of individuals and businesses. With a commitment to providing exceptional service and innovative solutions, we aim to empower our clients to achieve their financial goals.</p>
+        </div>
+    </div>
+</section>
+ <section class="contact-section">
+    <div class="contact-container"> 
+        <h3>Contact us </h3>
+        <div class="form" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+            <div class="left">
+                <form action="">
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <input type="number" placeholder="Phone">
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="right" >
+                <div class="address">
+                    <img src="addredd.png" alt="" srcset="">
+                    <p>Door No: 28/315 D2, 3rd Floor ,Ottappath Tower, Aswini Junction,Patturaikkal, Thiruvambady-PO, Thrissur, Kerala-680022</p>
+                </div>
+                <div class="phone">
+                    <img src="phone-call.png" alt="" srcset="">
+                    <p>0487-2320102,2320103</p>
+                </div>
+                <div class="email"> 
+                    <img src="mail.png" alt="" srcset="">
+                    <p>yogakshemaamloans@gmail.com</p>
+                </div>
+               <div class="social">
+                   <i class="fa-brands fa-facebook"></i>
+                   <i class="fa-brands fa-instagram"></i>
+                   <i class="fa-brands fa-linkedin"></i>
+                </div> 
+            </div>
+           
+       
+    </div>
+    </div>
+ </section>
+ <footer class="footer-section">
+    <div class="container">
+        <div class="footer-cta pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-md-4 mb-30">
+                    <div class="single-cta">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="cta-text">
+                            <h4>Find us</h4>
+                            <span>  Aswini Junction, Thiruvambady-PO, Thrissur, Kerala-680022</span>
+                        </div>
                     </div>
-                    <div class="range-slider">
-
-
-                        <!-- <div class="item" data-title="Gold Loan" data-amount="10000" data-duration="12">Gold</div>
-                        <div class="item" data-title="Personal Loan" data-amount="15000" data-duration="24">Personal</div>
-                        <div class="item" data-title="Car Loan" data-amount="25000" data-duration="36">Car</div>
-                         -->
-                        <h2 id="loanTitle">Vehicle Loan</h2>
-
-                        <div class="slider-container">
-                            <div class="label">Loan Amount ₹<span id="amountVal">10000</span></div>
-                            <input type="range" id="amount" min="50000" max="200000" step="500" value="50000">
+                </div>
+                <div class="col-xl-4 col-md-4 mb-30">
+                    <div class="single-cta">
+                        <i class="fas fa-phone"></i>
+                        <div class="cta-text">
+                            <h4>Call us</h4>
+                            <span>9876543210 0</span>
                         </div>
-
-                        <div class="slider-container">
-                            <div class="label">Duration (Months) <span id="durationVal">12</span> months</div>
-                            <input type="range" id="duration" min="1" max="60" step="1" value="12">
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4 mb-30">
+                    <div class="single-cta">
+                        <i class="far fa-envelope-open"></i>
+                        <div class="cta-text">
+                            <h4>Mail us</h4>
+                            <span>mail@info.com</span>
                         </div>
-
-                        <div class="result-box">
-                            <p>Pay Monthly <span id="payMonthly">983 </span></p>
-                            <p>Terms Of Use <span id="totalMonths">12</span> </p>
-                            <p>Total Payable <span id="totalPayable">11800</span></p>
-
-                        </div>
-
                     </div>
                 </div>
             </div>
         </div>
-
-
-    </section>
-    <section class="contact-form">
-        <div class="loaction-search" style="position: relative;">
-            <h2 style="margin-bottom: 5px; color: white; text-align: start; width: 100%; padding: 10px;  top: 2%;">Check
-                Our Branches</h2>
-            <div class="select" style="display: flex; width: 100%;  gap: 10px;">
-                <select name="" id="" style="width: 50%;" onchange="loaction()">
-                    <option value="">
-                        Kerala
-                    </option>
-                    <option value="">
-                        Bangaluru
-                    </option>
-                </select>
-                <select name="" id="Kerala" style="height: 100%; width: 50%;">
-                    <option value="">Thrissur</option>
-                </select>
-                <select name="" id="ban">
-                    <option value="">Horamavu</option>
-                </select>
-
-            </div>
-            <div class="map" style="width: 100%; height: 100%; margin-top: 5%; background-color: black;">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.168309983442!2d76.21151907487756!3d10.53556708962244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7ef367865438b%3A0xe5b7d1283f6fe006!2sOttapath%20Tower%2C%20Aswini%20Jn%2C%20Thrissur!5e0!3m2!1sen!2sin!4v1713264150000!5m2!1sen!2sin"
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade" id="thrissur-map">
-                </iframe>
-
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.9871651652225!2d77.65893737590749!3d13.027042387291045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae11f8ec7ea97d%3A0xfa682cd2bfbfc186!2sYogloans%20Horamavu%2C%20Nanjappa%20Building%2C%20Kalkere%20Main%20Rd%2C%20near%20Gandhi%20statue%2C%20Horamavu%2C%20Bengaluru%2C%20Karnataka%20560043!5e0!3m2!1sen!2sin!4v1713266652000!5m2!1sen!2sin"
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade" id="ban-map">
-                </iframe>
-
-
-
-            </div>
-        </div>
-        <div class="form">
-            <h2 style="color: white;">
-                GET IN TOUCH WITH US
-            </h2>
-            <div class="content">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" placeholder="Enter your full name">
-                </div>
-                <div class="form-group">
-                    <label for="profession">Profession</label>
-                    <input type="text" id="profession" placeholder="Enter your profession">
-                </div>
-                <div class="form-group">
-                    <label for="city">City</label>
-                    <input type="text" id="city" placeholder="Enter your city">
-                </div>
-                <div class="form-group">
-                    <label for="country">Country</label>
-                    <select id="country">
-                        <option value="">Select Country</option>
-                        <option value="india">India</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="state">State</label>
-                    <select id="state">
-                        <option value="">Select State</option>
-                        <option value="kerala">Kerala</option>
-                        <option value="bangalore">Bangalore</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="pincode">Pin/Zip Code</label>
-                    <input type="text" id="pincode" placeholder="Enter pin/zip code">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="text" id="phone" placeholder="Enter your phone number">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="text" id="email" placeholder="Enter your email">
-                </div>
-                <div class="form-group">
-                    <label for="service">Service Type</label>
-                    <select id="service">
-                        <option value="">Select Service</option>
-                        <option value="gold">Gold Loan</option>
-                        <option value="vehicle">Vehicle Loan</option>
-                        <option value="micro">Micro Loan</option>
-                        <option value="sme">SME Loan</option>
-                        <option value="two-wheeler">Two Wheeler Loan</option>
-                        <option value="gold-overdraft">Gold Over Draft</option>
-                    </select>
-                </div>
-                <div class="form-group full-width">
-                    <label for="address">Address</label>
-                    <textarea id="address" placeholder="Enter your complete address"></textarea>
-                </div>
-            </div>
-            <button>Submit</button>
-        </div>
-    </section>
-    <footer>
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="about">
-                    <div class="logo">
-                        <img src="logo.jpg" alt="" srcset="">
-                    </div>
-                    <p>To emerge as the most trusted financial solution provider in India, with special focus on emerging segments of society, through a nationwide, efficient and service oriented network.</p>
-                    <div class="contact-short">
-                        <i class="fa fa-mobile"></i>
-                        0487-2320102,2320103
-                    </div>
-                </div>
-                <div class="about">
-                    <div class="logo" style="background-color: rgba(69, 3, 149, 0);">
-                        <h1>Explore</h1>
-                    </div>
-                    <ul>
-                        <li> <a href="#"><i class="fa-solid fa-arrow-right"></i> Home</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> About Us</a></li>
-                       <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Services</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Investors</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Online Services</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Policies</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Career</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> CSR</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Contact Us</a></li>
-                    </ul> 
-                </div>
-                <div class="about">
-                    <div class="logo" style="background-color: rgba(69, 3, 149, 0);">
-                        <h1>Gallery</h1>
-                    </div>
-                    <div class="caroucel">
-                        <div class="images">
-                          <div class="image-cont" style="width: 100%; height: 100%;">
-                            <img src="gallery1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                          </div>
-                          <div class="image-cont" style="width: 100%; height: 100%;">
-                            <img src="gallery2.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                          </div>
-                          <div class="image-cont" style="width: 100%; height: 100%;">
-                            <img src="gallery3.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                          </div>
+        <div class="footer-content pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 mb-50">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <a href="index.html"><img src="logo.jpg" class="img-fluid" alt="logo"></a>
                         </div>
-                        <button class="prev">❮</button>
-                        <button class="next">❯</button>
-                      </div>
-                      <button id="gallery" onclick="window.location.href='gallery.html'">Explore Our Gallery</button>
-                </div>
-                <div class="about" style="background-color: #002FEB;">
-                    <div class="logo" style="background-color: rgba(69, 3, 149, 0);">
-                        <h1>Contact</h1>
+                        <div class="footer-text">
+                            <p>To emerge as the most trusted financial solution provider in India, with special focus on emerging segments of society, through a nationwide, efficient and service oriented network..</p>
+                        </div>
+                        <div class="footer-social-icon">
+                            <span>Follow us</span>
+                            <a href="https://www.facebook.com/share/18qcUVv3fJ/?mibextid=wwXIfr" target="_blank" style="background-color: white;"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                            <a href="https://www.instagram.com/yogloansfinance?igsh=djhqZGI0dG92bGI0" target="_blank"><i class="fab fa-instagram instagram-bg"></i></a>
+                            <a href="https://www.linkedin.com/company/yogloans"><i class="fab fa-linkedin-in linkedin-bg"></i></a>
+                        </div>
                     </div>
-                    <ul class="contact-list">
-                        <li>
-                            <i class="fa fa-envelope"></i><p>mail@yogloans.com</p> 
-                        </li>
-                        <li>
-                            <i class="fa fa-clock-o"></i><p>Mon - Saturday 9.00 - 5.30 </p> 
-                        </li>
-                        <li>
-                            <i class='fas fa-map-marker-alt'></i> <p> Door No: 28/315 D2, 3rd Floor ,Ottappath Tower, Aswini Junction,Patturaikkal, Thiruvambady-PO, Thrissur, Kerala-680022
-                            </li></p>
-                    </ul>
                 </div>
-                
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Useful Links</h3>
+                        </div>
+                        <ul>
+                               <li><a href="index.html">Home</a></li>
+                <li> <a href="about.html">About Us</a></li>
+               
+                <li> <a href="investors.html">Investors</a></li>
+                <li> <a href="online-services.html">Online Services</a></li>
+                <li> <a href="policies.html">Policies</a></li>
+                <li> <a href="csr.html">CSR</a></li>
+                <li><a href="career.html">Career</a></li>
+                <li> <a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Subscribe</h3>
+                        </div>
+                        <div class="footer-text mb-25">
+                            <p>Don't miss to subscribe to our new feeds, kindly fill the form below.</p>
+                        </div>
+                        <div class="subscribe-form">
+                            <form action="#">
+                                <input type="text" placeholder="Email Address">
+                                <button><i class="fab fa-telegram-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-              
         </div>
-   
-    </footer>
-    <div class="other-footer">
-        <div class="footer-bottom">
-            <p>&copy; 2025 YOGAKSHEMAM LOANS Ltd. All rights reserved.</p>
+    </div>
+    <div class="copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                    <div class="copyright-text">
+                        <p>2025 YOGAKSHEMAM LOANS Ltd. All rights reserved. </p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="loans.html">Gold Loan</a></li>
+                            <li><a href="vehicle.html">Vehicle Loan</a></li>
+                            <li><a href="personal.html">Business Loan</a></li>
+                            <li><a href="cd.html">CD Loan</a></li>
+                        
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="footer-icons">
-            <a href="https://www.facebook.com/share/18qcUVv3fJ/?mibextid=wwXIfr" target="_blank">
-                <i class="fa fa-facebook-square"></i></a>
-            <a href="https://www.instagram.com/yogloansfinance?igsh=djhqZGI0dG92bGI0" target="_blank">
-                <i class="fa fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/company/yogloans" target="_blank">
-                <i class="fa fa-linkedin-square"></i></a>
-        </div>
-        <!--  <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const textSlides = document.querySelectorAll('.text-slide');
-        const dots = document.querySelectorAll('.slider-dot');
-        const slider = document.querySelector('.slider');
-        const welcomeButtons = document.querySelector('.welcome-buttons');
-
-        function updateSlider() {
-            // Update background
-            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            // Update slide opacity
-            slides.forEach((slide, index) => {
-                if (index === currentSlide) {
-                    slide.classList.add('active');
-                } else {
-                    slide.classList.remove('active');
-                }
-            });
-            
-            // Update dots
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-
-            // Update text slides
-            textSlides.forEach((textSlide, index) => {
-                if (index === currentSlide) {
-                    textSlide.classList.add('active');
-                    welcomeButtons.classList.add('active');
-                } else {
-                    textSlide.classList.remove('active');
-                }
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlider();
-        }
-
-        // Auto slide every 5 seconds
-        setInterval(nextSlide, 5000);
-
-        // Initial setup
-        updateSlider();
-    </script> -->
-        <script>
-            AOS.init();
-            // Preloader functionality
-            window.addEventListener('load', function () {
-                // First hide the preloader
-                const preloader = document.getElementById('preloader');
-                preloader.style.opacity = '0';
-                preloader.style.transition = 'opacity 0.5s ease';
-
-                // Then remove it from the DOM after the transition
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                }, 500);
-            });
-
-            // Fallback in case some content fails to load
+    </div>
+</footer>
+      <script>
+        // Initialize AOS
+        AOS.init();
+        
+        // Preloader functionality
+        window.addEventListener('load', function () {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            preloader.style.transition = 'opacity 0.5s ease';
             setTimeout(() => {
-                const preloader = document.getElementById('preloader');
-                if (preloader.style.display !== 'none') {
-                    preloader.style.opacity = '0';
-                    preloader.style.transition = 'opacity 0.5s ease';
-                    setTimeout(() => {
-                        preloader.style.display = 'none';
-                    }, 500);
-                }
-            }, 5000); // Hide after 5 seconds max, even if not all content loaded
-
-            // Existing carousel code
-            const imagesContainer = document.querySelector(".caroucel .images");
-            const totalSlides = document.querySelectorAll(".caroucel .image-cont").length;
-            let index = 0;
-
-            function showSlide(i) {
-                index = (i + totalSlides) % totalSlides; // wrap around
-                imagesContainer.style.transform = `translateX(-${index * 100}%)`;
-            }
-
-            document.querySelector(".next").addEventListener("click", () => {
-                showSlide(index + 1);
-            });
-
-            document.querySelector(".prev").addEventListener("click", () => {
-                showSlide(index - 1);
-            });
-
-            // Auto Slide every 4 seconds
-            setInterval(() => {
-                showSlide(index + 1);
-            }, 4000);
-
-            document.addEventListener('DOMContentLoaded', Dom);
-
-            function Dom() {
-                document.querySelector('.toggle-icon').addEventListener('click', function () {
-                    var toggle = document.querySelector('.toggle');
-                    var menu = document.querySelector('.re-menu');
-                    toggle.classList.toggle('active');
-                    menu.classList.toggle('active');
-
-                });
-
-                function loaction() {
-                    alert('dd')
-                }
-            }
-            const amountSlider = document.getElementById("amount");
-            const durationSlider = document.getElementById("duration");
-            const amountVal = document.getElementById("amountVal");
-            const durationVal = document.getElementById("durationVal");
-            const totalMonths = document.getElementById("totalMonths");
-            const totalPayable = document.getElementById("totalPayable");
-            const payMonthly = document.getElementById("payMonthly");
-            const title = document.getElementById("loanTitle");
-
-            function updateValues() {
-                const amount = parseInt(amountSlider.value);
-                const months = parseInt(durationSlider.value);
-                const annualInterestRate = 26; // Annual interest rate in percentage
-                const monthlyInterestRate = annualInterestRate / 12 / 100; // Convert to monthly decimal rate
-
-                amountVal.textContent = amount;
-                durationVal.textContent = months;
-                totalMonths.textContent = months + " Months";
-
-                // Calculate monthly payment using the formula: P * (r * (1 + r)^n) / ((1 + r)^n - 1)
-                const monthlyPayment = Math.round(
-                    amount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, months)) / 
-                    (Math.pow(1 + monthlyInterestRate, months) - 1)
-                );
-                
-                const total = Math.round(monthlyPayment * months);
-
-                totalPayable.textContent = "₹" + total;
-                payMonthly.textContent = "₹" + monthlyPayment;
-            }
-
-            amountSlider.addEventListener("input", updateValues);
-            durationSlider.addEventListener("input", updateValues);
-            updateValues();
-
-            const sliders = document.querySelectorAll('input[type="range"]');
-            sliders.forEach(slider => {
-                function updateBackground() {
-                    const val = (slider.value - slider.min) / (slider.max - slider.min) * 100;
-                    slider.style.background = `linear-gradient(to right, rgb(152, 4, 4) 0%, rgb(152, 4, 4) ${val}%, #eceaea ${val}%, white 100%)`;
-                }
-                updateBackground();
-                slider.addEventListener('input', updateBackground);
-            });
-
-            document.querySelectorAll('.item').forEach(function (element) {
-                element.addEventListener('click', function () {
-                    document.querySelectorAll('.item').forEach(el => el.classList.remove('border'));
-                    element.classList.add('border');
-
-                    const selectedTitle = element.getAttribute('data-title');
-                    const selectedAmount = element.getAttribute('data-amount');
-                    const selectedDuration = element.getAttribute('data-duration');
-
-                    if (selectedTitle) title.textContent = selectedTitle;
-                    if (selectedAmount) amountSlider.value = selectedAmount;
-                    if (selectedDuration) durationSlider.value = selectedDuration;
-
-                    updateValues();
-                    sliders.forEach(slider => {
-                        const val = (slider.value - slider.min) / (slider.max - slider.min) * 100;
-                        slider.style.background = `linear-gradient(to right, rgb(152, 4, 4) 0%, rgb(152, 4, 4) ${val}%, #eceaea ${val}%, white 100%)`;
-                    });
-                });
-            });
-            document.addEventListener('DOMContentLoaded', function() {
-  const carousel = document.querySelector('.caroucel');
-  const images = document.querySelector('.caroucel .images');
-  const prevBtn = document.querySelector('.caroucel .prev');
-  const nextBtn = document.querySelector('.caroucel .next');
-  let currentIndex = 0;
-  const totalImages = document.querySelectorAll('.image-cont').length;
-
-  function updateCarousel() {
-    images.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
-
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-    updateCarousel();
-  });
-
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalImages;
-    updateCarousel();
-  });
-
-  // Auto slide every 4 seconds
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % totalImages;
-    updateCarousel();
-  }, 4000);
-});
-
-
-        </script>
-        <!-- Add AOS JS -->
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            // Initialize AOS
-            AOS.init({
-                duration: 1000,
-                once: true,
-                offset: 100
-            });
-
-            document.addEventListener('DOMContentLoaded', function() {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+        document.addEventListener('DOMContentLoaded', function() {
                 const servicesLink = document.querySelector('.services-link');
                 const servicesList = document.querySelector('.services-list');
 
@@ -3363,27 +3821,213 @@ input[type=range]::-ms-fill-upper {
                 
                 
             });
+        // Fallback for content loading
+        setTimeout(() => {
+            const preloader = document.getElementById('preloader');
+            if (preloader.style.display !== 'none') {
+                preloader.style.opacity = '0';
+                preloader.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }
+        }, 5000);
+
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.caroucel');
+            const images = document.querySelector('.caroucel .images');
+            const prevBtn = document.querySelector('.caroucel .prev');
+            const nextBtn = document.querySelector('.caroucel .next');
+            let currentIndex = 0;
+            const totalImages = document.querySelectorAll('.image-cont').length;
+
+            function updateCarousel() {
+                images.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                updateCarousel();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalImages;
+                updateCarousel();
+            });
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalImages;
+                updateCarousel();
+            }, 4000);
+        });
+
+        // Initialize Owl Carousel
+        $(document).ready(function() {
+            var owl = $("#owl-demo1");
+            owl.owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: false,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                smartSpeed: 800,
+                items: 1,
+                stagePadding: 0,
+                responsive: {
+                    0: {
+                        items: 1,
+                        margin: 0,
+                        stagePadding: 0
+                    },
+                    600: {
+                        items: 1,
+                        margin: 0,
+                        stagePadding: 0
+                    },
+                    1000: {
+                        items: 1,
+                        margin: 0,
+                        stagePadding: 0
+                    }
+                }
+            });
+        });
+        document.addEventListener('DOMContentLoaded', Dom);
+
+    function Dom() {
+        document.querySelector('.toggle-icon').addEventListener('click', function() {
+            var toggle = document.querySelector('.toggle');
+            var menu = document.querySelector('.re-menu');
+            toggle.classList.toggle('active');
+            menu.classList.toggle('active');
+        });
+    }
+        document.addEventListener('DOMContentLoaded', function() {
+            const goldLoans = document.getElementById('gold-loans');
+            const vehicleLoans = document.getElementById('vehicle-loans');
+            const businessLoans = document.getElementById('business-loans');
+            const cdLoans = document.getElementById('cd-loans');
+
+            // Get content elements
+            const goldLoanContent = document.getElementById('gold-loan');
+            const vehicleLoanContent = document.getElementById('vehicle-loan');
+            const businessLoanContent = document.getElementById('business-loan');
+            const cdLoanContent = document.getElementById('cd-loan');
+
+            // Show gold loan content by default
+            goldLoanContent.style.display = 'block';
+            vehicleLoanContent.style.display = 'none';
+            businessLoanContent.style.display = 'none';
+            cdLoanContent.style.display = 'none';
+
+            goldLoans.addEventListener('click', function() {
+                // Toggle active class for tabs
+                goldLoans.classList.add('active');
+                vehicleLoans.classList.remove('active');
+                businessLoans.classList.remove('active');
+                cdLoans.classList.remove('active');
+
+                // Show/hide content
+                goldLoanContent.style.display = 'block';
+                vehicleLoanContent.style.display = 'none';
+                businessLoanContent.style.display = 'none';
+                cdLoanContent.style.display = 'none';
+            });
+
+            vehicleLoans.addEventListener('click', function() {
+                vehicleLoans.classList.add('active');
+                goldLoans.classList.remove('active');
+                businessLoans.classList.remove('active');
+                cdLoans.classList.remove('active');
+
+                vehicleLoanContent.style.display = 'block';
+                goldLoanContent.style.display = 'none';
+                businessLoanContent.style.display = 'none';
+                cdLoanContent.style.display = 'none';
+            });
+
+            businessLoans.addEventListener('click', function() {
+                businessLoans.classList.add('active');
+                goldLoans.classList.remove('active');
+                vehicleLoans.classList.remove('active');
+                cdLoans.classList.remove('active');
+
+                businessLoanContent.style.display = 'block';
+                goldLoanContent.style.display = 'none';
+                vehicleLoanContent.style.display = 'none';
+                cdLoanContent.style.display = 'none';
+            });
+
+            cdLoans.addEventListener('click', function() {
+                cdLoans.classList.add('active');
+                goldLoans.classList.remove('active');
+                vehicleLoans.classList.remove('active');
+                businessLoans.classList.remove('active');
+
+                cdLoanContent.style.display = 'block';
+                goldLoanContent.style.display = 'none';
+                vehicleLoanContent.style.display = 'none';
+                businessLoanContent.style.display = 'none';
+            });
+        });
             
-        </script>
-        <!--Start of Tawk.to Script-->
-<!--Start of Tawk.to Script-->
-
-
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/680b1b094b378d190bfa0463/1iplm37ls';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
+            
+        
+        
     </script>
-    <!--End of Tawk.to Script-->
-    <!--End of Tawk.to Script-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Tawk.to Script -->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/680b1b094b378d190bfa0463/1iplm37ls';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Initialize left content carousel
+            $('.left-carousel').owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: false,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                smartSpeed: 800,
+                items: 1,
+                stagePadding: 0,
+                responsive: {
+                    0: {
+                        items: 1,
+                        margin: 0,
+                        stagePadding: 0
+                    },
+                    600: {
+                        items: 1,
+                        margin: 0,
+                        stagePadding: 0
+                    },
+                    1000: {
+                        items: 1,
+                        margin: 0,
+                        stagePadding: 0
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
