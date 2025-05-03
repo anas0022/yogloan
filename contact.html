@@ -56,92 +56,81 @@
     }
 
     .menu-container {
-        width: 100%;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: white;
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-    }
+            width: 100%;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        }
 
-    menu {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        menu {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    }
+        menu ul {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3px;
+        }
 
-    menu ul {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 3px;
+        menu ul li {
+            cursor: pointer;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 15px;
+            font-size: 12px;
+            transition: all 0.3s ease-in-out;
+        }
 
-    }
+        menu ul li a {
+            color: rgb(9, 6, 116);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
 
-    menu ul li {
+        menu ul li:hover {
+            color: rgb(162, 5, 5);
+            transform: translateY(-2px);
+            font-weight: 600;
+        }
 
-        cursor: pointer;
-        text-align: center;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        padding: 0 15px;
-        font-size: 12px;
-        transition: all 0.3s ease-in-out;
-    }
+        .contact-us {
+            width: 20%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
 
-    menu ul li a {
-        color: rgb(9, 6, 116);
-    }
+        .contact-us button {
+            width: 100%;
+            height: 100%;
+            background-color: #B70000;
+            color: white;
+            border: none;
+            border-radius: 0px;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-    menu ul li:after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 25%;
-        height: 50%;
-        width: 1px;
-        background-color: rgb(162, 5, 5);
-        transform: rotate(15deg);
-        transition: all 0.3s ease-in-out;
-    }
+        .contact-us button:hover {
+            background-color: #8a0000;
+            transform: translateY(-2px);
+        }
 
-    menu ul li:last-child:after {
-        display: none;
-    }
-
-    menu ul li:hover {
-        color: rgb(162, 5, 5);
-        border-bottom: 2px solid rgb(162, 5, 5);
-        transform: translateY(-2px);
-        font-weight: 600;
-    }
-
-    .contact-us {
-        width: 20%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
-
-    .contact-us button {
-        width: 100%;
-        height: 100%;
-        background-color: #B70000;
-        color: white;
-        border: none;
-        border-radius: 0px;
-        font-size: 10px;
-        text-transform: uppercase;
-    }
 
     .re-menu {
         flex-direction: column;
@@ -157,7 +146,140 @@
         padding: 0;
         overflow: hidden;
     }
+    .re-menu .services-list2{
+              opacity: 0;
+              height: 0;
+              width: 100%;
+              overflow: hidden;
+              display: none;
+              transition: all 0.3s ease;
+            }
+            .re-menu .services-list2.active{
+              opacity: 1;
+              height: auto;
+              width: 100%;
+              display: block;
+              overflow: visible;
+              padding: 10px;
+              background-color: rgba(255, 255, 255, 0.9);
+              border-radius: 8px;
+              margin: 10px 0;
+            }
+            .re-menu .services-list2 ul{
+                height: auto;
+                padding: 0;
+                margin: 0;
+            }
+            .re-menu .services-list2 li{
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0;
+                background-color: white;
+                border-radius: 5px;
+                transition: all 0.3s ease;
+            }
+            .re-menu .services-list2 li:hover{
+                background-color: #ff4d4d;
+                color: white;
+                transform: translateX(5px);
+            }
+            .re-menu .services-list2 li a{
+                color: #333;
+                text-decoration: none;
+                width: 100%;
+                display: block;
+            }
+            .re-menu .services-list2 li:hover a{
+                color: white;
+            }
+     /*    .services-list{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .services-list li{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .services-list li a{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
 
+        .services-list {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 10px 0;
+            border-radius: 5px;
+            top: 100%;
+            left: 0;
+        }
+
+      
+
+        .services-list li {
+            padding: 8px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .services-list li:hover {
+            background-color: #f5f5f5;
+        }
+
+        .services-list li a {
+            color: #333;
+            display: block;
+            width: 100%;
+        }
+
+        .services-list li a:hover {
+            color: #B70000;
+        } */
+         .services-list{
+            opacity: 0;
+            transition: all 0.3s ease;
+            position:absolute;
+        top:8%;
+        width:20%;
+        z-index: 400000000;
+            left: 20%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            list-style: none;
+         }
+         .services-list li{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border:none;
+         }
+         .services-list li a{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border:none;
+         }
     .re-menu.active {
         display: flex;
         animation: menuSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -436,142 +558,169 @@
 
 color: black;
 }
-    footer {
-
-        color: white;
-        padding: 4rem 2rem 2rem;
-        background-color: #002FEB;
-        width: 100%;
-    }
-
-    .footer-container {
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    .footer-content .about {
-
-        padding: 10px;
-    }
-
-    .about .logo {
-        width: 100px;
-        height: 30px;
-        margin-bottom: 10px;
-    }
-
-    .contact-short {
-        border-top: 1px solid rgb(130, 128, 128);
-        margin-top: 10px;
-        padding: 10px;
-        display: flex;
-        gap: 5px;
-        display: none;
-    }
-
-    .contact-short i {
-        font-size: 1.5rem;
-
-    }
-
-    .about ul {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .logo h1 {
-        font-size: 1.3rem;
-    }
-
-    .about ul li a {
-        color: gray;
-        transition: 0.5s;
-    }
-
-    .about ul li a:hover {
-        color: white;
-    }
-
-    .about .contact-list {
-        height: 80%;
-        width: 100%;
-        padding: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: start;
-        gap: 10px;
-    }
-
-    .contact-list li {
-
-        font-size: 1rem;
-        text-align: start;
-        gap: 15px;
-        display: flex;
-    }
-
-    .other-footer {
-        width: 100%;
-        height: 80px;
-        background-color: #B70000;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .footer-bottom {
-        width: 50%;
-        height: 100%;
-
-    }
-
-    .footer-bottom p {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.1rem;
-        color: white;
-    }
-
-    .footer-icons {
-        width: 50%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-    }
-
-    .footer-icons i {
-        color: white;
-        font-size: 1.5rem;
-    }
-
-    .caroucel {
+.footer-section {
+  background: #ffffff;
   position: relative;
-  width: 100%;
-  height: 200px;
+  margin-top: 30px;
+}
+.footer-cta {
+  border-bottom: 1px solid #e0e0e0;
+}
+.single-cta i {
+  color: #002FEB;
+  font-size: 30px;
+  float: left;
+  margin-top: 8px;
+}
+.cta-text {
+  padding-left: 15px;
+  display: inline-block;
+}
+.cta-text h4 {
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cta-text span {
+  color: #666;
+  font-size: 15px;
+}
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+}
+.footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #666;
+  line-height: 28px;
+}
+.footer-social-icon span {
+  color: #333;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+}
+.footer-social-icon a {
+  color: #333;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
+
+.twitter-bg{
+  background: #55ACEE;
+}
+.google-bg{
+  background: #DD4B39;
+}
+.footer-widget-heading h3 {
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+.footer-widget-heading h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  height: 2px;
+  width: 50px;
+  background: #002FEB;
+}
+.footer-widget ul li {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  margin-bottom: 12px;
+}
+.footer-widget ul li a:hover{
+  color: #002FEB;
+}
+.footer-widget ul li a {
+  color: #666;
+  text-transform: capitalize;
+}
+.subscribe-form {
+  position: relative;
   overflow: hidden;
-  margin: 20px 0;
 }
-
-.caroucel .images {
-  display: flex;
+.subscribe-form input {
   width: 100%;
-  height: 100%;
-  transition: transform 0.5s ease-in-out;
+  padding: 14px 28px;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  color: #333;
 }
-
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #002FEB;
+    padding: 13px 20px;
+    border: 1px solid #002FEB;
+    top: 0;
+}
+.subscribe-form button i {
+  color: #fff;
+  font-size: 22px;
+  transform: rotate(-6deg);
+}
+.copyright-area{
+  background: #f8f9fa;
+  padding: 25px 0;
+}
+.copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+.copyright-text p a{
+  color: #002FEB;
+}
+.footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.footer-menu li:hover a{
+  color: #002FEB;
+}
+.footer-menu li a {
+  font-size: 14px;
+  color: #666;
+}
+.row{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+                padding: 20px;
+            }
 .image-cont {
   min-width: 100%;
   height: 100%;
@@ -659,7 +808,7 @@ color: black;
         font-size: 1.4rem;
         font-weight: 700;
         color: #1a1a1a;
-        margin-top: 10px;
+        margin-bottom: 10px;
         
     }
 
@@ -781,7 +930,7 @@ color: black;
     grid-column: 1 / -1;
     width: 80%;
     padding: 12px;
-    background-color: #B70000;
+    background-color: #002FEB;
     color: white;
     border: none;
     border-radius: 5px;
@@ -950,6 +1099,7 @@ color: black;
     display: flex;
     height: 100%;
     font-size: 12px;
+    border-right: 1px solid #492424;
 }
 
 @-webkit-keyframes spin {
@@ -991,6 +1141,9 @@ color: black;
     }
 }
     @media (max-width:780px) {
+        .row{
+            flex-direction: column;
+        }
         .contact-detials{
             padding: 5px;
         }
@@ -1337,7 +1490,7 @@ color: black;
     <div id="preloader">
         <div id="loader"></div>
       </div>
-    <section>
+      <section>
         <div class="menu-container">
             <menu>
 
@@ -1345,10 +1498,17 @@ color: black;
                     <img src="logo.jpg" alt="">
                 </div>
                 <ul>
-               <li> <a href="index.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a class="services-link" >Services</a></li>
+                    <ul class="services-list" style="z-index: 10000000000000000;">
+                        <li style="border:none; border-right: none;"> <a href="loans.html" style="border:none; border-right: none;">Gold Loan</a></li>
+                        <li style="border:none;"><a href="vehicle.html" style="border:none;">Vehicle Loan</a></li>
+                        <li style="border:none;"><a href="personal.html" style="border:none;">Business Loan</a></li>
+                        <li style="border:none;"><a href="cd.html" style="border:none;">CD Loan</a></li>
+                    </ul>
                     <li><a href="investors.html">Investors</a></li>
+                    
                     <li><a href="online-services.html">Online Services</a></li>
                     <li><a href="policies.html">Policies</a></li>
                     <li><a href="career.html">Career</a></li>
@@ -1371,7 +1531,13 @@ color: black;
             <ul>
                 <li><i class="fas fa-home"></i> <a href="index.html">Home</a></li>
                 <li><i class="fas fa-info-circle"></i> <a href="about.html">About Us</a></li>
-                <li><i class="fas fa-cogs"></i> <a href="services.html">Services</a></li>
+                <li class="services-link2"><i class="fas fa-cogs"></i> <a href="services.html">Services</a></li>
+                <ul class="services-list2">
+                    <li><a href="loans.html">Gold Loan</a></li>
+                    <li><a href="vehicle.html">Vehicle Loan</a></li>
+                    <li><a href="personal.html">Business Loan</a></li>
+                    <li><a href="cd.html">CD Loan</a></li>
+                </ul>
                 <li><i class="fas fa-chart-line"></i> <a href="investors.html">Investors</a></li>
                 <li><i class="fas fa-globe"></i> <a href="online-services.html">Online Services</a></li>
                 <li><i class="fas fa-file-alt"></i> <a href="policies.html">Policies</a></li>
@@ -1393,13 +1559,13 @@ color: black;
                     <span>123, Main Street, Anytown, USA</span>
                 </div>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/share/18qcUVv3fJ/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/yogloansfinance?igsh=djhqZGI0dG92bGI0" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/18qcUVv3fJ/?mibextid=wwXIfr" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/yogloansfinance?igsh=djhqZGI0dG92bGI0" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
                     <a href="https://www.linkedin.com/company/yogloans"><i class="fab fa-linkedin-in"></i></a>
-                 
+
                 </div>
-
-
             </div>
         </div>
     </section>
@@ -1422,7 +1588,7 @@ color: black;
                 <h2>Select Brach For Contacting </h2>
                 <div class="select">
                     <div class="state">
-                        <label for=""><img src="capitol_6848262.png" alt="" srcset=""></label>
+                     <!--    <label for=""><img src="capitol_6848262.png" alt="" srcset=""></label> -->
                     <select name="" id="state" onchange="Selection()">
                         <option value="">setect state</option>
                         <option value="Kerala">Kerala</option>
@@ -1431,13 +1597,13 @@ color: black;
                     </select>
                 </div>
                 <div class="dis">
-                    <label for=""><img src="electoral_17940572.png" alt="" srcset=""></label>
+              <!--       <label for=""><img src="electoral_17940572.png" alt="" srcset=""></label> -->
                     <select name="" id="district" onchange="district()">
                         <option value="">select district</option>
                     </select>
                 </div>
                 <div class="city">
-                    <label for=""><img src="cityscape.png" alt="" srcset=""></label>
+                   <!--  <label for=""><img src="cityscape.png" alt="" srcset=""></label> -->
                     <select name="" id="city">
                         <option value="">select city</option>
                     </select>
@@ -1448,9 +1614,9 @@ color: black;
               
                 <div class="address">
                     <div class="add">
-                    <div class="image">
+                   <!--  <div class="image">
                         <img src="home-address.png" alt="" srcset="">
-                    </div>
+                    </div> -->
                         <p> Yogakshemam Loans Ltd
                             3rd Floor, Ottappath Tower,
                             Aswini Junction
@@ -1458,15 +1624,15 @@ color: black;
                         </div>
                             <div class="digital">
                                 <div class="phone">
-                                    <div class="image">
+                                  <!--   <div class="image">
                                     <img src="customer-service.png" alt="" srcset="">
-                                </div>
+                                </div> -->
                                     <p style="text-align: center; width: 100%;">0487 2320102/103 </p>
                                 </div>
                                 <div class="email">
-                                    <div class="image">
+                                  <!--   <div class="image">
                                         <img src="email.png" alt="" srcset="">
-                                    </div>
+                                    </div> -->
                                         <p style="text-align: center; width: 100%;">mail@yogloans.com </p>
                                 </div>
                 
@@ -1520,92 +1686,117 @@ color: black;
         <button>Submit</button>
         </div>
     </section>
-    <footer>
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="about">
-                    <div class="logo">
-                        <img src="logo.jpg" alt="" srcset="">
-                    </div>
-                    <p>To emerge as the most trusted financial solution provider in India, with special focus on emerging segments of society, through a nationwide, efficient and service oriented network.</p>
-                    <div class="contact-short">
-                        <i class="fa fa-mobile"></i>
-                        0487-2320102,2320103
-                    </div>
-                </div>
-                <div class="about">
-                    <div class="logo" style="background-color: rgba(69, 3, 149, 0);">
-                        <h1>Explore</h1>
-                    </div>
-                    <ul>
-                        <li> <a href="#"><i class="fa-solid fa-arrow-right"></i> Home</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> About Us</a></li>
-                       <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Services</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Investors</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Online Services</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Policies</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Career</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> CSR</a></li>
-                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Contact Us</a></li>
-                    </ul> 
-                </div>
-                <div class="about">
-                    <div class="logo" style="background-color: rgba(69, 3, 149, 0);">
-                        <h1>Gallery</h1>
-                    </div>
-                    <div class="caroucel">
-                        <div class="images">
-                          <div class="image-cont" style="width: 100%; height: 100%;">
-                            <img src="gallery1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                          </div>
-                          <div class="image-cont" style="width: 100%; height: 100%;">
-                            <img src="gallery2.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                          </div>
-                          <div class="image-cont" style="width: 100%; height: 100%;">
-                            <img src="gallery3.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                          </div>
+    <footer class="footer-section">
+        <div class="container">
+            <!-- <div class="footer-cta pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="cta-text">
+                                <h4>Find us</h4>
+                                <span>  Aswini Junction, Thiruvambady-PO, Thrissur, Kerala-680022</span>
+                            </div>
                         </div>
-                        <button class="prev">❮</button>
-                        <button class="next">❯</button>
-                      </div>
-                      <button id="gallery" onclick="window.location.href='gallery.html'">Explore Our Gallery</button>
-                </div>
-                <div class="about" style="background-color: #002FEB;">
-                    <div class="logo" style="background-color: rgba(69, 3, 149, 0);">
-                        <h1>Contact</h1>
                     </div>
-                    <ul class="contact-list">
-                        <li>
-                            <i class="fa fa-envelope"></i><p>mail@yogloans.com</p> 
-                        </li>
-                        <li>
-                            <i class="fa fa-clock-o"></i><p>Mon - Saturday 9.00 - 5.30 </p> 
-                        </li>
-                        <li>
-                            <i class='fas fa-map-marker-alt'></i> <p> Door No: 28/315 D2, 3rd Floor ,Ottappath Tower, Aswini Junction,Patturaikkal, Thiruvambady-PO, Thrissur, Kerala-680022
-                            </li></p>
-                    </ul>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-phone"></i>
+                            <div class="cta-text">
+                                <h4>Call us</h4>
+                                <span>9876543210 0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="far fa-envelope-open"></i>
+                            <div class="cta-text">
+                                <h4>Mail us</h4>
+                                <span>mail@info.com</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
+            </div> -->
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="index.html"><img src="logo.jpg" class="img-fluid" alt="logo"></a>
+                            </div>
+                            <div class="footer-text">
+                                <p>To emerge as the most trusted financial solution provider in India, with special focus on emerging segments of society, through a nationwide, efficient and service oriented network..</p>
+                            </div>
+                            <div class="footer-social-icon">
+                                <span>Follow us</span>
+                                <a href="https://www.facebook.com/share/18qcUVv3fJ/?mibextid=wwXIfr" target="_blank" style="background-color: white;"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                                <a href="https://www.instagram.com/yogloansfinance?igsh=djhqZGI0dG92bGI0" target="_blank"><i class="fab fa-instagram instagram-bg"></i></a>
+                                <a href="https://www.linkedin.com/company/yogloans"><i class="fab fa-linkedin-in linkedin-bg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Useful Links</h3>
+                            </div>
+                            <ul>
+                                   <li><a href="index.html">Home</a></li>
+                    <li> <a href="about.html">About Us</a></li>
+                   
+                    <li> <a href="investors.html">Investors</a></li>
+                    <li> <a href="online-services.html">Online Services</a></li>
+                    <li> <a href="policies.html">Policies</a></li>
+                    <li> <a href="csr.html">CSR</a></li>
+                    <li><a href="career.html">Career</a></li>
+                    <li> <a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Subscribe</h3>
+                            </div>
+                            <div class="footer-text mb-25">
+                                <p>Don't miss to subscribe to our new feeds, kindly fill the form below.</p>
+                            </div>
+                            <div class="subscribe-form">
+                                <form action="#">
+                                    <input type="text" placeholder="Email Address">
+                                    <button><i class="fab fa-telegram-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-              
         </div>
-   
-    </footer>    
-
-    <div class="other-footer">
-        <div class="footer-bottom">
-            <p>&copy; 2025 YOGAKSHEMAM LOANS Ltd. All rights reserved.</p>
-        </div>
-        <div class="footer-icons">
-            <a href="https://www.facebook.com/share/18qcUVv3fJ/?mibextid=wwXIfr" target="_blank">
-                <i class="fa fa-facebook-square"></i></a>
-            <a href="https://www.instagram.com/yogloansfinance?igsh=djhqZGI0dG92bGI0" target="_blank">
-                <i class="fa fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/company/yogloans" target="_blank">
-                <i class="fa fa-linkedin-square"></i></a>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                        <div class="copyright-text">
+                            <p>2025 YOGAKSHEMAM LOANS Ltd. All rights reserved. </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="loans.html">Gold Loan</a></li>
+                                <li><a href="vehicle.html">Vehicle Loan</a></li>
+                                <li><a href="personal.html">Business Loan</a></li>
+                                <li><a href="cd.html">CD Loan</a></li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-    </div>
+        </div>
+    </footer>
 </body>
 <script>
 window.addEventListener('load', function() {
@@ -1631,7 +1822,41 @@ window.addEventListener('load', function() {
                 }, 500);
             }
         }, 5000); // Hide after 5 seconds max, even if not all content loaded
+        document.addEventListener('DOMContentLoaded', function() {
+                const servicesLink = document.querySelector('.services-link');
+                const servicesList = document.querySelector('.services-list');
 
+                servicesLink.addEventListener('mouseover', function(e) {
+                    servicesList.style.opacity = '1';
+                });
+                servicesLink.addEventListener('mouseout', function(e) {
+                    servicesList.style.opacity = '0';
+                });
+                servicesList.addEventListener('mouseover', function(e) {
+                    servicesList.style.opacity = '1';
+                });
+                servicesList.addEventListener('mouseout', function(e) {
+                    servicesList.style.opacity = '0';
+                });
+                const servicesLink2 = document.querySelector('.services-link2');
+                const servicesList2 = document.querySelector('.services-list2');
+               servicesLink2.addEventListener('click', function(e) {
+                servicesList2.classList.toggle('active');
+               });
+                
+                
+            });
+        // Fallback for content loading
+        setTimeout(() => {
+            const preloader = document.getElementById('preloader');
+            if (preloader.style.display !== 'none') {
+                preloader.style.opacity = '0';
+                preloader.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }
+        }, 5000);
 
     function Selection() {
         var selectValue = document.getElementById('state');
