@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
 </head>
 <style>
   
@@ -509,7 +500,7 @@
 
     .welcome-container {
         width: 100%;
-        height: 200px;
+      /*   height: 200px; */
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -1498,6 +1489,83 @@ color: black;
             opacity: 1;
         }
     }
+    .branch-search{
+        width: 100%;
+        height: auto;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+       /*  gap: 30px   ; */
+        align-items: center;
+    }
+    .branch-search .left    {
+        width: 30%;
+        background-color: white;
+        box-shadow: 0px 0px 1px 0px gray;
+/*         border-radius: 5px; */
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px;
+    }
+    .branch-search .right{
+        width: 60%;
+        height: 400px;
+        position: relative;
+      /*   overflow: hidden;
+        border-radius: 5px; */
+    }
+    
+    .branch-search .right iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    .branch-search .left select{
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background-color: white;
+        box-shadow: 0px 0px 1px 0px gray;
+    }
+    .branch-search .left .phone{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .phone img{
+        width: 25px;
+        height: 25px;
+    }
+    .branch-search .left .email{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .email img{
+        width: 25px;
+        height: 25px;
+    }
+    .left label{
+        width: 100%;
+        text-align: start;
+    }
+    @media (max-width:850px){
+        .branch-search{
+            flex-direction: column;
+        }
+        .branch-search .left{
+            width: 100%;
+        }
+        .branch-search .right{
+            width: 100%;
+        }
+    }
 </style>
 
 <body>
@@ -1583,7 +1651,7 @@ color: black;
             </div>
         </div>
     </section>
-    <section class="welcome-section">
+ <!--    <section class="welcome-section">
         <div class="welcome-container"
             style="background-image: url(smiling-young-customer-service-girl-with-headset-her-workplace.jpg);">
 
@@ -1594,79 +1662,37 @@ color: black;
             <h2>Gold Loan</h2>
         </div>
 
-    </section>
-
-    <section class="contact">
-     
-        <div class="form">
-            <h2>
-                GET IN TOUCH WITH US
-            </h2>
-            <div class="redirect-button">
-                <button onclick="window.location.href='branchnet.html'">View Our Branch Network</button><button>View Our Regional Office</button>
+    </section> -->
+    
+    <div class="branch-search">
+        <div class="left">
+            <h3>Locate Our Branches</h3>
+            <label for="">States</label>
+            <select name="" id="state" onchange="Selection()" >
+                <option value="Kerala">Kerala</option>
+                <option value="karnataka">Karnataka</option>
+                <option value="tamil nadu">Tamil Nadu</option>
+            </select>
+            <label for="">Districts</label>
+            <select name="" id="district" onchange="district()" >
+          
+            </select>
+            <label for="">Branches</label>
+            <select name="" id="city" >
+               
+            </select>
+            <div class="phone">
+                <img src="phone-call.png" alt="" srcset="">
+                <p>0487-2320102,2320103</p>
             </div>
-            <div class="content">
-            <input type="text" placeholder="Name"><input type="text" placeholder="Prefession"><input type="text" placeholder="City">
-                
-            <select name="" id="">
-                <option value="">select Country</option>
-                <option value="">India</option>
-            </select>
-            <select name="" id="">
-                <option value="">select State</option>
-                <option value="">Kerala</option>
-                <option value="">Bangalore</option>
-            </select>
-            <input type="text" placeholder="Pin/Zip Code">
-            <input type="text" placeholder="Phone ">
-            <input type="text" placeholder="Email">
-            <select name="" id="">
-                <option value="">Service Which You Want to Enquiry</option>
-                <option value="">Gold Loan</option>
-                <option value="">Vehicle Loan</option>
-                <option value="">Micro Loan</option>
-                <option value="">Sme Loan</option>
-                <option value="">Two Wheeler Loan</option>
-                <option value="">Gold Over Draft</option>
-            </select>
-       
-            <textarea name="" id="" placeholder="address"></textarea>
-           
+            <div class="email"> 
+                <img src="mail.png" alt="" srcset="">
+                <p>mail@yogloans.com</p>
+            </div>
+
         </div>
-        <button>Submit</button>
-        </div>
-        <div class="social">
-            
-            <div class="contact-detials">
-              
-                <div class="address">
-                    <div class="add">
-                   <!--  <div class="image">
-                        <img src="home-address.png" alt="" srcset="">
-                    </div> -->
-                        <p> Yogakshemam Loans Ltd
-                            3rd Floor, Ottappath Tower,
-                            Aswini Junction
-                            Thiruvambady-PO,Thrissur,Kerala-680022 </p>
-                        </div>
-                            <div class="digital">
-                                <div class="phone">
-                                  <!--   <div class="image">
-                                    <img src="customer-service.png" alt="" srcset="">
-                                </div> -->
-                                    <p style="text-align: center; width: 100%;">0487 2320102/103 </p>
-                                </div>
-                                <div class="email">
-                                  <!--   <div class="image">
-                                        <img src="email.png" alt="" srcset="">
-                                    </div> -->
-                                        <p style="text-align: center; width: 100%;">mail@yogloans.com </p>
-                                </div>
-                
-                            </div>
-                </div>
-                <div class="map">
-                    <iframe
+        <div class="right">
+            <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.168309983442!2d76.21151907487756!3d10.53556708962244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7ef367865438b%3A0xe5b7d1283f6fe006!2sOttapath%20Tower%2C%20Aswini%20Jn%2C%20Thrissur!5e0!3m2!1sen!2sin!4v1713264150000!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
@@ -1675,10 +1701,9 @@ color: black;
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade" id="thrissur-map">
                   </iframe>
-                </div>
-            </div>
         </div>
-    </section>
+    </div>
+    
     <footer class="footer-section">
         <div class="container">
             <!-- <div class="footer-cta pt-5 pb-5">
@@ -1792,7 +1817,7 @@ color: black;
     </footer>
 </body>
 <script>
-window.addEventListener('load', function() {
+    window.addEventListener('load', function() {
             // First hide the preloader
             const preloader = document.getElementById('preloader');
             preloader.style.opacity = '0';
@@ -1814,44 +1839,8 @@ window.addEventListener('load', function() {
                     preloader.style.display = 'none';
                 }, 500);
             }
-        }, 5000); // Hide after 5 seconds max, even if not all content loaded
-        document.addEventListener('DOMContentLoaded', function() {
-                const servicesLink = document.querySelector('.services-link');
-                const servicesList = document.querySelector('.services-list');
-
-                servicesLink.addEventListener('mouseover', function(e) {
-                    servicesList.style.opacity = '1';
-                });
-                servicesLink.addEventListener('mouseout', function(e) {
-                    servicesList.style.opacity = '0';
-                });
-                servicesList.addEventListener('mouseover', function(e) {
-                    servicesList.style.opacity = '1';
-                });
-                servicesList.addEventListener('mouseout', function(e) {
-                    servicesList.style.opacity = '0';
-                });
-                const servicesLink2 = document.querySelector('.services-link2');
-                const servicesList2 = document.querySelector('.services-list2');
-               servicesLink2.addEventListener('click', function(e) {
-                servicesList2.classList.toggle('active');
-               });
-                
-                
-            });
-        // Fallback for content loading
-        setTimeout(() => {
-            const preloader = document.getElementById('preloader');
-            if (preloader.style.display !== 'none') {
-                preloader.style.opacity = '0';
-                preloader.style.transition = 'opacity 0.5s ease';
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                }, 500);
-            }
         }, 5000);
-
-    function Selection() {
+        function Selection() {
         var selectValue = document.getElementById('state');
         var district = document.getElementById('district');
 
@@ -2000,72 +1989,5 @@ window.addEventListener('load', function() {
             <option value="BARGUR">BARGUR</option>
              <option value="KRISHNAGIRI">KRISHNAGIRI</option>`}
     }
-    document.getElementById('district').addEventListener('click', function () {
-        var selectValue = document.getElementById('state');
-        if (selectValue.value == "") {
-            alert('Please select a state first');
-        }
-    });
-
-    document.getElementById('city').addEventListener('click', function () {
-        var selectValue = document.getElementById('district');
-        if (selectValue.value == "") {
-            alert('Please select a district first');
-        }
-    });
-
-    document.addEventListener('DOMContentLoaded', Dom);
-    function Dom() {
-        document.querySelector('.toggle-icon').addEventListener('click', function () {
-            document.querySelector('.toggle').classList.toggle('active');
-            document.querySelector('.re-menu').classList.toggle('active');
-        });
-    }
-
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-  const carousel = document.querySelector('.caroucel');
-  const images = document.querySelector('.caroucel .images');
-  const prevBtn = document.querySelector('.caroucel .prev');
-  const nextBtn = document.querySelector('.caroucel .next');
-  let currentIndex = 0;
-  const totalImages = document.querySelectorAll('.image-cont').length;
-
-  function updateCarousel() {
-    images.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
-
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-    updateCarousel();
-  });
-
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalImages;
-    updateCarousel();
-  });
-
-  // Auto slide every 4 seconds
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % totalImages;
-    updateCarousel();
-  }, 4000);
-});
 </script>
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/680b1b094b378d190bfa0463/1iplm37ls';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
 </html>
