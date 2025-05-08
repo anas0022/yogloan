@@ -1873,6 +1873,10 @@ color: black;
             <option value="TUMKUR">TUMKUR</option>
             <option value="KOLAR">KOLAR</option>
             <option value="MANDYA">MANDYA</option>
+              <option value="BANGALURU I">BANGALURU I</option>
+              <option value="BANGALURU II">BANGALURU II</option>
+                <option value="CHITTOOR">CHITTOOR</option>
+                 <option value="ANATHAPUR">ANATHAPUR</option>
         `;
         }
         else if (selectValue.value == "tamil nadu") {
@@ -1880,7 +1884,8 @@ color: black;
         <option value="">select district </option>
             <option value="COIMBATHORE">COIMBATHORE</option>
             <option value="KRISHNAGIRI">KRISHNAGIRI</option>
-         
+          <option value="KRISHNAGIRI">DHARMAPURI</option>
+             <option value="KRISHNAGIRI">THENI</option>
         `;
         }
 
@@ -2016,25 +2021,111 @@ color: black;
 
              else if (district.value == "TUMKUR") {
             city.innerHTML = `
-         <option value="">select city </option>
-          <option value="SIRA">SIRA</option>
-            <option value="GUBBI">GUBBI</option>
-             <option value="PAVAGADA">PAVAGADA</option>`}
+         <option value="SIRA">SIRA</option>
+<option value="GUBBI">GUBBI</option>
+<option value="HULIYAR">HULIYAR</option>
+<option value="SIRA GATE TUMKUR">SIRA GATE TUMKUR</option>
+<option value="TURUVEKERE">TURUVEKERE</option>
+<option value="MADHUGIRI">MADHUGIRI</option>
+<option value="PAVAGADA">PAVAGADA</option>
+<option value="KORATAGERE">KORATAGERE</option>
+<option value="AMARAPURAM">AMARAPURAM</option>
+`}
 
                         
              else if (district.value == "KOLAR") {
             city.innerHTML = `
-         <option value="">select city </option>
-          <option value="CHINTHAMANI">CHINTHAMANI</option>
-            <option value="KOLAR">KOLAR</option>
-             <option value="MALUR">MALUR</option>`}
+
+    <option value="chintamani">CHINTAMANI</option>
+    <option value="doddaballapur">DODDABALLAPUR</option>
+    <option value="gauribidnur">GAURIBIDANUR</option>
+    <option value="hosakote">HOSAKOTE</option>
+    <option value="kolar">KOLAR</option>
+    <option value="malur">MALUR</option>
+    <option value="mulbagal">MULBAGAL</option>
+    <option value="ramamurthy_nagar">RAMAMURTHY NAGAR</option>
+    <option value="sreenivasapur">SREENIVASAPUR</option>
+    <option value="vemagal">VEMAGAL</option>
+    <option value="bangarpet">BANGARPET</option>
+
+`}
                           
              else if (district.value == "MANDYA") {
             city.innerHTML = `
-         <option value="">select city </option>
-          <option value="MADDUR">MADDUR</option>
-            <option value="TIPTUR">TIPTUR</option>
-             <option value="MALAVALLY">MALAVALLY</option>`}
+   
+    <option value="CHANNAPATNA">CHANNAPATNA</option>
+    <option value="CHANNARAYAPATNA">CHANNARAYAPATNA</option>
+    <option value="K M DODDI">K M DODDI</option>
+    <option value="KUNIGAL">KUNIGAL</option>
+    <option value="MADDUR">MADDUR</option>
+    <option value="MAGADI">MAGADI</option>
+    <option value="MALAVALLY">MALAVALLY</option>
+    <option value="RAMNAGAR">RAMNAGAR</option>
+    <option value="TIPTUR">TIPTUR</option>
+    <option value="BM ROAD RAMANAGARA">BM ROAD RAMANAGARA</option>
+    <option value="MANDYA">MANDYA</option>
+    <option value="HALAGUR">HALAGUR</option>
+    <option value="KANAKPURA">KANAKPURA</option>
+
+`}
+else if (district.value == "BANGALURU I") {
+            city.innerHTML = `
+   
+  <select>
+  <option value="1">THILAK NAGAR</option>
+  <option value="2">HONGASANDRA</option>
+  <option value="3">HORAMAVU</option>
+  <option value="4">HOSA ROAD</option>
+  <option value="5">J P NAGAR</option>
+  <option value="6">K G HALLI</option>
+  <option value="7">KAMMANAHALLI</option>
+  <option value="8">KATHRIKUPPA</option>
+  <option value="9">MANGAMMANAPALYA</option>
+  <option value="10">WILSON GARDEN</option>
+  <option value="11">HAROHALLI</option>
+</select>
+
+
+`}
+else if (district.value == "BANGALURU II") {
+            city.innerHTML = `
+   
+  <select>
+  <option value="1">CHIKKABANAVARA</option>
+  <option value="2">DODDABOMMASANDRA</option>
+  <option value="3">HESARAGHATTA</option>
+  <option value="4">MATHIKERE</option>
+  <option value="5">NELAMANGALA</option>
+  <option value="6"> PEENIYA</option>
+  <option value="7"> RT NAGAR</option>
+  <option value="8">SUNKADAKATTE</option>
+  <option value="9"> T DASARAHALLI</option>
+  <option value="10">YELAHANKA</option>
+
+</select>
+
+
+`}
+else if (district.value == "CHITTOOR") {
+            city.innerHTML = `
+   
+  <select>
+  <option value="1">CHIKKABANAVARA</option>
+  <option value="2">DODDABOMMASANDRA</option>
+  <option value="3">HESARAGHATTA</option>
+  <option value="4">MATHIKERE</option>
+  <option value="5">NELAMANGALA</option>
+  <option value="6"> PEENIYA</option>
+  <option value="7"> RT NAGAR</option>
+  <option value="8">SUNKADAKATTE</option>
+  <option value="9"> T DASARAHALLI</option>
+  <option value="10">YELAHANKA</option>
+
+</select>
+
+
+`}
+
 
                 else if (district.value == "COIMBATHORE") {
             city.innerHTML = `
