@@ -1687,12 +1687,12 @@ color: black;
           
             </select>
             <label for="">Branches</label>
-            <select name="" id="city" >
+            <select name="" id="city" onchange="citychange()">
                
             </select>
             <div class="phone">
                 <img src="phone-call.png" alt="" srcset="">
-                <p>0487-2320102,2320103</p>
+                <p id="phone">0487-2320102,2320103</p>
             </div>
             <div class="email"> 
                 <img src="mail.png" alt="" srcset="">
@@ -1884,8 +1884,8 @@ color: black;
         <option value="">select district </option>
             <option value="COIMBATHORE">COIMBATHORE</option>
             <option value="KRISHNAGIRI">KRISHNAGIRI</option>
-          <option value="KRISHNAGIRI">DHARMAPURI</option>
-             <option value="KRISHNAGIRI">THENI</option>
+          <option value="DHARMAPURI">DHARMAPURI</option>
+             <option value="THENI">THENI</option>
         `;
         }
 
@@ -1899,14 +1899,15 @@ color: black;
         var city = document.getElementById('city');
         if (district.value == "THRISSUR") {
             city.innerHTML = `
-         <option value="">select city </option>
-          <option value="THRISSUR">KATOOR</option>
-            <option value="ALAPUZHA">KODAKARA</option>
-                <option value="ALAPUZHA">PERUMBILLISSERY</option>
-                  <option value="ALAPUZHA">THRIPRAYAR</option>
-            <option value="EDAPPAL">THRISSUR</option>`}
+         <option value="">select Branch </option>
+          <option value="KATOOR">KATOOR</option>
+            <option value="KODAKARA">KODAKARA</option>
+                <option value="PERUMBILLISSERY">PERUMBILLISSERY</option>
+                  <option value="THRIPRAYAR">THRIPRAYAR</option>
+            <option value="THRISSUR">THRISSUR</option>`}
     else if (district.value == "ALAPUZHA") {
             city.innerHTML = `
+             <option value="">select Branch </option>
       <option value="CHETTIKULANGARA">CHETTIKULANGARA</option>
 <option value="KARUVATTA">KARUVATTA</option>
 <option value="KONNI">KONNI</option>
@@ -1920,6 +1921,7 @@ color: black;
 
             else if (district.value == "EDAPPAL") {
             city.innerHTML = `
+             <option value="">select Branch </option>
          <option value="CHETTIKULANGARA">CHETTIKULANGARA</option>
 <option value="KARUVATTA">KARUVATTA</option>
 <option value="KONNI">KONNI</option>
@@ -1941,6 +1943,7 @@ color: black;
 
             else if (district.value == "WADAKKANCHERY") {
             city.innerHTML = `
+             <option value="">select Branch </option>
        <option value="CHALLISERRY">CHALLISERRY</option>
 <option value="CHERUTHURUTHY">CHERUTHURUTHY</option>
 <option value="CHOWANNUR">CHOWANNUR</option>
@@ -1954,6 +1957,7 @@ color: black;
 
             else if (district.value == "KOZHIKODE") {
             city.innerHTML = `
+             <option value="">select Branch </option>
          <option value="KOYILANDY">KOYILANDY</option>
 <option value="KOZHIKODE">KOZHIKODE</option>
 <option value="PAYYANNUR">PAYYANNUR</option>
@@ -1963,6 +1967,7 @@ color: black;
 
             else if (district.value == "MAJERY") {
             city.innerHTML = `
+             <option value="">select Branch </option>
          <option value="EDAKKARA">EDAKKARA</option>
 <option value="KARUVARAKUNDU">KARUVARAKUNDU</option>
 <option value="KOLATHUR">KOLATHUR</option>
@@ -1976,6 +1981,7 @@ color: black;
 
             else if (district.value == "PALAKKAD") {
             city.innerHTML = `
+             <option value="">select Branch </option>
       <option value="CHITTUR">CHITTUR</option>
 <option value="KALPATHY">KALPATHY</option>
 <option value="KULAPPULLY">KULAPPULLY</option>
@@ -1988,6 +1994,7 @@ color: black;
 
             else if (district.value == "ERNAMKULAM") {
             city.innerHTML = `
+             <option value="">select Branch </option>
        <option value="ALUVA">ALUVA</option>
 <option value="ANGAMALY">ANGAMALY</option>
 <option value="EDAPPALLY">EDAPPALLY</option>
@@ -2001,6 +2008,7 @@ color: black;
              
             else if (district.value == "THIRUVANTHAPURAM") {
             city.innerHTML = `
+             <option value="">select Branch </option>
       <option value="BALARAMAPURAM">BALARAMAPURAM</option>
 <option value="KAIMANAM">KAIMANAM</option>
 <option value="KARAMANA">KARAMANA</option>
@@ -2010,6 +2018,7 @@ color: black;
                  
             else if (district.value == "KOTTAYAM") {
             city.innerHTML = `
+             <option value="">select Branch </option>
         <option value="KATTAPPANA">KATTAPPANA</option>
 <option value="CHERTHALA">CHERTHALA</option>
 <option value="KOTTAYAM TOWN">KOTTAYAM TOWN</option>
@@ -2021,6 +2030,7 @@ color: black;
 
              else if (district.value == "TUMKUR") {
             city.innerHTML = `
+             <option value="">select Branch </option>
          <option value="SIRA">SIRA</option>
 <option value="GUBBI">GUBBI</option>
 <option value="HULIYAR">HULIYAR</option>
@@ -2035,7 +2045,7 @@ color: black;
                         
              else if (district.value == "KOLAR") {
             city.innerHTML = `
-
+ <option value="">select Branch </option>
     <option value="chintamani">CHINTAMANI</option>
     <option value="doddaballapur">DODDABALLAPUR</option>
     <option value="gauribidnur">GAURIBIDANUR</option>
@@ -2052,7 +2062,7 @@ color: black;
                           
              else if (district.value == "MANDYA") {
             city.innerHTML = `
-   
+    <option value="">select Branch </option>
     <option value="CHANNAPATNA">CHANNAPATNA</option>
     <option value="CHANNARAYAPATNA">CHANNARAYAPATNA</option>
     <option value="K M DODDI">K M DODDI</option>
@@ -2071,75 +2081,598 @@ color: black;
 else if (district.value == "BANGALURU I") {
             city.innerHTML = `
    
-  <select>
-  <option value="1">THILAK NAGAR</option>
-  <option value="2">HONGASANDRA</option>
-  <option value="3">HORAMAVU</option>
-  <option value="4">HOSA ROAD</option>
-  <option value="5">J P NAGAR</option>
-  <option value="6">K G HALLI</option>
-  <option value="7">KAMMANAHALLI</option>
-  <option value="8">KATHRIKUPPA</option>
-  <option value="9">MANGAMMANAPALYA</option>
-  <option value="10">WILSON GARDEN</option>
-  <option value="11">HAROHALLI</option>
-</select>
+ <option value="">select Branch </option>
+  <option value="THILAK NAGAR">THILAK NAGAR</option>
+  <option value="HONGASANDRA">HONGASANDRA</option>
+  <option value="HORAMAVU">HORAMAVU</option>
+  <option value="HOSA ROAD">HOSA ROAD</option>
+  <option value="J P NAGAR">J P NAGAR</option>
+  <option value="K G HALLI">K G HALLI</option>
+  <option value="KAMMANAHALLI">KAMMANAHALLI</option>
+  <option value="KATHRIKUPPA">KATHRIKUPPA</option>
+  <option value="MANGAMMANAPALYA">MANGAMMANAPALYA</option>
+  <option value="WILSON GARDEN">WILSON GARDEN</option>
+  <option value="HAROHALLI">HAROHALLI</option>
+
 
 
 `}
 else if (district.value == "BANGALURU II") {
             city.innerHTML = `
-   
-  <select>
-  <option value="1">CHIKKABANAVARA</option>
-  <option value="2">DODDABOMMASANDRA</option>
-  <option value="3">HESARAGHATTA</option>
-  <option value="4">MATHIKERE</option>
-  <option value="5">NELAMANGALA</option>
-  <option value="6"> PEENIYA</option>
-  <option value="7"> RT NAGAR</option>
-  <option value="8">SUNKADAKATTE</option>
-  <option value="9"> T DASARAHALLI</option>
-  <option value="10">YELAHANKA</option>
+    <option value="">select Branch </option>
 
-</select>
+  <option value="CHIKKABANAVARA">CHIKKABANAVARA</option>
+  <option value="DODDABOMMASANDRA">DODDABOMMASANDRA</option>
+  <option value="HESARAGHATTA">HESARAGHATTA</option>
+  <option value="MATHIKERE">MATHIKERE</option>
+  <option value="NELAMANGALA">NELAMANGALA</option>
+  <option value="PEENIYA"> PEENIYA</option>
+  <option value="RT NAGAR"> RT NAGAR</option>
+  <option value="SUNKADAKATTE">SUNKADAKATTE</option>
+  <option value="T DASARAHALLI"> T DASARAHALLI</option>
+  <option value="YELAHANKA">YELAHANKA</option>
+
+
 
 
 `}
 else if (district.value == "CHITTOOR") {
             city.innerHTML = `
    
-  <select>
-  <option value="1">CHIKKABANAVARA</option>
-  <option value="2">DODDABOMMASANDRA</option>
-  <option value="3">HESARAGHATTA</option>
-  <option value="4">MATHIKERE</option>
-  <option value="5">NELAMANGALA</option>
-  <option value="6"> PEENIYA</option>
-  <option value="7"> RT NAGAR</option>
-  <option value="8">SUNKADAKATTE</option>
-  <option value="9"> T DASARAHALLI</option>
-  <option value="10">YELAHANKA</option>
+ <option value="">select Branch </option>
+    <option value="MADANAPPALLE">MADANAPPALLE</option>
+    <option value="PUNGANUR">PUNGANUR</option>
+    <option value="PALAMANER">PALAMANER</option>
+    <option value="KUPPAM">KUPPAM</option>
+    <option value="V KOTA (VENKATAGIRI)">V KOTA (VENKATAGIRI)</option>
+    <option value="SANTHAPET CHITTUR">SANTHAPET CHITTUR</option>
+    <option value="PAKALA">PAKALA</option>
+    <option value="PILERU">PILERU</option>
+    <option value="ANGALLU">ANGALLU</option>
+    <option value="B KOTHAKOTA">B KOTHAKOTA</option>
 
-</select>
+
+
+
+`}
+else if (district.value == "ANATHAPUR") {
+            city.innerHTML = `
+   
+
+ <option value="">select Branch </option>
+    <option value="Gorantla">Gorantla</option>
+    <option value="Dharmavaram">Dharmavaram</option>
+    <option value="Ananthapur">Ananthapur</option>
+    <option value="Hindupur">Hindupur</option>
+    <option value="Tadipatri">Tadipatri</option>
+    <option value="Kadiri">Kadiri</option>
+
+
+
 
 
 `}
 
 
+
                 else if (district.value == "COIMBATHORE") {
             city.innerHTML = `
-         <option value="">select city </option>
-          <option value="ERODE">ERODE</option>
-            <option value="KARUR">KARUR</option>
-             <option value="THIRUPUR">THIRUPUR</option>`}
+       
+       <option value="">select Branch </option>
+    <option value="coimbatore">COIMBATORE</option>
+    <option value="erode">ERODE</option>
+    <option value="karur">KARUR</option>
+    <option value="thirupur">THIRUPUR</option>
+
+
+             `}
 
              else if (district.value == "KRISHNAGIRI") {
             city.innerHTML = `
-         <option value="">select city </option>
-          <option value="HOSUR">HOSUR</option>
-            <option value="BARGUR">BARGUR</option>
-             <option value="KRISHNAGIRI">KRISHNAGIRI</option>`}
+ <option value="">select Branch </option>
+    <option value="bargur">BARGUR</option>
+    <option value="hosur">HOSUR</option>
+    <option value="periyampatti">PERIYAMPATTI</option>
+    <option value="pochampally">POCHAMPALLY</option>
+    <option value="veppanapalli">VEPPANAPALLI</option>
+    <option value="denkanikottai">DENKANIKOTTAI</option>
+    <option value="krishnagiri">KRISHNAGIRI</option>
+    <option value="kaveripattinam">KAVERIPATTINAM</option>
+
+`}
+else if (district.value == "DHARMAPURI") {
+            city.innerHTML = `
+            
+        <option>Select Branch</option>
+    <option value="dharmapuri">DHARMAPURI</option>
+    <option value="kambainallur">KAMBAINALLUR</option>
+    <option value="palacode">PALACODE</option>
+    <option value="papparapatti">PAPPARAPATTI</option>
+    <option value="pennagaram">PENNAGARAM</option>
+    <option value="salem">SALEM</option>
+    <option value="nangavalli">NANGAVALLI</option>
+
+
+`}
+else if (district.value == "THENI") {
+            city.innerHTML = `
+     
+    <option>Select Branch</option>
+    <option value="ANDIPATTI">ANDIPATTI</option>
+    <option value="DINDIGUL">DINDIGUL</option>
+    <option value="MADURAI">MADURAI</option>
+    <option value="THENI">THENI</option>
+    <option value="TRICHY">TRICHY</option>
+
+
+
+
+`}
     }
+
+function citychange(){
+    var branch = document.getElementById('city');
+    var phone = document.getElementById('phone');
+    if(branch.value=="ANDIPATTI"){
+        phone.innerText = "09188224984";
+    }
+    else  if(branch.value=="DINDIGUL"){
+        phone.innerText = "09489007611";
+    }
+    else  if(branch.value=="MADURAI"){
+        phone.innerText = "09489007606";
+    }
+    else  if(branch.value=="THENI"){
+        phone.innerText = "09486439607";
+    }
+    else  if(branch.value=="TRICHY"){
+        phone.innerText = "09489007607";
+    }
+    else  if(branch.value=="dharmapuri"){
+        phone.innerText = "09442100963";
+    }
+    else  if(branch.value=="kambainallur"){
+        phone.innerText = "09188954434";
+    }
+    else  if(branch.value=="palacode"){
+        phone.innerText = "07594920025";
+    }
+    else  if(branch.value=="papparapatti"){
+        phone.innerText = "09188954435";
+    }
+    else  if(branch.value=="pennagaram"){
+        phone.innerText = "07594920024";
+    }
+    else  if(branch.value=="salem"){
+        phone.innerText = "09488576539";
+    }
+    else  if(branch.value=="nangavalli"){
+        phone.innerText = "09188909272";
+    }
+    else  if(branch.value=="THRISSUR"){
+        phone.innerText = "09496001950";
+    }
+    else  if(branch.value=="THRIPRAYAR"){
+        phone.innerText = "09496001947";
+    }
+    else  if(branch.value=="PERUMBILLISSERY"){
+        phone.innerText = "09497713956";
+    }
+    else  if(branch.value=="KODAKARA"){
+        phone.innerText = "09496001973";
+    }
+    else  if(branch.value=="KATOOR"){
+        phone.innerText = "09496001972";
+    }
+    else  if(branch.value=="CHETTIKULANGARA"){
+        phone.innerText = "8547213972";
+    }
+    else  if(branch.value=="KARUVATTA"){
+        phone.innerText = "8547213967";
+    }
+    else  if(branch.value=="KONNI"){
+        phone.innerText = "7594920029";
+    }
+    else  if(branch.value=="KOTTARAKKARA"){
+        phone.innerText = "9846112838";
+    }
+    else  if(branch.value=="NANGIARKULANGARA"){
+        phone.innerText = "9497711922";
+    }
+    else  if(branch.value=="PUTHIYAKAVU"){
+        phone.innerText = "8304837984";
+    }
+    else  if(branch.value=="THIRUVALLA"){
+        phone.innerText = "9497711921";
+    }
+    else  if(branch.value=="THUMMBAMAN"){
+        phone.innerText = "9497711920";
+    }
+    else  if(branch.value=="VELANCHIRA"){
+        phone.innerText = "8547213909";
+    }
+    else  if(branch.value=="EDAPPAL"){
+        phone.innerText = "9496001959";
+    }
+    else  if(branch.value=="KARINGALATHANY"){
+        phone.innerText = "9496001958";
+    }
+    else  if(branch.value=="KUMBIDI"){
+        phone.innerText = "8547618801";
+    }
+    else  if(branch.value=="PERUMBILAVU"){
+        phone.innerText = "9496001992";
+    }
+    else  if(branch.value=="PUTHA NATHANI"){
+        phone.innerText = "9496012655";
+    }
+    else  if(branch.value=="THANUR"){
+        phone.innerText = "9497713955";
+    }
+    else  if(branch.value=="THRITHALA"){
+        phone.innerText = "9496001963";
+    }
+    else  if(branch.value=="VALANCHERY"){
+        phone.innerText = "9496001966";
+    }
+    else  if(branch.value=="CHALLISERRY"){
+        phone.innerText = "9496001971";
+    }
+    else  if(branch.value=="CHERUTHURUTHY"){
+        phone.innerText = "9496001975";
+    }
+    else  if(branch.value=="CHOWANNUR"){
+        phone.innerText = "9496001955";
+    }
+    else  if(branch.value=="ERUMAPPETTY"){
+        phone.innerText = "9496001953";
+    }
+    else  if(branch.value=="KARUKAPUTHUR"){
+        phone.innerText = "9496001961";
+    }
+    else  if(branch.value=="KATTAKAMPAL"){
+        phone.innerText = "9496001957";
+    }
+    else  if(branch.value=="KUNNAMKULAM"){
+        phone.innerText = "9496001956";
+    }
+    else  if(branch.value=="PERINGODE"){
+        phone.innerText = "9496001960";
+    }
+    else  if(branch.value=="WADAKKANCHERY"){
+        
+        phone.innerText = "9496001952";
+    }
+    else  if(branch.value=="KOYILANDY"){
+        phone.innerText = "9846332838";
+    }
+    else  if(branch.value=="KOZHIKODE"){
+        phone.innerText = "9496012657";
+    }
+    else  if(branch.value=="THALASSERY"){
+        phone.innerText = "9048828123";
+    }
+    else  if(branch.value=="EDAKARA"){
+        phone.innerText = "9496012653";
+    }
+    else  if(branch.value=="KARUVARAKUND"){
+        phone.innerText = "9496012659";
+    }
+    else  if(branch.value=="KOLATHUR"){
+        phone.innerText = "9496001965";
+    }
+    else  if(branch.value=="MANJERI"){
+        phone.innerText = "9496001967";
+    }
+    else  if(branch.value=="NILAMBUR"){
+        phone.innerText = "9496012651";
+    }
+    else  if(branch.value=="PANDIKKAD"){
+        phone.innerText = "9496001993";
+    }
+    else  if(branch.value=="PERINTHALMANNA"){
+        phone.innerText = "8547618815";
+    }
+    else  if(branch.value=="POOKKOTTUMPADAM"){
+        phone.innerText = "9496012654";
+    }
+    else  if(branch.value=="WANDOOR"){
+        phone.innerText = "9496001968";
+    }
+    else  if(branch.value=="CHITTUR"){
+        phone.innerText = "8547618814";
+    }
+    else  if(branch.value=="KALPATHY"){
+        phone.innerText = "9497713951";
+    }
+    else  if(branch.value=="KULAPPULLY"){
+        phone.innerText = "9496001951";
+    }
+    else  if(branch.value=="KUNNATHURMEDU"){
+        phone.innerText = "8547618813";
+    }
+    else  if(branch.value=="MANNARKKAD"){
+        phone.innerText = "9072784555";
+    }
+    else  if(branch.value=="NENMARA"){
+        phone.innerText = "9497711950";
+    }
+    else  if(branch.value=="PATTAMBI"){
+        phone.innerText = "9496001962";
+    }
+    else  if(branch.value=="VALLAPUZHA"){
+        phone.innerText = "9497713957";
+    }
+    else  if(branch.value=="ALUVA"){
+        phone.innerText = "9496001942";
+    }
+    else  if(branch.value=="ANGAMALY"){
+        phone.innerText = "9496001943";
+    }
+    else  if(branch.value=="EDAPPALLY"){
+        phone.innerText = "9497711958";
+    }
+    else  if(branch.value=="KALADY"){
+        phone.innerText = "9496001911";
+    }
+    else  if(branch.value=="KOTHAMANGALAM"){
+        phone.innerText = "9496001940";
+    }
+    else  if(branch.value=="MUVATTUPUZHA"){
+        phone.innerText = "9496001939";
+    }
+    else  if(branch.value=="NORTH PARUR"){
+        phone.innerText = "9496001944";
+    }
+    else  if(branch.value=="ODAKKALI"){
+        phone.innerText = "9496001988";
+    }
+    else if(branch.value=="BALARAMAPURAM"){
+        phone.innerText = "9188083984";
+    }
+    else if(branch.value=="KAIMANAM"){
+        phone.innerText = "9497711953";
+    }
+    else if(branch.value=="KARAMANA"){
+        phone.innerText = "8547618817";
+    }
+    else if(branch.value=="TRIVANDRUM"){
+        phone.innerText = "9496012658";
+    }
+    else if(branch.value=="VENJARAMOODU"){
+        phone.innerText = "9048815123";
+    }
+    else if(branch.value=="CHERTHALA"){
+        phone.innerText = "8281770188";
+    }
+    else if(branch.value=="KATTAPPANA"){
+        phone.innerText = "7594920034";
+    }
+    else if(branch.value=="KOTTAYAM TOWN"){
+        phone.innerText = "8547618804";
+    }
+    else if(branch.value=="MULANTHURUTHY"){
+        phone.innerText = "9496001936";
+    }
+    else if(branch.value=="PALA"){
+        phone.innerText = "9496001932";
+    }
+    else if(branch.value=="PIRAVOM"){
+        phone.innerText = "9496001935";
+    }
+    else if(branch.value=="THODUPUZHA"){
+        phone.innerText = "9496001938";
+    }
+    else if(branch.value=="AMARAPURAM"){
+        phone.innerText = "9746782311";
+    }
+    else if(branch.value=="GUBBI"){
+        phone.innerText = "9746344711";
+    }
+    else if(branch.value=="HULIYAR"){
+        phone.innerText = "9746098911";
+    }
+    else if(branch.value=="KORATAGERE"){
+        phone.innerText = "9746130611";
+    }
+    else if(branch.value=="MADHUGIRI"){
+        phone.innerText = "9746630811";
+    }
+    else if(branch.value=="PAVAGADA"){
+        phone.innerText = "9746130611";
+    }
+    else if(branch.value=="SIRA"){
+        phone.innerText = "9746917411";
+    }
+    else if(branch.value=="SIRA GATE TUMKUR"){
+        phone.innerText = "9746157211";
+    }
+    else if(branch.value=="TURUVEKERE"){
+        phone.innerText = "9746398511";
+    }
+    else if(branch.value=="BANGERPET"){
+        phone.innerText = "9188954741";
+    }
+    else if(branch.value=="CHINTAMANI"){
+        phone.innerText = "7594972354";
+    }
+    else if(branch.value=="DODDABALLAPUR"){
+        phone.innerText = "9539760011";
+    }
+    else if(branch.value=="GAURIBIDANUR"){
+        phone.innerText = "9072783555";
+    }
+    else if(branch.value=="HOSAKOTE"){
+        phone.innerText = "9072745444";
+    }
+    else if(branch.value=="KOLAR"){
+        phone.innerText = "7594972364";
+    }
+    else if(branch.value=="MALUR"){
+        phone.innerText = "9048085300";
+    }
+    else if(branch.value=="MULBAGAL"){
+        phone.innerText = "7594972365";
+    }
+    else if(branch.value=="RAMAMURTHY NAGAR"){
+        phone.innerText = "7594972358";
+    }
+    else if(branch.value=="SREENIVASAPUR"){
+        phone.innerText = "7594972362";
+    }
+    else if(branch.value=="VEMAGAL"){
+        phone.innerText = "9188954746";
+    }
+    else if(branch.value=="BM ROAD RAMANAGARA"){
+        phone.innerText = "9188954742";
+    }
+    else if(branch.value=="CHANNAPATNA"){
+        phone.innerText = "9072505011";
+    }
+    else if(branch.value=="CHANNARAYAPATNA"){
+        phone.innerText = "7594920021";
+    }
+    else if(branch.value=="HALAGURU"){
+        phone.innerText = "9188954744";
+    }
+    else if(branch.value=="K M DODDI"){
+        phone.innerText = "7594920016";
+    }
+    else if(branch.value=="KANAKAPURA"){
+        phone.innerText = "9188954745";
+    }
+    else if(branch.value=="KUNIGAL"){
+        phone.innerText = "7594972359";
+    }
+    else if(branch.value=="MADDUR"){
+        phone.innerText = "7594972355";
+    }
+    else if(branch.value=="MAGADI"){
+        phone.innerText = "7594972361";
+    }
+    else if(branch.value=="MALAVALLY"){
+        phone.innerText = "7594972356";
+    }
+    else if(branch.value=="MANDYA"){
+        phone.innerText = "9188954743";
+    }
+    else if(branch.value=="RAMNAGAR"){
+        phone.innerText = "9072505044";
+    }
+    else if(branch.value=="TIPTUR"){
+        phone.innerText = "7594972360";
+    }
+    else if(branch.value=="HAROHALLY"){
+        phone.innerText = "91884 01642";
+    }
+    else if(branch.value=="HONGASANDRA"){
+        phone.innerText = "7594920026";
+    }
+    else if(branch.value=="HORAMAVU"){
+        phone.innerText = "7594930031";
+    }
+    else if(branch.value=="HOSA ROAD"){
+        phone.innerText = "7594972353";
+    }
+    else if(branch.value=="J P NAGAR"){
+        phone.innerText = "9188108251";
+    }
+    else if(branch.value=="K G HALLI"){
+        phone.innerText = "7594972357";
+    }
+    else if(branch.value=="KAMMANAHALLI"){
+        phone.innerText = "9188108387";
+    }
+    else if(branch.value=="KATHRIKUPPA"){
+        phone.innerText = "9845370700";
+    }
+    else if(branch.value=="THILAK NAGAR"){
+        phone.innerText = "9188082984";
+    }
+    else if(branch.value=="MANGAMMANAPALYA"){
+        phone.innerText = "7594920056";
+    }
+    else if(branch.value=="WILSON GARDEN"){
+        phone.innerText = "9645760600";
+    }
+    else if(branch.value=="CHIKKABANAVARA"){
+        phone.innerText = "9072742444";
+    }
+    else if(branch.value=="DODDABOMMASANDRA"){
+        phone.innerText = "9048028300";
+    }
+    else if(branch.value=="HESARAGHATTA"){
+        phone.innerText = "7594972363";
+    }
+    else if(branch.value=="MATHIKERE"){
+        phone.innerText = "9188108061";
+    }
+    else if(branch.value=="NELAMANGALA"){
+        phone.innerText = "9072505066";
+    }
+    else if(branch.value=="PEENIYA"){
+        phone.innerText = "9048074300";
+    }
+    else if(branch.value=="RT NAGAR"){
+        phone.innerText = "9188107923";
+    }
+    else if(branch.value=="SUNKADAKATTE"){
+        phone.innerText = "9188108167";
+    }
+    else if(branch.value=="T DASARAHALLI"){
+        phone.innerText = "9188081984";
+    }
+    else if(branch.value=="YELAHANKA"){
+        phone.innerText = "9539505001";
+    }
+    else if(branch.value=="KUPPAM"){
+        phone.innerText = "9188909274";
+    }
+    else if(branch.value=="MADANAPALLE"){
+        phone.innerText = "9188909277";
+    }
+    else if(branch.value=="PALAMANER"){
+        phone.innerText = "9188909275";
+    }
+    else if(branch.value=="PUNGANUR"){
+        phone.innerText = "9188909276";
+    }
+    else if(branch.value=="VKOTA"){
+        phone.innerText = "9188909271";
+    }
+    else if(branch.value=="PILERU"){
+        phone.innerText = "9188401647";
+    }
+    else if(branch.value=="PAKALA"){
+        phone.innerText = "9188401648";
+    }
+    else if(branch.value=="ANGALLU"){
+        phone.innerText = "9188401646";
+    }
+    else if(branch.value=="BKOTHAKOTA"){
+        phone.innerText = "9188401645";
+    }
+    else if(branch.value=="GORANTLA"){
+        phone.innerText = "9188401644";
+    }
+    else if(branch.value=="DHARMAVARAM"){
+        phone.innerText = "9188401643";
+    }
+    else if(branch.value=="HINDUPUR"){
+        phone.innerText = "9188401653";
+    }
+    else if(branch.value=="TADIPATRI"){
+        phone.innerText = "9188401554";
+    }
+    else if(branch.value=="KADIRI"){
+        phone.innerText = "9188401655";
+    }
+    else if(branch.value=="ANANTHAPUR"){
+        phone.innerText = "9188401652";
+    }
+    else {
+        phone.innerText = "0487-2320102,2320103";
+    }
+}
 </script>
 </html>
