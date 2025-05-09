@@ -1682,6 +1682,7 @@ color: black;
                 <option value="Kerala">Kerala</option>
                 <option value="karnataka">Karnataka</option>
                 <option value="tamil nadu">Tamil Nadu</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
             </select>
             <label for="">Districts</label>
             <select name="" id="district" onchange="district()" >
@@ -1889,6 +1890,15 @@ color: black;
              <option value="THENI">THENI</option>
         `;
         }
+        else if (selectValue.value == "Andhra Pradesh") {
+            district.innerHTML = `
+        <option value="">select district </option>
+            <option value="ANANTHAPUR">ANANTHAPUR</option>
+            <option value="CHITTOOR">CHITTOOR</option>
+       
+        `;
+        }
+   
 
         else {
             district.innerHTML = `<option value="">Select district</option>`;
@@ -1906,6 +1916,32 @@ color: black;
                 <option value="PERUMBILLISSERY">PERUMBILLISSERY</option>
                   <option value="THRIPRAYAR">THRIPRAYAR</option>
             <option value="THRISSUR">THRISSUR</option>`}
+            else if (district.value == "ANANTHAPUR") {
+                 city.innerHTML = `
+                <option value="">select Branch </option>
+                <option value="DHARMAVARAM">DHARMAVARAM</option>
+               <option value="GORANTLA">GORANTLA</option>
+               <option value="HINDUPUR">HINDUPUR</option>
+               <option value="KADIRI">KADIRI</option>
+                <option value="TADIPATRI">TADIPATRI</option>
+                `
+            }
+            else if (district.value == "CHITTOOR") {
+                 city.innerHTML = `
+                <option value="">select Branch </option>
+                <option value="ANGALLU">ANGALLU</option>
+               <option value="B KOTHAKOTTA">B KOTHAKOTTA</option>
+               <option value="CHITTOOR">CHITTOOR</option>
+               <option value="KUPPAM">KUPPAM</option>
+                <option value="MADANAPPALLY">MADANAPPALLY</option>
+                 <option value="PAKALA">PAKALA</option>
+                <option value="PALAMANER">PALAMANER</option>
+                 <option value="PILERU">PILERU</option>
+                <option value="PUNGANUR">PUNGANUR</option>
+                 <option value="VENTAGIRIKOTTA">VENTAGIRIKOTTA</option>
+                `
+            }
+            
     else if (district.value == "ALAPPUZHA") {
             city.innerHTML = `
              <option value="">select Branch </option>
