@@ -271,7 +271,7 @@
             position:absolute;
         top:8%;
         width:20%;
-        z-index: 400000000;
+      
             left: 20%;
             height: auto;
             display: flex;
@@ -1676,15 +1676,19 @@ menu ul{
 
                 servicesLink.addEventListener('mouseover', function(e) {
                     servicesList.style.opacity = '1';
+                    servicesList.style.zIndex = '400000000';
+              
                 });
                 servicesLink.addEventListener('mouseout', function(e) {
                     servicesList.style.opacity = '0';
                 });
                 servicesList.addEventListener('mouseover', function(e) {
                     servicesList.style.opacity = '1';
+                    servicesList.style.zIndex = '400000000';
                 });
                 servicesList.addEventListener('mouseout', function(e) {
                     servicesList.style.opacity = '0';
+                    servicesList.style.zIndex = '0';
                 });
                 const servicesLink2 = document.querySelector('.services-link2');
                 const servicesList2 = document.querySelector('.services-list2');

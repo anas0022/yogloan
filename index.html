@@ -2473,7 +2473,7 @@ input[type=range]::-ms-fill-upper {
             position:absolute;
         top:8%;
         width:20%;
-        z-index: 400000000;
+     
             left: 20%;
             height: auto;
             display: flex;
@@ -3292,7 +3292,7 @@ all 0.5s ease;
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a class="services-link" >Services</a></li>
-                    <ul class="services-list" style="z-index: 10000000000000000;">
+                    <ul class="services-list" style="">
                         <li style="border:none; border-right: none;"> <a href="loans.html" style="border:none; border-right: none;">Gold Loan</a></li>
                         <li style="border:none;"><a href="vehicle.html" style="border:none;">Vehicle Loan</a></li>
                         <li style="border:none;"><a href="personal.html" style="border:none;">Business Loan</a></li>
@@ -3725,15 +3725,19 @@ all 0.5s ease;
 
                 servicesLink.addEventListener('mouseover', function(e) {
                     servicesList.style.opacity = '1';
+                    servicesList.style.zIndex = '400000000';
+              
                 });
                 servicesLink.addEventListener('mouseout', function(e) {
                     servicesList.style.opacity = '0';
                 });
                 servicesList.addEventListener('mouseover', function(e) {
                     servicesList.style.opacity = '1';
+                    servicesList.style.zIndex = '400000000';
                 });
                 servicesList.addEventListener('mouseout', function(e) {
                     servicesList.style.opacity = '0';
+                    servicesList.style.zIndex = '0';
                 });
                 const servicesLink2 = document.querySelector('.services-link2');
                 const servicesList2 = document.querySelector('.services-list2');

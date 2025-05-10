@@ -258,7 +258,7 @@
             position:absolute;
         top:8%;
         width:20%;
-        z-index: 400000000;
+       
             left: 20%;
             height: auto;
             display: flex;
@@ -1905,6 +1905,35 @@ color: black;
         }
 
     }
+    
+document.addEventListener('DOMContentLoaded', function() {
+                const servicesLink = document.querySelector('.services-link');
+                const servicesList = document.querySelector('.services-list');
+
+                servicesLink.addEventListener('mouseover', function(e) {
+                    servicesList.style.opacity = '1';
+                    servicesList.style.zIndex = '400000000';
+              
+                });
+                servicesLink.addEventListener('mouseout', function(e) {
+                    servicesList.style.opacity = '0';
+                });
+                servicesList.addEventListener('mouseover', function(e) {
+                    servicesList.style.opacity = '1';
+                    servicesList.style.zIndex = '400000000';
+                });
+                servicesList.addEventListener('mouseout', function(e) {
+                    servicesList.style.opacity = '0';
+                    servicesList.style.zIndex = '-100';
+                });
+                const servicesLink2 = document.querySelector('.services-link2');
+                const servicesList2 = document.querySelector('.services-list2');
+               servicesLink2.addEventListener('click', function(e) {
+                servicesList2.classList.toggle('active');
+               });
+                
+                
+            });
     function district() {
         var district = document.getElementById('district');
         var city = document.getElementById('city');
